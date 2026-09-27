@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 
@@ -34,9 +34,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Using Include="NUnit.Framework" />
+    <ProjectReference Include="..\..\Rydia.Runtime\Rydia.Runtime.csproj" />
   </ItemGroup>
 
-  <Import Project="..\..\Lib\Rydia\Rydia.projitems" Label="Shared" />
+  <ItemGroup>
+    <Using Include="NUnit.Framework" />
+  </ItemGroup>
 
 </Project>
