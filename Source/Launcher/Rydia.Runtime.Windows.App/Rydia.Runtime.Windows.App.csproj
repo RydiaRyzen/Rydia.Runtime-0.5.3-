@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Platform\Rydia.Runtime.Windows\Rydia.Runtime.Windows.csproj" />
+  </ItemGroup>
+
+  <Import Project="..\..\Runtime\Samples\Rydia.Runtime.OooglesSamples.Shared\Rydia.Runtime.OooglesSamples.Shared.projitems" Label="Shared" />
+
+  <Import Project="..\..\Runtime\Samples\SampleEngine\SampleEngine.projitems" Label="Shared" />
+
+</Project>

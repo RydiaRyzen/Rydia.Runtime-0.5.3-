@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>4ccb0314-92ea-4e60-9f4c-a3372e93d666</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Rydia</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Input\Accelerometer\IAccelerometer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Input\Keyboard\IKeyboardInputSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Input\Keyboard\Key.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Input\Keyboard\KeyboardInput.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Input\Keyboard\KeyboardKeyEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Input\Mouse\IMouseInputSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Input\Mouse\MouseButton.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Input\Mouse\MouseButtonEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Input\Mouse\MouseEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Input\Mouse\MouseInput.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Input\Mouse\MouseMoveEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Input\Mouse\MouseWheelEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Input\Touch\IMobileKeyboard.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Input\Touch\ITouchHandler .cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Input\Touch\KeyEvent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Input\Touch\TouchEvent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Input\UserInput\IUserInput.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Input\UserInput\IUserInputSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Input\UserInput\UserInputEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\Shared\AppRunner.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\Shared\CrossPlatform.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\Desktop\IDesktopPlatform.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\Desktop\IDesktopWindow.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\Desktop\WindowOptions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\Shared\GameTime.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\Shared\IPlatform.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\Desktop\RefreshMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\Desktop\ScreenMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\Mobile\IMobilePlatform.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\Mobile\IMobileWindow.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\Shared\MessageService\DialogResult.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\Shared\MessageService\IMessageService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\Shared\MessageService\IMessageServiceExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\Shared\MessageService\MessageBoxButtons.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\Shared\MessageService\MessageDialogEventArgs.cs" />
+  </ItemGroup>
+</Project>

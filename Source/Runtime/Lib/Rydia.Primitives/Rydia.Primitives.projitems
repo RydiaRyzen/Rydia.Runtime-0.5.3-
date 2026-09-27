@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>f895a511-30d7-4a30-83fe-ed5b32fa5cf4</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Rydia.Primitives</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Drawing\ColorHsva.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Drawing\ColorHsva.Parette.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Drawing\ColorRgba.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Drawing\ColorRgba.Palette.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Primitives\Alignment.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Primitives\AlignmentExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Drawing\Color4.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Primitives\Point2.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Primitives\RectF.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Randomizer\DotNetRandomAdapter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Primitives\GenericOperator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Drawing\IColorData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Drawing\IColorDataExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Primitives\MathFR.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Primitives\Matrix2.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Primitives\Matrix3.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Primitives\Matrix4.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Randomizer\SFMTParameter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Randomizer\MTPeriodType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Primitives\Quaternion.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Randomizer\RandomGenerator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Primitives\Range.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Randomizer\SimdOrientedFastMersenneTwister.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Primitives\TargetResize.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Primitives\TargetResizeExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Primitives\Vector2.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Primitives\Vector3.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Primitives\Vector4.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Randomizer\" />
+  </ItemGroup>
+</Project>

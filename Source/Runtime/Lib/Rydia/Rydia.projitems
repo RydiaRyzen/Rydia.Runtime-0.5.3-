@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>8ba16d4d-0767-483f-9232-4782924cb4e3</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Rydia</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Diagnostics\CallerInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Diagnostics\ExceptionInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Diagnostics\NamespaceDoc.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DisposableBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enum.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\NativeBuffer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IDisposableEx.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IO\EmbeddedResources.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ObjectsExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\CommandLineArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\WindowOrientation.cs" />
+  </ItemGroup>
+</Project>

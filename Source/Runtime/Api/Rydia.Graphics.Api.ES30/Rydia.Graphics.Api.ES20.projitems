@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>9b866439-6210-4815-9430-dc85721ce9f2</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Rydia</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES30\Enums\ActiveUniformBlockParameter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES30\Enums\ActiveUniformParameter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES30\Enums\All.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES30\Enums\BlitFramebufferFilter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES30\Enums\BufferAccessMask.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES30\Enums\BufferPointer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES30\Enums\BufferRangeTarget.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES30\Enums\ClearBuffer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES30\Enums\ClearBufferCombined.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES30\Enums\ClientWaitSyncFlags.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES30\Enums\CompressedInternalFormat.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES30\Enums\DrawBufferMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES30\Enums\GetIndexedPName.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES30\Enums\GetQueryObjectParam.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES30\Enums\GetQueryParam.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES30\Enums\ImageTarget.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES30\Enums\InternalFormatParameter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES30\Enums\ProgramParameterName.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES30\Enums\QueryTarget.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES30\Enums\ReadBufferMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES30\Enums\SamplerParameterName.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES30\Enums\SizedInternalFormat.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES30\Enums\StringNameIndexed.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES30\Enums\SyncCondition.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES30\Enums\SyncParameterName.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES30\Enums\TextureComponentCount.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES30\Enums\TextureTarget3d.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES30\Enums\TransformFeedbackMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES30\Enums\TransformFeedbackPrimitiveType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES30\Enums\TransformFeedbackTarget.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES30\Enums\TransformFeedbackType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES30\Enums\VertexAttribIntegerType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES30\Enums\WaitSyncFlags.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES30\Enums\WaitSyncStatus.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES30\IGLES30.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\BufferTargetExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\ActiveAttribType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\ActiveUniformType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\AttributeDataType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\BlendEquationMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\BlendingFactorDest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\BlendingFactorSrc.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\BufferParameterName.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\BufferTarget.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\BufferUsageHint.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\ClearBufferMask.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\CullFaceMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\DepthFunction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\DrawElementsType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\EnableCap.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\ErrorCode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\ESAllEnum.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\FramebufferAttachment.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\FramebufferAttachmentType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\FramebufferErrorCode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\FramebufferParameterName.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\FramebufferStatus.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\FramebufferTarget.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\FrontFaceDirection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\GetPName.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\GetProgramParameterName.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\GetTextureParameterName.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\HintMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\HintTarget.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\PixelDataType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\PixelFormat.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\PixelStoreParameter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\PixelStoreValue.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\PixelType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\PrimitiveType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\RenderbufferInternalFormat.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\RenderbufferParameterName.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\RenderbufferTarget.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\ShaderParameter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\ShaderType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\StencilFace.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\StencilFunction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\StencilOp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\StringName.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\TextureMagFilter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\TextureMinFilter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\TextureParameterName.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\TextureTarget2d.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\TextureTargetType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\TextureUnit.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\TextureWrapMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\UniformDataType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\VertexAttribParameter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\VertexAttribPointerType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\FramebufferTargetExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\GLException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\IGLES20Extensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\Enums\PixelInternalFormat.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\IGLES20.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\RenderbufferTargetExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\ShaderException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Api\ES20\TextureTargetTypeExtensions.cs" />
+  </ItemGroup>
+</Project>

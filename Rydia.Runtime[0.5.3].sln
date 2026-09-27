@@ -1,0 +1,222 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rydia.Runtime.Windows.App", "Source\Launcher\Rydia.Runtime.Windows.App\Rydia.Runtime.Windows.App.csproj", "{922DF265-51DA-4482-8696-9709E80F5E46}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1000-Runtime", "1000-Runtime", "{83E6FB72-0FA9-4EDF-9A04-C0B6284ED320}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2000-Engine", "2000-Engine", "{74CEE0EF-CB7C-4765-A4BB-F27F2A9BBB00}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1100-Lib", "1100-Lib", "{CEE52E90-564B-44DF-844F-2C833FED466C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1300-Api", "1300-Api", "{5F423DFC-2C74-4AF2-A1D1-B8E2716C7C48}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1200-Runtime", "1200-Runtime", "{3240D1A5-4C4B-4755-B3FF-3FDDA6586857}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0000-Solution Items", "0000-Solution Items", "{277A8AFB-D713-4EE8-B435-D8066CFB8DF0}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1400-Platform", "1400-Platform", "{3B2BF8FC-A92C-40BB-9B1D-EF90F7EECDF3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2500-Samples", "2500-Samples", "{D2E1A055-2A2E-4B82-8E97-DB4FF2FBFB5B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1740-Launcher", "1740-Launcher", "{00A8DDA7-AAE1-437D-A5BA-1D4D99B853C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rydia.Runtime.Droid.App", "Source\Launcher\Rydia.Runtime.Droid.App\Rydia.Runtime.Droid.App.csproj", "{21B9FD91-14B2-4BEB-86D4-B2A349607DBE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rydia.Runtime.Droid", "Source\Platform\Rydia.Runtime.Droid\Rydia.Runtime.Droid.csproj", "{FC768E1D-075E-46EB-A0C3-C8ED1190AF9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rydia.Runtime.Windows", "Source\Platform\Rydia.Runtime.Windows\Rydia.Runtime.Windows.csproj", "{1D8C5EF2-9028-4EC0-B3E4-BF23F3D7FB70}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Rydia.Runtime.Core", "Source\Runtime\Rydia.Runtime.Core\Rydia.Runtime.Core.shproj", "{4CCB0314-92EA-4E60-9F4C-A3372E93D666}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Rydia.Graphics.Api.ES30", "Source\Runtime\Api\Rydia.Graphics.Api.ES30\Rydia.Graphics.Api.ES30.shproj", "{9B866439-6210-4815-9430-DC85721CE9F2}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Rydia.Primitives", "Source\Runtime\Lib\Rydia.Primitives\Rydia.Primitives.shproj", "{F895A511-30D7-4A30-83FE-ED5B32FA5CF4}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Rydia", "Source\Runtime\Lib\Rydia\Rydia.shproj", "{8BA16D4D-0767-483F-9232-4782924CB4E3}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Rydia.Serialization", "Source\Runtime\Lib\Rydia.Serialization\Rydia.Serialization.shproj", "{006C9F26-6FA8-45CB-B2D4-CE716F5C60B6}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Rydia.Audio.Api.OpenAL", "Source\Runtime\Api\Rydia.Audio.Api.OpenAL\Rydia.Audio.Api.OpenAL.shproj", "{3F310F20-6D7C-472C-8A04-2F385EC8118F}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Rydia.Audio.Api.NVorbis", "Source\Runtime\Api\Rydia.Audio.Api.NVorbis\Rydia.Audio.Api.NVorbis.shproj", "{99C9A6B6-00AD-401F-865A-73F57F2D5297}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2100-Lib", "2100-Lib", "{43E1EC05-7FA9-4FD7-8C54-B42FDE8B5B8A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2200-Api", "2200-Api", "{B459C5B6-D041-4310-9B5F-C86ADE8878DA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2400-Editor", "2400-Editor", "{034CD51D-5725-485B-9076-B39CA8C5B7C4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2300-Engine", "2300-Engine", "{DB75DE5C-6FCD-41F0-A340-E26FCC0C2342}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1900-Tests", "1900-Tests", "{9BE937BD-69E0-4351-82BD-C3135BF497D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rydia.Tests", "Source\Runtime\Tests\Rydia.Tests\Rydia.Tests.csproj", "{B83173FA-7055-4202-A079-0ADE9591AA6A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rydia.Primitives.Tests", "Source\Runtime\Tests\Rydia.Primitives.Tests\Rydia.Primitives.Tests.csproj", "{9B9F4DB5-3F1C-4B88-86DC-B3D748DF8FE3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2900-Tests", "2900-Tests", "{5F3B155B-B6F1-473E-B65D-30097EB5D7CE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2600-Launcher", "2600-Launcher", "{D8A641D1-4E25-46C6-84B2-605C7808DF08}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Rydia.Diagnostics", "Source\Runtime\Lib\Rydia.Diagnostics\Rydia.Diagnostics.shproj", "{D1348E79-A58B-4189-9AD2-687DDF786463}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1700-Samples", "1700-Samples", "{4ED1A28F-F2BB-4330-8421-40BC771A0CFC}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Rydia.Runtime.GLES2Samples.Shared", "Source\Runtime\Samples\Rydia.Runtime.OooglesSamples.Shared\Rydia.Runtime.GLES2Samples.Shared.shproj", "{83E8C81B-2609-470E-9378-435E813B013C}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Rydia.Runtime.OpenTKBindings", "Source\Platform\Rydia.Runtime.OpenTKBindings\Rydia.Runtime.OpenTKBindings.shproj", "{D27EBCD9-EF59-48A9-90D2-8A67A0D09B96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rydia.ResourceConverter", "Source\Editor\Rydia.ResourceConverter\Rydia.ResourceConverter.csproj", "{8160FCEA-1387-4352-9F54-443BA45C5905}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1710-Engine", "1710-Engine", "{6C4B4291-15CF-4965-A078-8422A19CE2C1}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SampleEngine", "Source\Runtime\Samples\SampleEngine\SampleEngine.shproj", "{1AA4AFF5-B295-420E-96CF-119B60040C5D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1720-Converter", "1720-Converter", "{4E5876F9-5C6D-4B48-A131-BC1429DE80D8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1730-Sources", "1730-Sources", "{2AF1B92E-909E-43F1-92D8-7C09C3BCEFF7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rydia.Engine", "Source\Engine\Rydia.Engine\Rydia.Engine.csproj", "{D4452F1A-D863-42EB-8334-266D0FED6F34}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Rydia.SolutionBuilder", "Source\Editor\Rydia.SolutionBuilder\Rydia.SolutionBuilder.shproj", "{5E295DFA-21C3-487E-8E3E-B2957E1D354A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rydia.SolutionBuilder.App", "Source\Editor\Rydia.SolutionBuilder.App\Rydia.SolutionBuilder.App.csproj", "{09E0AF1E-03C9-4918-9969-499D2B12F6ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rydia.Runtime", "Source\Runtime\Rydia.Runtime\Rydia.Runtime.csproj", "{61FA57D0-4CBE-4405-8D92-5C7D88160ECC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{922DF265-51DA-4482-8696-9709E80F5E46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{922DF265-51DA-4482-8696-9709E80F5E46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{922DF265-51DA-4482-8696-9709E80F5E46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{922DF265-51DA-4482-8696-9709E80F5E46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21B9FD91-14B2-4BEB-86D4-B2A349607DBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21B9FD91-14B2-4BEB-86D4-B2A349607DBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21B9FD91-14B2-4BEB-86D4-B2A349607DBE}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{21B9FD91-14B2-4BEB-86D4-B2A349607DBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21B9FD91-14B2-4BEB-86D4-B2A349607DBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21B9FD91-14B2-4BEB-86D4-B2A349607DBE}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{FC768E1D-075E-46EB-A0C3-C8ED1190AF9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC768E1D-075E-46EB-A0C3-C8ED1190AF9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC768E1D-075E-46EB-A0C3-C8ED1190AF9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC768E1D-075E-46EB-A0C3-C8ED1190AF9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D8C5EF2-9028-4EC0-B3E4-BF23F3D7FB70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D8C5EF2-9028-4EC0-B3E4-BF23F3D7FB70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D8C5EF2-9028-4EC0-B3E4-BF23F3D7FB70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D8C5EF2-9028-4EC0-B3E4-BF23F3D7FB70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B83173FA-7055-4202-A079-0ADE9591AA6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B83173FA-7055-4202-A079-0ADE9591AA6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B83173FA-7055-4202-A079-0ADE9591AA6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B83173FA-7055-4202-A079-0ADE9591AA6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B9F4DB5-3F1C-4B88-86DC-B3D748DF8FE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B9F4DB5-3F1C-4B88-86DC-B3D748DF8FE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B9F4DB5-3F1C-4B88-86DC-B3D748DF8FE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B9F4DB5-3F1C-4B88-86DC-B3D748DF8FE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8160FCEA-1387-4352-9F54-443BA45C5905}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8160FCEA-1387-4352-9F54-443BA45C5905}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8160FCEA-1387-4352-9F54-443BA45C5905}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8160FCEA-1387-4352-9F54-443BA45C5905}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4452F1A-D863-42EB-8334-266D0FED6F34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4452F1A-D863-42EB-8334-266D0FED6F34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4452F1A-D863-42EB-8334-266D0FED6F34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4452F1A-D863-42EB-8334-266D0FED6F34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09E0AF1E-03C9-4918-9969-499D2B12F6ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09E0AF1E-03C9-4918-9969-499D2B12F6ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09E0AF1E-03C9-4918-9969-499D2B12F6ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09E0AF1E-03C9-4918-9969-499D2B12F6ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61FA57D0-4CBE-4405-8D92-5C7D88160ECC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61FA57D0-4CBE-4405-8D92-5C7D88160ECC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61FA57D0-4CBE-4405-8D92-5C7D88160ECC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61FA57D0-4CBE-4405-8D92-5C7D88160ECC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{922DF265-51DA-4482-8696-9709E80F5E46} = {00A8DDA7-AAE1-437D-A5BA-1D4D99B853C9}
+		{CEE52E90-564B-44DF-844F-2C833FED466C} = {83E6FB72-0FA9-4EDF-9A04-C0B6284ED320}
+		{5F423DFC-2C74-4AF2-A1D1-B8E2716C7C48} = {83E6FB72-0FA9-4EDF-9A04-C0B6284ED320}
+		{3240D1A5-4C4B-4755-B3FF-3FDDA6586857} = {83E6FB72-0FA9-4EDF-9A04-C0B6284ED320}
+		{3B2BF8FC-A92C-40BB-9B1D-EF90F7EECDF3} = {83E6FB72-0FA9-4EDF-9A04-C0B6284ED320}
+		{D2E1A055-2A2E-4B82-8E97-DB4FF2FBFB5B} = {74CEE0EF-CB7C-4765-A4BB-F27F2A9BBB00}
+		{00A8DDA7-AAE1-437D-A5BA-1D4D99B853C9} = {4ED1A28F-F2BB-4330-8421-40BC771A0CFC}
+		{21B9FD91-14B2-4BEB-86D4-B2A349607DBE} = {00A8DDA7-AAE1-437D-A5BA-1D4D99B853C9}
+		{FC768E1D-075E-46EB-A0C3-C8ED1190AF9D} = {3B2BF8FC-A92C-40BB-9B1D-EF90F7EECDF3}
+		{1D8C5EF2-9028-4EC0-B3E4-BF23F3D7FB70} = {3B2BF8FC-A92C-40BB-9B1D-EF90F7EECDF3}
+		{4CCB0314-92EA-4E60-9F4C-A3372E93D666} = {CEE52E90-564B-44DF-844F-2C833FED466C}
+		{9B866439-6210-4815-9430-DC85721CE9F2} = {5F423DFC-2C74-4AF2-A1D1-B8E2716C7C48}
+		{F895A511-30D7-4A30-83FE-ED5B32FA5CF4} = {CEE52E90-564B-44DF-844F-2C833FED466C}
+		{8BA16D4D-0767-483F-9232-4782924CB4E3} = {CEE52E90-564B-44DF-844F-2C833FED466C}
+		{006C9F26-6FA8-45CB-B2D4-CE716F5C60B6} = {CEE52E90-564B-44DF-844F-2C833FED466C}
+		{3F310F20-6D7C-472C-8A04-2F385EC8118F} = {5F423DFC-2C74-4AF2-A1D1-B8E2716C7C48}
+		{99C9A6B6-00AD-401F-865A-73F57F2D5297} = {5F423DFC-2C74-4AF2-A1D1-B8E2716C7C48}
+		{43E1EC05-7FA9-4FD7-8C54-B42FDE8B5B8A} = {74CEE0EF-CB7C-4765-A4BB-F27F2A9BBB00}
+		{B459C5B6-D041-4310-9B5F-C86ADE8878DA} = {74CEE0EF-CB7C-4765-A4BB-F27F2A9BBB00}
+		{034CD51D-5725-485B-9076-B39CA8C5B7C4} = {74CEE0EF-CB7C-4765-A4BB-F27F2A9BBB00}
+		{DB75DE5C-6FCD-41F0-A340-E26FCC0C2342} = {74CEE0EF-CB7C-4765-A4BB-F27F2A9BBB00}
+		{9BE937BD-69E0-4351-82BD-C3135BF497D3} = {83E6FB72-0FA9-4EDF-9A04-C0B6284ED320}
+		{B83173FA-7055-4202-A079-0ADE9591AA6A} = {9BE937BD-69E0-4351-82BD-C3135BF497D3}
+		{9B9F4DB5-3F1C-4B88-86DC-B3D748DF8FE3} = {9BE937BD-69E0-4351-82BD-C3135BF497D3}
+		{5F3B155B-B6F1-473E-B65D-30097EB5D7CE} = {74CEE0EF-CB7C-4765-A4BB-F27F2A9BBB00}
+		{D8A641D1-4E25-46C6-84B2-605C7808DF08} = {74CEE0EF-CB7C-4765-A4BB-F27F2A9BBB00}
+		{D1348E79-A58B-4189-9AD2-687DDF786463} = {CEE52E90-564B-44DF-844F-2C833FED466C}
+		{4ED1A28F-F2BB-4330-8421-40BC771A0CFC} = {83E6FB72-0FA9-4EDF-9A04-C0B6284ED320}
+		{83E8C81B-2609-470E-9378-435E813B013C} = {2AF1B92E-909E-43F1-92D8-7C09C3BCEFF7}
+		{D27EBCD9-EF59-48A9-90D2-8A67A0D09B96} = {3B2BF8FC-A92C-40BB-9B1D-EF90F7EECDF3}
+		{8160FCEA-1387-4352-9F54-443BA45C5905} = {4E5876F9-5C6D-4B48-A131-BC1429DE80D8}
+		{6C4B4291-15CF-4965-A078-8422A19CE2C1} = {4ED1A28F-F2BB-4330-8421-40BC771A0CFC}
+		{1AA4AFF5-B295-420E-96CF-119B60040C5D} = {6C4B4291-15CF-4965-A078-8422A19CE2C1}
+		{4E5876F9-5C6D-4B48-A131-BC1429DE80D8} = {4ED1A28F-F2BB-4330-8421-40BC771A0CFC}
+		{2AF1B92E-909E-43F1-92D8-7C09C3BCEFF7} = {4ED1A28F-F2BB-4330-8421-40BC771A0CFC}
+		{D4452F1A-D863-42EB-8334-266D0FED6F34} = {DB75DE5C-6FCD-41F0-A340-E26FCC0C2342}
+		{5E295DFA-21C3-487E-8E3E-B2957E1D354A} = {D2E1A055-2A2E-4B82-8E97-DB4FF2FBFB5B}
+		{09E0AF1E-03C9-4918-9969-499D2B12F6ED} = {D2E1A055-2A2E-4B82-8E97-DB4FF2FBFB5B}
+		{61FA57D0-4CBE-4405-8D92-5C7D88160ECC} = {3240D1A5-4C4B-4755-B3FF-3FDDA6586857}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Source\Runtime\Lib\Rydia.Serialization\Rydia.Serialization.projitems*{006c9f26-6fa8-45cb-b2d4-ce716f5c60b6}*SharedItemsImports = 13
+		Source\Editor\Rydia.SolutionBuilder\Rydia.SolutionBuilder.projitems*{09e0af1e-03c9-4918-9969-499d2b12f6ed}*SharedItemsImports = 5
+		Source\Runtime\Samples\SampleEngine\SampleEngine.projitems*{1aa4aff5-b295-420e-96cf-119b60040c5d}*SharedItemsImports = 13
+		Source\Platform\Rydia.Runtime.OpenTKBindings\Rydia.Runtime.OpenTKBindings.projitems*{1d8c5ef2-9028-4ec0-b3e4-bf23f3d7fb70}*SharedItemsImports = 5
+		Source\Runtime\Api\Rydia.Audio.Api.NVorbis\Rydia.Audio.Api.NVorbis.projitems*{1d8c5ef2-9028-4ec0-b3e4-bf23f3d7fb70}*SharedItemsImports = 5
+		Source\Runtime\Api\Rydia.Audio.Api.OpenAL\Rydia.Audio.Api.OpenAL.projitems*{1d8c5ef2-9028-4ec0-b3e4-bf23f3d7fb70}*SharedItemsImports = 5
+		Source\Runtime\Api\Rydia.Graphics.Api.ES30\Rydia.Graphics.Api.ES20.projitems*{1d8c5ef2-9028-4ec0-b3e4-bf23f3d7fb70}*SharedItemsImports = 5
+		Source\Runtime\Samples\Rydia.Runtime.OooglesSamples.Shared\Rydia.Runtime.OooglesSamples.Shared.projitems*{21b9fd91-14b2-4beb-86d4-b2a349607dbe}*SharedItemsImports = 5
+		Source\Runtime\Samples\SampleEngine\SampleEngine.projitems*{21b9fd91-14b2-4beb-86d4-b2a349607dbe}*SharedItemsImports = 5
+		Source\Runtime\Api\Rydia.Audio.Api.OpenAL\Rydia.Audio.Api.OpenAL.projitems*{3f310f20-6d7c-472c-8a04-2f385ec8118f}*SharedItemsImports = 13
+		Source\Runtime\Rydia.Runtime.Core\Rydia.Runtime.Core.projitems*{4ccb0314-92ea-4e60-9f4c-a3372e93d666}*SharedItemsImports = 13
+		Source\Editor\Rydia.SolutionBuilder\Rydia.SolutionBuilder.projitems*{5e295dfa-21c3-487e-8e3e-b2957e1d354a}*SharedItemsImports = 13
+		Source\Runtime\Lib\Rydia.Diagnostics\Rydia.Diagnostics.projitems*{61fa57d0-4cbe-4405-8d92-5c7d88160ecc}*SharedItemsImports = 5
+		Source\Runtime\Lib\Rydia.Primitives\Rydia.Primitives.projitems*{61fa57d0-4cbe-4405-8d92-5c7d88160ecc}*SharedItemsImports = 5
+		Source\Runtime\Lib\Rydia.Serialization\Rydia.Serialization.projitems*{61fa57d0-4cbe-4405-8d92-5c7d88160ecc}*SharedItemsImports = 5
+		Source\Runtime\Lib\Rydia\Rydia.projitems*{61fa57d0-4cbe-4405-8d92-5c7d88160ecc}*SharedItemsImports = 5
+		Source\Runtime\Rydia.Runtime.Core\Rydia.Runtime.Core.projitems*{61fa57d0-4cbe-4405-8d92-5c7d88160ecc}*SharedItemsImports = 5
+		Source\Runtime\Samples\SampleEngine\SampleEngine.projitems*{8160fcea-1387-4352-9f54-443ba45c5905}*SharedItemsImports = 5
+		Source\Runtime\Samples\Rydia.Runtime.OooglesSamples.Shared\Rydia.Runtime.OooglesSamples.Shared.projitems*{83e8c81b-2609-470e-9378-435e813b013c}*SharedItemsImports = 13
+		Source\Runtime\Lib\Rydia\Rydia.projitems*{8ba16d4d-0767-483f-9232-4782924cb4e3}*SharedItemsImports = 13
+		Source\Runtime\Samples\Rydia.Runtime.OooglesSamples.Shared\Rydia.Runtime.OooglesSamples.Shared.projitems*{922df265-51da-4482-8696-9709e80f5e46}*SharedItemsImports = 5
+		Source\Runtime\Samples\SampleEngine\SampleEngine.projitems*{922df265-51da-4482-8696-9709e80f5e46}*SharedItemsImports = 5
+		Source\Runtime\Api\Rydia.Audio.Api.NVorbis\Rydia.Audio.Api.NVorbis.projitems*{99c9a6b6-00ad-401f-865a-73f57f2d5297}*SharedItemsImports = 13
+		Source\Runtime\Api\Rydia.Graphics.Api.ES30\Rydia.Graphics.Api.ES20.projitems*{9b866439-6210-4815-9430-dc85721ce9f2}*SharedItemsImports = 13
+		Source\Runtime\Lib\Rydia.Primitives\Rydia.Primitives.projitems*{9b9f4db5-3f1c-4b88-86dc-b3d748df8fe3}*SharedItemsImports = 5
+		Source\Runtime\Lib\Rydia\Rydia.projitems*{9b9f4db5-3f1c-4b88-86dc-b3d748df8fe3}*SharedItemsImports = 5
+		Source\Runtime\Lib\Rydia\Rydia.projitems*{b83173fa-7055-4202-a079-0ade9591aa6a}*SharedItemsImports = 5
+		Source\Runtime\Lib\Rydia.Diagnostics\Rydia.Diagnostics.projitems*{d1348e79-a58b-4189-9ad2-687ddf786463}*SharedItemsImports = 13
+		Source\Platform\Rydia.Runtime.OpenTKBindings\Rydia.Runtime.OpenTKBindings.projitems*{d27ebcd9-ef59-48a9-90d2-8a67a0d09b96}*SharedItemsImports = 13
+		Source\Runtime\Lib\Rydia.Primitives\Rydia.Primitives.projitems*{f895a511-30d7-4a30-83fe-ed5b32fa5cf4}*SharedItemsImports = 13
+		Source\Platform\Rydia.Runtime.OpenTKBindings\Rydia.Runtime.OpenTKBindings.projitems*{fc768e1d-075e-46eb-a0c3-c8ed1190af9d}*SharedItemsImports = 5
+		Source\Runtime\Api\Rydia.Audio.Api.NVorbis\Rydia.Audio.Api.NVorbis.projitems*{fc768e1d-075e-46eb-a0c3-c8ed1190af9d}*SharedItemsImports = 5
+		Source\Runtime\Api\Rydia.Audio.Api.OpenAL\Rydia.Audio.Api.OpenAL.projitems*{fc768e1d-075e-46eb-a0c3-c8ed1190af9d}*SharedItemsImports = 5
+		Source\Runtime\Api\Rydia.Graphics.Api.ES30\Rydia.Graphics.Api.ES20.projitems*{fc768e1d-075e-46eb-a0c3-c8ed1190af9d}*SharedItemsImports = 5
+	EndGlobalSection
+EndGlobal

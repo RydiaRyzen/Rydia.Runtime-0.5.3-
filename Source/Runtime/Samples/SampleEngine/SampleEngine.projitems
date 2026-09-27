@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>1aa4aff5-b295-420e-96cf-119b60040c5d</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>SampleEngine</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Backend\ES20\NativeFramebuffer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Backend\ES20\NativeGraphicsBuffer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Backend\ES20\NativeRenderbuffer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Backend\ES20\NativeShader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Backend\ES20\NativeShaderProgram.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Backend\ES20\NativeTexture.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Backend\ES20\Uniform.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Backend\ES20\UniformInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Backend\ES20\VertexAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Backend\ES20\VertexAttributenfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Backend\GLObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Drawing2D\Shader2D.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Drawing2D\Texture2D.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GLES30App.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Resources\AudioData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Resources\FontCharSet.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Resources\PixelData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Resources\PixelDataExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Backend\ES30\" />
+  </ItemGroup>
+</Project>

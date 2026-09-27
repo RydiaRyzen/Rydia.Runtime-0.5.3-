@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>d27ebcd9-ef59-48a9-90d2-8a67a0d09b96</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Rydia.Runtime.OpenTKBindings</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)ALBindings.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AlcBindings.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GLES20Bindings.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GLES20BindingsExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GLES30Bindings.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RuntimeHost.cs" />
+  </ItemGroup>
+</Project>

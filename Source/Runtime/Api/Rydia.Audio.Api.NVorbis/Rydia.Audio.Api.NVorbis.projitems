@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>99c9a6b6-00ad-401f-865a-73f57f2d5297</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Rydia.Audio.Api.NVorbis</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)BufferedReadStream.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataPacket.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Huffman.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IContainerReader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IPacketProvider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IVorbisStreamStatus.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Mdct.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NewStreamEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Ogg\OggContainerReader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Ogg\OggCrc.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Ogg\OggPacket.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Ogg\OggPacketReader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Ogg\OggPageFlags.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RingBuffer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)StreamReadBuffer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)VorbisCodebook.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)VorbisFloor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)VorbisMapping.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)VorbisMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)VorbisReader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)VorbisResidue.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)VorbisStreamDecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)VorbisTime.cs" />
+  </ItemGroup>
+</Project>

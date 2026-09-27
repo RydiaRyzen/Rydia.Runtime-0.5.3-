@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>3f310f20-6d7c-472c-8a04-2f385ec8118f</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Rydia.Audio.Api.OpenAL</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Alc\AlcContextAttributes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Alc\AlcError.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Alc\AlcGetInteger.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Alc\AlcGetString.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Alc\AlcGetStringList.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ALException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ALHost.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AudioHost.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AudioOptions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\ALBufferState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\ALDistanceModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\ALError.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\ALFormat.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\ALGetBufferi.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\ALGetFloat.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\ALGetInteger.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\ALGetSourcei.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\ALGetString.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\ALListener3f.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\ALListenerf.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\ALListenerfv.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\ALSource3f.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\ALSource3i.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\ALSourceb.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\ALSourcef.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\ALSourcei.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\ALSourceState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\ALSourceType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IAL.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IAlc.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IALExtensions.cs" />
+  </ItemGroup>
+</Project>

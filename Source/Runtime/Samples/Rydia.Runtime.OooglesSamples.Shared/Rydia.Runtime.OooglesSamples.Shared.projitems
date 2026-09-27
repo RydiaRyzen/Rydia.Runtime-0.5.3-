@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>83e8c81b-2609-470e-9378-435e813b013c</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Rydia</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\GLES2Samples\E25FontSampleApp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\GLES2Samples\E01HelloTriangleApp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\GLES2Samples\E02SimpleVertexShaderApp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\GLES2Samples\E03SimpleTexture2DApp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\GLES2Samples\E04MipMap2DApp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\GLES2Samples\E05TextureWrapApp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\GLES2Samples\E06SimpleTextureCubeMapApp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\GLES2Samples\E07MultiTextureApp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\GLES2Samples\E08StencilOperationsApp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\GLES2Samples\E09ParticleSystemApp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\GLES2Samples\E10MandelbrotApp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\GLES2Samples\E11CartoonSunApp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\GLES2Samples\E12StripedCubesApp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\GLES2Samples\E13CartoonTorusApp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\GLES2Samples\E14MetallicTorusApp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\GLES2Samples\E15NoiseTorusApp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\GLES2Samples\E16PhongTorusApp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\GLES2Samples\E17HeliumApp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\GLES2Samples\E18CubeMappingApp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\GLES2Samples\E19ShadedObjectsApp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\GLES2Samples\E20MorphingApp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\GLES2Samples\E21ParallaxMapApp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\GLES2Samples\E22RecursiveTextureApp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\GLES2Samples\E23ALSinewaveTestApp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\GLES2Samples\E24ALTestApp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\GLES2Samples\E26ImGuiApp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\GLES2Samples\ImGui\ESGuiRenderer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\GLES2Samples\ImGui\GuiContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\GLES2Samples\ImGui\GuiId.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\GLES2Samples\ImGui\GuiVertex.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\GLES2Samples\ImGui\IGuiRenderer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\GLES2Samples\SampleApp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\GLES2Samples\Shared\CubeGeometry.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\GLES2Samples\Shared\Sound.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\GLES2Samples\Shared\SoundInstance.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\GLES2Samples\Shared\SphereGeometry.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\GLES2Samples\Shared\SpiralSphereGeometry.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\GLES2Samples\Shared\TextureUtils.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\GLES2Samples\Shared\TorusGeometry.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\GLES2Samples\Shared\TwistedTorusGeometry.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\GLES2Samples\Shared\Utils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\Arial_33px_Regular.ryres" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\003.AudioData.ryd" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\0_001.AudioData.ryd" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\chicken_cluck_happy.AudioData.ryd" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\lightmap.PixelData.ryd" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\Newton.PixelData.ryd" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\smoke.PixelData.ryd" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\texture.PixelData.ryd" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\basemap.PixelData.ryd" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\background.AudioData.ryd" />
+  </ItemGroup>
+</Project>

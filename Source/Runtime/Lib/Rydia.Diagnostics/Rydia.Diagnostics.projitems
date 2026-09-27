@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>d1348e79-a58b-4189-9ad2-687ddf786463</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Rydia.Diagnostics</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Logging\Listeners\DebugLogListener.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logging\Listeners\FileLogListener.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logging\Listeners\ILogListener.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logging\Listeners\LogListener.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logging\Listeners\TextWriterLogListener.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logging\Loggers\GlobalLogger.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logging\Loggers\GroupLogger.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logging\Loggers\ILogger.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logging\Loggers\ILoggerShelf.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logging\Loggers\Logger.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logging\Loggers\LoggerShelf.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logging\Loggers\SingleLogger.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logging\Messages\ILogMessage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logging\Messages\LogMessage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logging\Messages\LogMessageType.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Logging\" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>006c9f26-6fa8-45cb-b2d4-ce716f5c60b6</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Rydia.Serialization</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)AsyncBinaryReader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AsyncBinaryWriter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BinarySerializationContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BinarySerializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BindingException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BindingInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BindingMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BitOrder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BoundedStream.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Bytes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ChecksumMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ComparisonOperator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Crc.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Crc16.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Crc32.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EncodingHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EndianAwareBinaryReader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EndianAwareBinaryWriter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Endianness.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EventShuttle.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FieldAlignmentAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FieldAlignmentMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FieldBindingBaseAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FieldBitLengthAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FieldBitOrderAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FieldChecksumAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FieldCountAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FieldCrc16Attribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FieldCrc32Attribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FieldEncodingAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FieldEndiannessAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FieldLength.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FieldLengthAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FieldOffsetAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FieldOrderAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FieldScaleAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FieldValueAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FieldValueAttributeBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graph\Binding.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graph\BindingCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graph\ConditionalBinding.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graph\FieldValueAdapterStream.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graph\GraphGenerator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graph\IBinding.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graph\Node.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graph\TypeGraph\ArrayTypeNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graph\TypeGraph\CollectionTypeNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graph\TypeGraph\ContainerTypeNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graph\TypeGraph\CustomTypeNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graph\TypeGraph\EnumInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graph\TypeGraph\EnumTypeNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graph\TypeGraph\ListTypeNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graph\TypeGraph\ObjectTypeNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graph\TypeGraph\RootTypeNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graph\TypeGraph\StreamTypeNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graph\TypeGraph\TypeNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graph\TypeGraph\UnknownTypeNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graph\TypeGraph\ValueTypeNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graph\ValueGraph\ArrayValueNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graph\ValueGraph\CollectionValueNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graph\ValueGraph\CollectionValueNodeBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graph\ValueGraph\CustomValueNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graph\ValueGraph\EnumValueNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graph\ValueGraph\ListValueNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graph\ValueGraph\ObjectValueNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graph\ValueGraph\PrimitiveArrayValueNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graph\ValueGraph\PrimitiveCollectionValueNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graph\ValueGraph\PrimitiveListValueNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graph\ValueGraph\RootValueNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graph\ValueGraph\StreamValueNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graph\ValueGraph\UnknownValueNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graph\ValueGraph\ValueNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graph\ValueGraph\ValueValueNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IBinarySerializable.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IBinarySerializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IBindableFieldAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IBitOrderAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IConstAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IgnoreAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IgnoreMemberAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ILengthAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ISubtypeFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ItemLengthAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ItemSerializeUntilAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ItemSubtypeAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ItemSubtypeDefaultAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ItemSubtypeFactoryAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IValueConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)LastItemMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)LazyBinarySerializationContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MagicMethods.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MemberSerializedEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MemberSerializingEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NullStream.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RelativeSourceMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SerializationOptions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SerializeAsAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SerializeAsEnumAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SerializedType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SerializeUntilAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SerializeWhenAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SerializeWhenNotAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)StreamExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Streamlet.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)StreamResetter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SubtypeAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SubtypeBaseAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SubtypeDefaultAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SubtypeDefaultBaseAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SubtypeFactoryAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SubtypeFactoryBaseAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TapStream.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TypeExtensions.cs" />
+  </ItemGroup>
+</Project>
