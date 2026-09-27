@@ -7,15 +7,24 @@ using System.Threading.Tasks;
 
 namespace Rydia.Diagnostics
 {
+    /// <summary>
+    /// ファイルにログメッセージを書き込むログリスナーです。
+    /// </summary>
     public class FileLogListener : TextWriterLogListener
     {
 
+        /// <summary>
+        /// ログファイルを格納するディレクトリ名を取得または設定します。
+        /// </summary>
         public static string LogfileDirName
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// ログファイルを格納する既定のディレクトリ名を取得します。
+        /// </summary>
         public static string DefaultLogfileDirName
         {
             get;
@@ -27,17 +36,30 @@ namespace Rydia.Diagnostics
             LogfileDirName = DefaultLogfileDirName = "Logs";
         }
 
+        /// <summary>
+        /// 指定されたパスのログファイルにログを書き込む
+        /// <see cref="FileLogListener"/> の新しいインスタンスを初期化します。
+        /// </summary>
+        /// <param name="path">ログファイルのパスです。</param>
         public FileLogListener(string path)
             : base(GetWriter(path))
         {
 
         }
 
+        /// <summary>
+        /// 指定されたパスのログファイルを書き込むための
+        /// <see cref="StreamWriter"/> を作成します。
+        /// </summary>
+        /// <param name="path">ログファイルのパスです。</param>
+        /// <returns>
+        /// ログファイルへの書き込みに使用する <see cref="StreamWriter"/> を返します。
+        /// </returns>
         private static StreamWriter GetWriter(string path)
         {
             var prevLogfile = new FileInfo(path);
             var prevDir = prevLogfile.Directory;
-            if(!prevDir.Exists)
+            if (!prevDir.Exists)
                 prevDir.Create();
             if (prevLogfile.Exists)
             {
@@ -53,6 +75,12 @@ namespace Rydia.Diagnostics
             return result;
         }
 
+        /// <summary>
+        /// ログリスナーを閉じ、ログファイルへの書き込みを終了します。
+        /// </summary>
+        /// <param name="shelf">
+        /// このログリスナーが登録されている <see cref="LoggerShelf"/> です。
+        /// </param>
         public void Close(LoggerShelf shelf)
         {
             shelf.RemoveListener(this);

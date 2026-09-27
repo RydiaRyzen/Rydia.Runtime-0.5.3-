@@ -44,5 +44,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Runtime\Shared\MessageService\IMessageServiceExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Runtime\Shared\MessageService\MessageBoxButtons.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Runtime\Shared\MessageService\MessageDialogEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\Shared\WindowOrientation.cs" />
   </ItemGroup>
 </Project>

@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 namespace Rydia.Diagnostics
 {
 
+    /// <summary>
+    /// ログメッセージを受け取り、ログ出力を行うための基底クラスです。
+    /// </summary>
     public abstract class LogListener : ILogListener
     {
 
@@ -18,11 +21,18 @@ namespace Rydia.Diagnostics
         private object writerLock = new object();
         private StringBuilder builder = new StringBuilder();
 
+        /// <summary>
+        /// 現在のインデントレベルを取得します。
+        /// </summary>
         public int Indent
         {
             get { return this.indent; }
         }
 
+        /// <summary>
+        /// 指定されたログメッセージを出力します。
+        /// </summary>
+        /// <param name="message">出力するログメッセージです。</param>
         public void Log(ILogMessage message)
         {
             string[] lines = BuildLines(ref message);
@@ -34,8 +44,20 @@ namespace Rydia.Diagnostics
             }
         }
 
+        /// <summary>
+        /// 指定されたログメッセージの1行を出力します。
+        /// </summary>
+        /// <param name="message">出力するログメッセージです。</param>
+        /// <param name="formattedLine">整形済みのログメッセージです。</param>
         protected abstract void WriteLine(ILogMessage message, string formattedLine);
 
+        /// <summary>
+        /// 指定されたログメッセージを行単位に分割し、出力用に整形します。
+        /// </summary>
+        /// <param name="entry">整形するログメッセージです。</param>
+        /// <returns>
+        /// 整形されたログメッセージの各行を格納した配列を返します。
+        /// </returns>
         private string[] BuildLines(ref ILogMessage entry)
         {
             string prefix = entry.Source.Prefix;
@@ -56,10 +78,10 @@ namespace Rydia.Diagnostics
                         // Message type
                         switch (entry.Level)
                         {
-                            case LogMessageType.Debug: this.builder.Append(  "Debug  : "); break;
-                            case LogMessageType.Info: this.builder.Append(   "Info   : "); break;
+                            case LogMessageType.Debug: this.builder.Append("Debug  : "); break;
+                            case LogMessageType.Info: this.builder.Append("Info   : "); break;
                             case LogMessageType.Warning: this.builder.Append("Warning: "); break;
-                            case LogMessageType.Error: this.builder.Append(  "Error  : "); break;
+                            case LogMessageType.Error: this.builder.Append("Error  : "); break;
                         }
 
                         // Indentation
@@ -80,11 +102,17 @@ namespace Rydia.Diagnostics
             return lines;
         }
 
+        /// <summary>
+        /// インデントレベルを1増加させます。
+        /// </summary>
         public void PopIndent()
         {
             Interlocked.Increment(ref this.indent);
         }
 
+        /// <summary>
+        /// インデントレベルを1減少させます。
+        /// </summary>
         public void PushIndent()
         {
             Interlocked.Decrement(ref this.indent);

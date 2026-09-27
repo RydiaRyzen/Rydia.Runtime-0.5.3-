@@ -70,7 +70,6 @@ namespace Rydia.Tests.Runtime
             }
 
             public CmdArgs(string[] args)
-                : base(args)
             {
                 IsDebug = args.Contains(CmdArgDebug, StringComparer.OrdinalIgnoreCase);
             }

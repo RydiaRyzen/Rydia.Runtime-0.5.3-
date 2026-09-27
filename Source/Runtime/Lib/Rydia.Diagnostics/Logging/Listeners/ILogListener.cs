@@ -7,25 +7,26 @@ using System.Threading.Tasks;
 namespace Rydia.Diagnostics
 {
 
+    /// <summary>
+    /// ログ出力を受け取るリスナーのインターフェースです。
+    /// </summary>
     public interface ILogListener
     {
 
         /// <summary>
-		/// Increases the outputs indentation level for the following log messages.
-		/// </summary>
-		void PushIndent();
+        /// 以降のログメッセージの出力時に使用するインデントレベルを1段階増加させます。
+        /// </summary>
+        void PushIndent();
 
         /// <summary>
-        /// Decreases the outputs indentation level for the following log messages.
+        /// 以降のログメッセージの出力時に使用するインデントレベルを1段階減少させます。
         /// </summary>
         void PopIndent();
 
         /// <summary>
-        /// Writes a single message to the output.
+        /// 指定されたログメッセージを出力します。
         /// </summary>
-        /// <param name="entry">The new log entry that is to be written to the output.</param>
-        /// <param name="context">The runtime context object of this log entry.</param>
-        /// <param name="source">The <see cref="Log"/> instance that issued the log entry.</param>
+        /// <param name="message">出力するログメッセージです。</param>
         void Log(ILogMessage message);
 
     }

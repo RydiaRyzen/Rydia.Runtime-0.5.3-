@@ -9,6 +9,9 @@ using Rydia;
 
 namespace Rydia.Diagnostics
 {
+    /// <summary>
+    /// ログメッセージを管理し、ログリスナーへ通知するクラスです。
+    /// </summary>
     public class LoggerShelf : ILoggerShelf
     {
 
@@ -16,6 +19,9 @@ namespace Rydia.Diagnostics
         private object syncRoot = new object();
         private List<ILogListener> _Listeners = new List<ILogListener>();
 
+        /// <summary>
+        /// 登録されているログリスナーのコレクションを取得します。
+        /// </summary>
         public IEnumerable<ILogListener> Listeners
         {
             get
@@ -24,6 +30,9 @@ namespace Rydia.Diagnostics
             }
         }
 
+        /// <summary>
+        /// メモリ上に保持されているログメッセージの一覧を取得します。
+        /// </summary>
         public IReadOnlyList<ILogMessage> InMemoryMessages
         {
             get
@@ -32,6 +41,10 @@ namespace Rydia.Diagnostics
             }
         }
 
+        /// <summary>
+        /// 指定されたログリスナーを登録します。
+        /// </summary>
+        /// <param name="listener">登録するログリスナーです。</param>
         public void AddListener(ILogListener listener)
         {
             lock (this.syncRoot)
@@ -43,6 +56,10 @@ namespace Rydia.Diagnostics
             }
         }
 
+        /// <summary>
+        /// 指定されたログリスナーの登録を解除します。
+        /// </summary>
+        /// <param name="listener">登録を解除するログリスナーです。</param>
         public void RemoveListener(ILogListener listener)
         {
             lock (this.syncRoot)
@@ -55,7 +72,7 @@ namespace Rydia.Diagnostics
         }
 
         /// <summary>
-        /// Increases the current log entry indent.
+        /// 現在のログエントリのインデントレベルを1段階増加させます。
         /// </summary>
         public void PushIndent()
         {
@@ -67,7 +84,7 @@ namespace Rydia.Diagnostics
         }
 
         /// <summary>
-        /// Decreases the current log entry indent.
+        /// 現在のログエントリのインデントレベルを1段階減少させます。
         /// </summary>
         public void PopIndent()
         {
@@ -78,6 +95,14 @@ namespace Rydia.Diagnostics
             }
         }
 
+        /// <summary>
+        /// 指定されたロガーとログレベルを使用してログメッセージを作成し、
+        /// 登録されているすべてのログリスナーに通知します。
+        /// </summary>
+        /// <param name="logger">ログの出力元となるロガーです。</param>
+        /// <param name="level">ログメッセージのレベルです。</param>
+        /// <param name="format">ログメッセージの書式文字列です。</param>
+        /// <param name="args">書式文字列に指定する引数です。</param>
         public void Log(ILogger logger, LogMessageType level, string format, params object[] args)
         {
             var callerInfo = CallerInfo.Extract(args);
@@ -89,12 +114,18 @@ namespace Rydia.Diagnostics
             this._Messages.Add(message);
         }
 
+        /// <summary>
+        /// <see cref="LoggerShelf"/> クラスの新しいインスタンスを初期化します。
+        /// </summary>
         public LoggerShelf()
         {
             DebugLog = new DebugLogListener();
             AddListener(DebugLog);
         }
 
+        /// <summary>
+        /// デバッグ出力用のログリスナーを取得します。
+        /// </summary>
         public DebugLogListener DebugLog
         {
             get;

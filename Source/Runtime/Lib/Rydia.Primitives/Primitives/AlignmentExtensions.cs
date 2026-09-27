@@ -6,17 +6,17 @@ namespace Rydia
 {
 
     /// <summary>
-    /// <see cref="Alignment"/>に関する拡張メソッドを定義するクラスです
+    /// <see cref="Alignment"/> に関する拡張メソッドを提供するクラスです。
     /// </summary>
     public static class AlignmentExtensions
     {
 
         /// <summary>
-        /// Applies the alignment to the specified vector.
+        /// 指定されたサイズと位置に対して、指定された配置を適用します。
         /// </summary>
-        /// <param name="align"></param>
-        /// <param name="vec"></param>
-        /// <param name="size"></param>
+        /// <param name="align">適用する配置です。</param>
+        /// <param name="vec">配置を適用する位置です。</param>
+        /// <param name="size">配置対象のサイズです。</param>
         public static void ApplyTo(this Alignment align, ref Vector2 vec, ref Vector2 size)
         {
             switch (align)
@@ -56,35 +56,37 @@ namespace Rydia
         }
 
         /// <summary>
-        /// Applies the alignment to the specified vector.
+        /// 指定されたサイズと位置に対して、指定された配置を適用します。
         /// </summary>
-        /// <param name="align"></param>
-        /// <param name="vec"></param>
-        /// <param name="size"></param>
+        /// <param name="align">適用する配置です。</param>
+        /// <param name="vec">配置を適用する位置です。</param>
+        /// <param name="size">配置対象のサイズです。</param>
         public static void ApplyTo(this Alignment align, ref Vector2 vec, Vector2 size)
         {
             ApplyTo(align, ref vec, ref size);
         }
+
         /// <summary>
-        /// Applies the alignment to the specified vector.
+        /// 指定されたサイズと位置に対して、指定された配置を適用した位置を返します。
         /// </summary>
-        /// <param name="align"></param>
-        /// <param name="vec"></param>
-        /// <param name="size"></param>
-        /// <returns></returns>
+        /// <param name="align">適用する配置です。</param>
+        /// <param name="vec">配置を適用する位置です。</param>
+        /// <param name="size">配置対象のサイズです。</param>
+        /// <returns>指定された配置を適用した位置です。</returns>
         public static Vector2 ApplyTo(this Alignment align, Vector2 vec, Vector2 size)
         {
             ApplyTo(align, ref vec, ref size);
             return vec;
         }
+
         /// <summary>
-        /// Applies the alignment to the specified vector.
+        /// 指定された位置とサイズに対して、指定された配置を適用します。
         /// </summary>
-        /// <param name="align"></param>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
-        /// <param name="width"></param>
-        /// <param name="height"></param>
+        /// <param name="align">適用する配置です。</param>
+        /// <param name="x">配置を適用する X 座標です。</param>
+        /// <param name="y">配置を適用する Y 座標です。</param>
+        /// <param name="width">配置対象の幅です。</param>
+        /// <param name="height">配置対象の高さです。</param>
         public static void ApplyTo(this Alignment align, ref float x, ref float y, float width, float height)
         {
             Vector2 vec;
@@ -97,15 +99,16 @@ namespace Rydia
             x = vec.X;
             y = vec.Y;
         }
+
         /// <summary>
-        /// Applies the alignment to the specified vector.
+        /// 指定された位置とサイズに対して、指定された配置を適用した位置を返します。
         /// </summary>
-        /// <param name="align"></param>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
-        /// <param name="width"></param>
-        /// <param name="height"></param>
-        /// <returns></returns>
+        /// <param name="align">適用する配置です。</param>
+        /// <param name="x">配置を適用する X 座標です。</param>
+        /// <param name="y">配置を適用する Y 座標です。</param>
+        /// <param name="width">配置対象の幅です。</param>
+        /// <param name="height">配置対象の高さです。</param>
+        /// <returns>指定された配置を適用した位置です。</returns>
         public static Vector2 ApplyTo(this Alignment align, float x, float y, float width, float height)
         {
             Vector2 vec;
@@ -117,5 +120,6 @@ namespace Rydia
             ApplyTo(align, ref vec, ref size);
             return vec;
         }
+
     }
 }

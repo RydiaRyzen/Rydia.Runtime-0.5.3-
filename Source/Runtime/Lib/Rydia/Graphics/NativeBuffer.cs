@@ -7,9 +7,9 @@ namespace Rydia.Graphics
 {
 
     /// <summary>
-    /// ネイティブメモリとの連携を行う機能を提供するクラスです
+    /// ネイティブメモリとの連携を行う機能を提供するクラスです。
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">バッファーに格納する要素の型です。</typeparam>
     public class NativeBuffer<T> : DisposableBase
         where T : new()
     {
@@ -20,11 +20,8 @@ namespace Rydia.Graphics
         private int _position;
 
         /// <summary>
-        /// Gets the capacity.
+        /// バッファーの容量を取得します。
         /// </summary>
-        /// <value>
-        /// The capacity.
-        /// </value>
         public int Capacity
         {
             get;
@@ -32,11 +29,8 @@ namespace Rydia.Graphics
         }
 
         /// <summary>
-        /// Gets the stride.
+        /// バッファー内の1要素あたりのサイズを取得します。
         /// </summary>
-        /// <value>
-        /// The stride.
-        /// </value>
         public int Stride
         {
             get;
@@ -44,10 +38,10 @@ namespace Rydia.Graphics
         }
 
         /// <summary>
-        /// 指定された<paramref name="index"/>に関連付けられた<see cref="T"/>を取得または設定します
+        /// 指定された<paramref name="index"/>に関連付けられた<see cref="T"/>を取得または設定します。
         /// </summary>
-        /// <param name="index">を表す数値</param>
-        /// <returns></returns>
+        /// <param name="index">要素のインデックスを表す数値です。</param>
+        /// <returns>指定されたインデックスの要素を返します。</returns>
         public T this[int index]
         {
             get
@@ -61,9 +55,9 @@ namespace Rydia.Graphics
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="NativeBuffer{T}"/> class.
+        /// 指定されたデータを使用して<see cref="NativeBuffer{T}"/>の新しいインスタンスを初期化します。
         /// </summary>
-        /// <param name="data">を表す値</param>
+        /// <param name="data">バッファーに格納するデータを表す配列です。</param>
         public NativeBuffer(T[] data)
         {
             Capacity = data.Length;
@@ -75,9 +69,9 @@ namespace Rydia.Graphics
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="NativeBuffer{T}"/> class.
+        /// 指定された容量を使用して<see cref="NativeBuffer{T}"/>の新しいインスタンスを初期化します。
         /// </summary>
-        /// <param name="capacity">を表す数値</param>
+        /// <param name="capacity">バッファーの容量を表す数値です。</param>
         public NativeBuffer(int capacity)
         {
             Capacity = capacity;
@@ -88,29 +82,31 @@ namespace Rydia.Graphics
         }
 
         /// <summary>
-        /// Disposings the specified disposing.
+        /// アンマネージドリソースを解放します。
         /// </summary>
-        /// <param name="disposing">if set to <c>true</c> [disposing].</param>
+        /// <param name="disposing">
+        /// マネージドリソースも解放する場合は<see langword="true"/>、アンマネージドリソースのみを解放する場合は<see langword="false"/>です。
+        /// </param>
         protected override void Disposing(bool disposing)
         {
             this._handle.Free();
         }
 
         /// <summary>
-        /// Positions the specified position.
+        /// 現在のバッファー位置を指定された位置に設定します。
         /// </summary>
-        /// <param name="position">を表す数値</param>
+        /// <param name="position">設定するバッファー位置を表す数値です。</param>
         public void Position(int position)
         {
             this._position = position;
         }
 
         /// <summary>
-        /// Puts the specified data.
+        /// 指定されたデータを現在のバッファー位置から書き込みます。
         /// </summary>
-        /// <param name="data">を表す値</param>
-        /// <param name="offset">を表す数値</param>
-        /// <param name="length">を表す数値</param>
+        /// <param name="data">書き込むデータを表す配列です。</param>
+        /// <param name="offset">データの読み取りを開始する位置を表す数値です。</param>
+        /// <param name="length">書き込む要素数を表す数値です。</param>
         public void Put(T[] data, int offset, int length)
         {
             Array.Copy(data, offset, this._buffer, this._position, length);
@@ -118,39 +114,39 @@ namespace Rydia.Graphics
         }
 
         /// <summary>
-        /// Puts the specified data.
+        /// 指定されたデータを現在のバッファー位置から書き込みます。
         /// </summary>
-        /// <param name="data">を表す値</param>
+        /// <param name="data">書き込むデータを表す配列です。</param>
         public void Put(T[] data)
         {
             Put(data, 0, data.Length);
         }
 
         /// <summary>
-        /// Puts the specified data.
+        /// 指定されたデータを現在のバッファー位置から書き込みます。
         /// </summary>
-        /// <param name="data">を表す値</param>
+        /// <param name="data">書き込むデータを表す値です。</param>
         public void Put(T data)
         {
             Put(new T[] { data });
         }
 
         /// <summary>
-        /// Limits this instance.
+        /// 現在のバッファー位置から終端までの残り容量を取得します。
         /// </summary>
-        /// <returns></returns>
+        /// <returns>現在のバッファー位置から終端までの残り容量を返します。</returns>
         public int Limit()
         {
             return Capacity - this._position;
         }
 
-
         /// <summary>
-        /// Performs an implicit conversion from <see cref="NativeBuffer{T}"/> to <see cref="IntPtr"/>.
+        /// <see cref="NativeBuffer{T}"/> から <see cref="IntPtr"/> への
+        /// 暗黙的なキャストを実装します。
         /// </summary>
-        /// <param name="array">を表す値</param>
+        /// <param name="array">変換元のネイティブバッファーを表す値です。</param>
         /// <returns>
-        /// The result of the conversion.
+        /// 現在のバッファー位置を基準としたメモリアドレスを返します。
         /// </returns>
         public static implicit operator IntPtr(NativeBuffer<T> array)
         {

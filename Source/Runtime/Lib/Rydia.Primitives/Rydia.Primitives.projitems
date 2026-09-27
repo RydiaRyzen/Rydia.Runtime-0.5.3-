@@ -26,7 +26,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Primitives\Matrix2.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Primitives\Matrix3.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Primitives\Matrix4.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Randomizer\SFMTParameter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Randomizer\MersenneTwisterDetail.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Randomizer\MTPeriodType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Primitives\Quaternion.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Randomizer\RandomGenerator.cs" />
@@ -40,5 +40,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Randomizer\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)嫁.txt" />
   </ItemGroup>
 </Project>

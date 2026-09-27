@@ -104,23 +104,23 @@ namespace Rydia.Randomizer
         /// </summary>
         protected int idx;
 
-        private static Dictionary<MTPeriodType, Func<SFMTParameter>> s_Details = new Dictionary<MTPeriodType, Func<SFMTParameter>>();
+        private static Dictionary<MTPeriodType, Func<MersenneTwisterDetail>> s_Details = new Dictionary<MTPeriodType, Func<MersenneTwisterDetail>>();
         #endregion
 
         #region コンストラクタ
 
         static SimdOrientedFastMersenneTwister()
         {
-            s_Details[MTPeriodType.MT607] = SFMTParameter.MT607;
-            s_Details[MTPeriodType.MT1279] = SFMTParameter.MT1279;
-            s_Details[MTPeriodType.MT2281] = SFMTParameter.MT2281;
-            s_Details[MTPeriodType.MT4253] = SFMTParameter.MT4253;
-            s_Details[MTPeriodType.MT11213] = SFMTParameter.MT11213;
-            s_Details[MTPeriodType.MT19937] = SFMTParameter.MT19937;
-            s_Details[MTPeriodType.MT44497] = SFMTParameter.MT44497;
-            s_Details[MTPeriodType.MT86243] = SFMTParameter.MT86243;
-            s_Details[MTPeriodType.MT132049] = SFMTParameter.MT132049;
-            s_Details[MTPeriodType.MT216091] = SFMTParameter.MT216091;
+            s_Details[MTPeriodType.MT607] = MersenneTwisterDetail.MT607;
+            s_Details[MTPeriodType.MT1279] = MersenneTwisterDetail.MT1279;
+            s_Details[MTPeriodType.MT2281] = MersenneTwisterDetail.MT2281;
+            s_Details[MTPeriodType.MT4253] = MersenneTwisterDetail.MT4253;
+            s_Details[MTPeriodType.MT11213] = MersenneTwisterDetail.MT11213;
+            s_Details[MTPeriodType.MT19937] = MersenneTwisterDetail.MT19937;
+            s_Details[MTPeriodType.MT44497] = MersenneTwisterDetail.MT44497;
+            s_Details[MTPeriodType.MT86243] = MersenneTwisterDetail.MT86243;
+            s_Details[MTPeriodType.MT132049] = MersenneTwisterDetail.MT132049;
+            s_Details[MTPeriodType.MT216091] = MersenneTwisterDetail.MT216091;
         }
 
         /// <summary>
@@ -152,7 +152,7 @@ namespace Rydia.Randomizer
             if (!Enum.IsDefined(typeof(MTPeriodType), period))
                 throw new ArgumentOutOfRangeException();
 
-            SFMTParameter data = s_Details[period].Invoke();
+            MersenneTwisterDetail data = s_Details[period].Invoke();
             this.m_MEXP = data.m_mexp;
             this.m_POS1 = data.m_POS1;
             this.m_SL1 = data.m_SL1;

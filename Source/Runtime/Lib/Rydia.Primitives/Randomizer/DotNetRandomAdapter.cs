@@ -6,19 +6,20 @@ namespace Rydia.Randomizer
 {
 
     /// <summary>
-    /// <see cref="RandomGenerator"/>を継承する乱数ジェネレータークラスを<see cref="System.Random"/>クラスと、
-    /// 互換性能を維持するために必要なアダプター機能を提供するクラスです
+    /// <see cref="RandomGenerator"/> を <see cref="System.Random"/> と互換性のある
+    /// 乱数ジェネレーターとして使用するためのアダプタークラスです。
     /// </summary>
-    /// <seealso cref="System.Random" />
+    /// <seealso cref="System.Random"/>
     public class DotNetRandomAdapter : System.Random
     {
+
         /// <summary>
-        /// 乱数ジェネレータを保持するフィールドです
+        /// 乱数ジェネレーターを取得または設定します。
         /// </summary>
         private RandomGenerator m_Orign;
 
         /// <summary>
-        /// サンプル算出係数を表す定数
+        /// <see cref="Sample"/> の計算に使用する係数です。
         /// </summary>
         private const double SampleValue = 4.6566128752457969E-10;
 
@@ -26,9 +27,10 @@ namespace Rydia.Randomizer
         #region コンストラクタ
 
         /// <summary>
-        ///   <see cref="DotNetRandomAdapter"/> classの新しいインスタンスを初期化します
+        /// 指定された乱数ジェネレーターを使用して、
+        /// <see cref="DotNetRandomAdapter"/> クラスの新しいインスタンスを初期化します。
         /// </summary>
-        /// <param name="random">乱数ジェネレータのポインタ</param>
+        /// <param name="random">使用する乱数ジェネレーターです。</param>
         public DotNetRandomAdapter(RandomGenerator random)
         {
             this.m_Orign = random;
@@ -38,6 +40,10 @@ namespace Rydia.Randomizer
 
         #region 実装
 
+        /// <summary>
+        /// 乱数ジェネレーターを再生成し、自身を返します。
+        /// </summary>
+        /// <returns>再生成された乱数ジェネレーターを保持する自身のインスタンスです。</returns>
         public DotNetRandomAdapter ReGenerate()
         {
             this.m_Orign = this.m_Orign.ReGenerate();
@@ -48,7 +54,7 @@ namespace Rydia.Randomizer
         /// 0 以上のランダムな整数を返します。
         /// </summary>
         /// <returns>
-        /// 0 以上で MaxValue より小さい 32 ビット符号付き整数。
+        /// 0 以上 <see cref="int.MaxValue"/> 未満の 32 ビット符号付き整数です。
         /// </returns>
         public override int Next()
         {
@@ -60,35 +66,41 @@ namespace Rydia.Randomizer
         }
 
         /// <summary>
-        /// 指定した最大値より小さい 0 以上のランダムな整数を返します。
+        /// 指定された最大値未満のランダムな整数を返します。
         /// </summary>
-        /// <param name="maxValue">生成される乱数の排他的上限値。 maxValue は、0 以上である必要があります。</param>
+        /// <param name="maxValue">
+        /// 生成される乱数の排他的上限値です。
+        /// 0 以上である必要があります。
+        /// </param>
         /// <returns>
-        /// 0 以上で maxValue 未満の 32 ビット符号付き整数。
-        /// つまり、戻り値の範囲に 0 は含まれますが、maxValue は含まれません。
-        /// ただし、maxValue が 0 の場合は、maxValue が返されます。
+        /// 0 以上 <paramref name="maxValue"/> 未満の 32 ビット符号付き整数です。
         /// </returns>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException">maxValueが0未満です。</exception>
+        /// <exception cref="ArgumentOutOfRangeException">
+        /// <paramref name="maxValue"/> が 0 未満です。
+        /// </exception>
         public override int Next(int maxValue)
         {
             return base.Next(maxValue);
         }
 
         /// <summary>
-        /// 指定した範囲内のランダムな整数を返します。
+        /// 指定された範囲内のランダムな整数を返します。
         /// </summary>
-        /// <param name="minValue">返される乱数の包括的下限値。</param>
-        /// <param name="maxValue">返される乱数の排他的上限値。 maxValue は、minValue 以上である必要があります。</param>
+        /// <param name="minValue">
+        /// 返される乱数の包括的な下限値です。
+        /// </param>
+        /// <param name="maxValue">
+        /// 返される乱数の排他的な上限値です。
+        /// <paramref name="maxValue"/> は <paramref name="minValue"/> 以上である必要があります。
+        /// </param>
         /// <returns>
-        /// minValue 以上で maxValue 未満の 32 ビット符号付き整数。
-        /// つまり、戻り値の範囲に maxValue は含まれますが minValue は含まれません。
-        /// minValue が maxValue に等しい場合は、minValue が返されます。
+        /// <paramref name="minValue"/> 以上 <paramref name="maxValue"/> 未満の
+        /// 32 ビット符号付き整数です。
+        /// <paramref name="minValue"/> と <paramref name="maxValue"/> が等しい場合は、
+        /// <paramref name="minValue"/> を返します。
         /// </returns>
         /// <exception cref="ArgumentOutOfRangeException">
-        /// maxValueが0未満です。
-        /// or
-        /// minValueがMaxValueより大きい値です。
+        /// <paramref name="minValue"/> が <paramref name="maxValue"/> より大きい値です。
         /// </exception>
         public override int Next(int minValue, int maxValue)
         {
@@ -108,9 +120,9 @@ namespace Rydia.Randomizer
         }
 
         /// <summary>
-        /// 指定したバイト配列の要素に乱数を格納します。
+        /// 指定されたバイト配列の各要素に乱数を書き込みます。
         /// </summary>
-        /// <param name="buffer">乱数を格納するバイト配列。</param>
+        /// <param name="buffer">乱数を書き込むバイト配列です。</param>
         public override void NextBytes(byte[] buffer)
         {
             this.m_Orign.NextBytes(buffer);
@@ -119,22 +131,31 @@ namespace Rydia.Randomizer
         /// <summary>
         /// 0.0 以上 1.0 未満のランダムな浮動小数点数を返します。
         /// </summary>
-        /// <returns>0.0 以上 1.0 未満の倍精度浮動小数点数。</returns>
+        /// <returns>
+        /// 0.0 以上 1.0 未満の倍精度浮動小数点数です。
+        /// </returns>
         public override double NextDouble()
         {
             return this.m_Orign.NextDouble();
         }
 
         /// <summary>
-        /// 0.0 と 1.0 の間のランダムな浮動小数点数を返します。
+        /// 0.0 以上 1.0 未満のランダムな浮動小数点数を生成します。
         /// </summary>
-        /// <returns>0.0 以上 1.0 未満の倍精度浮動小数点数。</returns>
+        /// <returns>
+        /// 0.0 以上 1.0 未満の倍精度浮動小数点数です。
+        /// </returns>
         protected override double Sample()
         {
             return Next() * SampleValue;
         }
 
-
+        /// <summary>
+        /// このインスタンスを表す文字列を返します。
+        /// </summary>
+        /// <returns>
+        /// 内部で使用している乱数ジェネレーターの完全修飾型名です。
+        /// </returns>
         public override string ToString()
         {
             return this.m_Orign.GetType().FullName;

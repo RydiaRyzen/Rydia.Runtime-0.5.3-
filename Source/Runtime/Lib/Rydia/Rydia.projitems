@@ -19,6 +19,5 @@
     <Compile Include="$(MSBuildThisFileDirectory)IO\EmbeddedResources.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ObjectsExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Runtime\CommandLineArgs.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Runtime\WindowOrientation.cs" />
   </ItemGroup>
 </Project>

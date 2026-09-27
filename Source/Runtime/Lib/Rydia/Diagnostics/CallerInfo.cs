@@ -80,10 +80,10 @@ namespace Rydia.Diagnostics
         }
 
         /// <summary>
-        /// Converts to string.
+        /// このインスタンスを文字列に変換します。
         /// </summary>
         /// <returns>
-        /// A <see cref="System.String" /> that represents this instance.
+        /// このインスタンスを表す文字列を返します。
         /// </returns>
         public override string ToString()
         {
