@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace Rydia.SolutionBuilder
 {
+
     public sealed class SolutionFile
     {
+
         private readonly List<ProjectFile> _projects = new();
 
         public string Name { get; }
@@ -92,8 +94,6 @@ namespace Rydia.SolutionBuilder
 
         public void Build()
         {
-            
-
             string solutionPath = System.IO.Path.Combine(
                 Path,
                 Name + ".sln");
