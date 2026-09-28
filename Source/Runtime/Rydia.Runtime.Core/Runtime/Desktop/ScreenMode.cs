@@ -4,25 +4,33 @@ using System.Text;
 
 namespace Rydia.Runtime.Desktop
 {
+
     /// <summary>
-	/// Describes the way a Duality window is set up.
-	/// </summary>
-	public enum ScreenMode
+    /// ウィンドウの表示方法を指定します。
+    /// </summary>
+    public enum ScreenMode
     {
         /// <summary>
-        /// Duality runs in windowed mode. The window can be resized by the user.
+        /// ウィンドウモードで実行します。
+        /// ユーザーによるウィンドウサイズの変更が可能です。
         /// </summary>
         Window,
+
         /// <summary>
-        /// Duality runs in windowed mode. The window has a fixed size.
+        /// ウィンドウモードで実行します。
+        /// ウィンドウサイズは固定され、ユーザーによる変更はできません。
         /// </summary>
         FixedWindow,
+
         /// <summary>
-        /// Duality runs in windowed mode. The window is borderless and covers the whole screen.
+        /// ウィンドウモードで実行します。
+        /// ウィンドウの枠線を非表示にし、画面全体を覆います。
         /// </summary>
         FullWindow,
+
         /// <summary>
-        /// Duality runs in fullscreen mode, using whatever screen resolution is currently active on the users desktop.
+        /// フルスクリーンモードで実行します。
+        /// ユーザーのデスクトップで現在使用されている画面解像度を使用します。
         /// </summary>
         Fullscreen
     }
