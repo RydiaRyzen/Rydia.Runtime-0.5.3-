@@ -5,42 +5,54 @@ using System.Text;
 namespace Rydia.Input
 {
 
+    /// <summary>
+    /// ユーザー入力を提供する入力デバイスまたは入力チャネルを表します。
+    /// </summary>
     public interface IUserInput
     {
+
         /// <summary>
-        /// [GET] The unique ID of this input.
+        /// [取得] この入力を一意に識別するIDを取得します。
         /// </summary>
         string Id { get; }
+
         /// <summary>
-        /// [GET] The unique ID of the product that is providing this input.
+        ///  この入力を提供している製品を一意に識別するIDを取得します。
         /// </summary>
         Guid ProductId { get; }
+
         /// <summary>
-        /// [GET] The name of the product that is providing this input.
+        ///  この入力を提供している製品の名前を取得します。
         /// </summary>
         string ProductName { get; }
+
         /// <summary>
-        /// [GET] Returns whether this input is currently available.
+        /// [取得] この入力が現在利用可能かどうかを取得します。
         /// </summary>
         bool IsAvailable { get; }
+
         /// <summary>
-        /// [GET / SET] The source where this input derives its state from.
+        /// [取得 / 設定] この入力の状態を取得する入力ソースを取得または設定します。
         /// </summary>
         IUserInputSource Source { get; set; }
 
         /// <summary>
-        /// Fired when the input becomes available to Duality.
+        /// 入力が利用可能になったときに発生します。
         /// </summary>
         event EventHandler BecomesAvailable;
+
         /// <summary>
-        /// Fired when the input is no longer available to Duality.
+        /// 入力が利用できなくなったときに発生します。
         /// </summary>
         event EventHandler NoLongerAvailable;
 
         /// <summary>
-        /// Updates the inputs current state.
+        /// 入力の現在の状態を更新します。
         /// </summary>
+        /// <param name="width">入力対象となる領域の幅です。</param>
+        /// <param name="height">入力対象となる領域の高さです。</param>
         void Update(int width, int height);
+
     }
 
 }

@@ -21,9 +21,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Input\Mouse\MouseInput.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Input\Mouse\MouseMoveEventArgs.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Input\Mouse\MouseWheelEventArgs.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Input\Touch\IMobileKeyboard.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Input\Keyboard\IMobileKeyboard.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Input\Touch\ITouchHandler .cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Input\Touch\KeyEvent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Input\Keyboard\KeyEvent.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Input\Touch\TouchEvent.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Input\UserInput\IUserInput.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Input\UserInput\IUserInputSource.cs" />

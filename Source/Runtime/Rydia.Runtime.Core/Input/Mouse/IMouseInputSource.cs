@@ -4,22 +4,28 @@ using System.Text;
 
 namespace Rydia.Input
 {
+
     /// <summary>
-    /// Describes a source of user mouse input. This is usually an input device.
+    /// マウス入力を提供する入力ソースを表します。
+    /// 通常はマウスなどの入力デバイスに対応します。
     /// </summary>
     public interface IMouseInputSource : IUserInputSource
     {
         /// <summary>
-        /// [GET / SET] The current window-local cursor X position in native window coordinates.
+        /// [取得 / 設定] ウィンドウのローカル座標系における現在のカーソル位置を取得または設定します。
+        /// 座標はネイティブウィンドウ座標で表されます。
         /// </summary>
         Point2 Pos { get; set; }
+
         /// <summary>
-        /// [GET] The current mouse wheel value
+        /// [取得] 現在のマウスホイールの値を取得します。
         /// </summary>
         float Wheel { get; }
+
         /// <summary>
-        /// [GET] Returns whether a specific <see cref="MouseButton"/> is currently pressed.
+        /// [取得] 指定したマウスボタンが現在押されているかどうかを取得します。
         /// </summary>
+        /// <param name="btn">状態を取得するマウスボタンです。</param>
         bool this[MouseButton btn] { get; }
     }
 }

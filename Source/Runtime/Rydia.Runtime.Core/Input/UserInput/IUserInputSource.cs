@@ -6,29 +6,33 @@ namespace Rydia.Input
 {
 
     /// <summary>
-	/// Base interface for describing a source of user input.
-	/// </summary>
-	public interface IUserInputSource
+    /// ユーザー入力の状態を提供する入力ソースを表す基本インターフェースです。
+    /// </summary>
+    public interface IUserInputSource
     {
+
         /// <summary>
-        /// [GET] The unique id of this input source.
+        /// [取得] この入力ソースを一意に識別するIDを取得します。
         /// </summary>
         string Id { get; }
+
         /// <summary>
-        /// [GET] The unique ID of the product that is providing this input.
+        /// [取得] この入力ソースを提供している製品を一意に識別するIDを取得します。
         /// </summary>
         Guid ProductId { get; }
+
         /// <summary>
-        /// [GET] The name of the product that is providing this input.
+        /// [取得] この入力ソースを提供している製品の名前を取得します。
         /// </summary>
         string ProductName { get; }
+
         /// <summary>
-        /// [GET] Returns whether this input is currently available.
+        /// [取得] この入力ソースが現在利用可能かどうかを取得します。
         /// </summary>
         bool IsAvailable { get; }
 
         /// <summary>
-        /// Updates the sources current state.
+        /// 入力ソースの現在の状態を更新します。
         /// </summary>
         void UpdateState();
     }

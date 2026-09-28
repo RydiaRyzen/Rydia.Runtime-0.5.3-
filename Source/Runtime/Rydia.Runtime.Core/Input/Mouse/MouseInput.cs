@@ -4,10 +4,11 @@ using System.Text;
 
 namespace Rydia.Input
 {
+
     /// <summary>
-	/// Provides access to user mouse input.
-	/// </summary>
-	public sealed class MouseInput : IUserInput
+    /// マウス入力へのアクセスを提供します。
+    /// </summary>
+    public sealed class MouseInput : IUserInput
     {
         private class State
         {
@@ -18,8 +19,8 @@ namespace Rydia.Input
             public bool[] ButtonPressed = new bool[(int)MouseButton.Last + 1];
 
             /// <summary>
-            /// [GET / SET] When set to a non-zero value, the game's viewport will be adjusted to fit this size within the constraints
-            /// of the user-defined or default window size.
+            /// [取得 / 設定] 0以外の値を設定した場合、ユーザー定義または既定のウィンドウサイズの制約内に収まるよう、
+            /// ゲームのビューポートをこのサイズに合わせて調整します。
             /// </summary>
             public Point2 ForcedRenderSize
             {
@@ -28,7 +29,7 @@ namespace Rydia.Input
             }
 
             /// <summary>
-            /// [GET / SET] Specifies how <see cref="ForcedRenderSize"/> will adjust the image to fit window constraints.
+            /// [取得 / 設定] <see cref="ForcedRenderSize"/> に合わせて描画領域を調整する方法を指定します。
             /// </summary>
             public TargetResize ForcedRenderResizeMode
             {
@@ -77,13 +78,12 @@ namespace Rydia.Input
             }
 
             /// <summary>
-            /// Given the specified window size, this method calculates the window rectangle of the rendered
-            /// viewport, as well as the game's rendered image size while taking into account application settings
-            /// regarding forced rendering sizes.
+            /// 指定されたウィンドウサイズに基づいて、描画されるビューポートのウィンドウ内の矩形と、
+            /// 強制描画サイズの設定を考慮したゲームの描画サイズを計算します。
             /// </summary>
-            /// <param name="windowSize"></param>
-            /// <param name="windowViewport"></param>
-            /// <param name="renderTargetSize"></param>
+            /// <param name="windowSize">ウィンドウのサイズです。</param>
+            /// <param name="windowViewport">描画されるビューポートのウィンドウ内の矩形です。</param>
+            /// <param name="renderTargetSize">ゲームの描画先サイズです。</param>
             public void CalculateGameViewport(Point2 windowSize, out RectF windowViewport, out Vector2 renderTargetSize)
             {
                 Point2 forcedSize = ForcedRenderSize;
@@ -100,9 +100,9 @@ namespace Rydia.Input
                 {
                     Vector2 adjustedViewportSize = forcedResizeMode.Apply(forcedSize, windowViewport.Size);
 
-                    // Clip viewport and target size, so they don't exceed the window size.
-                    // This, strictly speaking, violates the forced rendering size, but for
-                    // resize modes like Fill, there is no other way to solve this.
+                    // ビューポートと描画先サイズがウィンドウサイズを超えないように制限します。
+                    // これは強制描画サイズの指定に厳密には反しますが、
+                    // Fillなどのリサイズモードではこれ以外に適切な方法がありません。
                     if (adjustedViewportSize.X > windowSize.X)
                     {
                         forcedSize.X = MathFR.RoundToInt((float)forcedSize.X * (float)windowSize.X / (float)adjustedViewportSize.X);
@@ -132,7 +132,7 @@ namespace Rydia.Input
 
 
         /// <summary>
-        /// [GET / SET] The mouse inputs data source.
+        /// [取得 / 設定] マウス入力の状態を取得する入力ソースを取得または設定します。
         /// </summary>
         public IMouseInputSource Source
         {
@@ -144,36 +144,42 @@ namespace Rydia.Input
             get { return Source; }
             set { Source = value as IMouseInputSource; }
         }
+
         /// <summary>
-        /// [GET] The unique id of this input.
+        /// [取得] この入力を一意に識別するIDを取得します。
         /// </summary>
         public string Id
         {
             get { return "Mouse"; }
         }
+
         /// <summary>
-        /// [GET] The unique ID of the product that is providing this input.
+        /// [取得] この入力を提供している製品を一意に識別するIDを取得します。
         /// </summary>
         public Guid ProductId
         {
             get { return Guid.Empty; }
         }
+
         /// <summary>
-        /// [GET] The name of the product that is providing this input.
+        /// [取得] この入力を提供している製品の名前を取得します。
         /// </summary>
         public string ProductName
         {
             get { return "Mouse"; }
         }
+
         /// <summary>
-        /// [GET] Returns whether this input is currently available.
+        /// [取得] この入力が現在利用可能かどうかを取得します。
         /// </summary>
         public bool IsAvailable
         {
             get { return this.currentState.IsAvailable; }
         }
+
         /// <summary>
-        /// [GET / SET] The current window-local cursor position in native window coordinates.
+        /// [取得 / 設定] ネイティブウィンドウ座標における、
+        /// ウィンドウローカルの現在のマウスカーソル位置を取得または設定します。
         /// </summary>
         public Point2 WindowPos
         {
@@ -184,15 +190,18 @@ namespace Rydia.Input
                     this.source.Pos = value;
             }
         }
+
         /// <summary>
-        /// [GET] The current viewport-local cursor position.
+        /// [取得] ビューポートローカル座標における現在のマウスカーソル位置を取得します。
         /// </summary>
         public Vector2 Pos
         {
             get { return this.currentState.ViewPos; }
         }
+
         /// <summary>
-        /// [GET] The viewport-local cursor position change since last frame.
+        /// [取得] 前フレームからのビューポートローカル座標における
+        /// マウスカーソル位置の変化量を取得します。
         /// </summary>
         public Vector2 Vel
         {
@@ -203,73 +212,88 @@ namespace Rydia.Input
                     Vector2.Zero;
             }
         }
+
         /// <summary>
-        /// [GET] The current mouse wheel value
+        /// [取得] 現在のマウスホイールの値を取得します。
         /// </summary>
         public float Wheel
         {
             get { return this.currentState.Wheel; }
         }
+
         /// <summary>
-        /// [GET] Returns the change of the mouse wheel value since last frame.
+        /// [取得] 前フレームからのマウスホイール値の変化量を取得します。
         /// </summary>
         public float WheelSpeed
         {
             get { return (this.currentState.IsAvailable && this.lastState.IsAvailable) ? this.currentState.Wheel - this.lastState.Wheel : 0.0f; }
         }
+
         /// <summary>
-        /// [GET] Returns whether a specific <see cref="MouseButton"/> is currently pressed.
+        /// [取得] 指定した <see cref="MouseButton"/> が現在押されているかどうかを取得します。
         /// </summary>
-        /// <param name="btn"></param>
-        /// <returns></returns>
+        /// <param name="btn">状態を取得するマウスボタンです。</param>
+        /// <returns>指定したマウスボタンが押されている場合は <see langword="true"/>、それ以外の場合は <see langword="false"/> を返します。</returns>
         public bool this[MouseButton btn]
         {
             get { return this.currentState.ButtonPressed[(int)btn]; }
         }
 
         /// <summary>
-        /// Fired when a <see cref="MouseButton"/> is no longer pressed.
+        /// <see cref="MouseButton"/> が離されたときに発生します。
         /// </summary>
         public event EventHandler<MouseButtonEventArgs> ButtonUp;
+
         /// <summary>
-        /// Fired once when a <see cref="MouseButton"/> is pressed.
+        /// <see cref="MouseButton"/> が押されたときに一度だけ発生します。
         /// </summary>
         public event EventHandler<MouseButtonEventArgs> ButtonDown;
+
         /// <summary>
-        /// Fired when the cursor moves.
+        /// マウスカーソルが移動したときに発生します。
         /// </summary>
         public event EventHandler<MouseMoveEventArgs> Move;
+
         /// <summary>
-        /// Fired when the cursor leaves the viewport area.
+        /// マウスカーソルがビューポート領域から離れたときに発生します。
         /// </summary>
         public event EventHandler NoLongerAvailable;
+
         /// <summary>
-        /// Fired when the cursor enters the viewport area.
+        /// マウスカーソルがビューポート領域に入ったときに発生します。
         /// </summary>
         public event EventHandler BecomesAvailable;
+
         /// <summary>
-        /// Fired when the mouse wheel value changes.
+        /// マウスホイールの値が変化したときに発生します。
         /// </summary>
         public event EventHandler<MouseWheelEventArgs> WheelChanged;
 
-
+        /// <summary>
+        /// <see cref="MouseInput"/> クラスの新しいインスタンスを初期化します。
+        /// </summary>
         public MouseInput() { }
 
+        /// <summary>
+        /// マウス入力の現在の状態を更新し、状態の変化に応じたイベントを発生させます。
+        /// </summary>
+        /// <param name="width">入力対象となるウィンドウの幅です。</param>
+        /// <param name="height">入力対象となるウィンドウの高さです。</param>
         public void Update(int width, int height)
         {
-            // Memorize last state
+            // 前回の状態を保存
             this.currentState.CopyTo(this.lastState);
 
             if (this.source != null)
             {
-                // Update source state
+                // 入力ソースの状態を更新
                 this.source.UpdateState();
 
-                // Obtain new state
+                // 新しい状態を取得
                 this.currentState.UpdateFromSource(this.source, width, height);
             }
 
-            // Fire events
+            // イベントを発生させます
             if (this.currentState.IsAvailable && !this.lastState.IsAvailable)
             {
                 if (BecomesAvailable != null)
@@ -321,28 +345,30 @@ namespace Rydia.Input
         }
 
         /// <summary>
-        /// Returns whether the specified button is currently pressed.
+        /// 指定したマウスボタンが現在押されているかどうかを取得します。
         /// </summary>
-        /// <param name="button"></param>
-        /// <returns></returns>
+        /// <param name="button">状態を取得するマウスボタンです。</param>
+        /// <returns>マウスボタンが押されている場合は <see langword="true"/>、それ以外の場合は <see langword="false"/> を返します。</returns>
         public bool ButtonPressed(MouseButton button)
         {
             return this.currentState.ButtonPressed[(int)button];
         }
+
         /// <summary>
-        /// Returns whether the specified button was hit this frame.
+        /// 指定したマウスボタンがこのフレームで押されたかどうかを取得します。
         /// </summary>
-        /// <param name="button"></param>
-        /// <returns></returns>
+        /// <param name="button">状態を確認するマウスボタンです。</param>
+        /// <returns>このフレームで押された場合は <see langword="true"/>、それ以外の場合は <see langword="false"/> を返します。</returns>
         public bool ButtonHit(MouseButton button)
         {
             return this.currentState.ButtonPressed[(int)button] && !this.lastState.ButtonPressed[(int)button];
         }
+
         /// <summary>
-        /// Returns whether the specified button was released this frame.
+        /// 指定したマウスボタンがこのフレームで離されたかどうかを取得します。
         /// </summary>
-        /// <param name="button"></param>
-        /// <returns></returns>
+        /// <param name="button">状態を確認するマウスボタンです。</param>
+        /// <returns>このフレームで離された場合は <see langword="true"/>、それ以外の場合は <see langword="false"/> を返します。</returns>
         public bool ButtonReleased(MouseButton button)
         {
             return !this.currentState.ButtonPressed[(int)button] && this.lastState.ButtonPressed[(int)button];
