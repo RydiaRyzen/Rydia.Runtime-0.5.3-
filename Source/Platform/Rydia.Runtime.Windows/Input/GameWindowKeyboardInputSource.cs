@@ -9,9 +9,12 @@ using Rydia.Input;
 
 namespace Rydia.Input
 {
-	// Input / IO
+    // Input / IO
 
-	public class GameWindowKeyboardInputSource : IKeyboardInputSource
+    /// <summary>
+    /// OpenTK の <see cref="GameWindow"/> からキーボード入力を取得する入力ソースを表します。
+    /// </summary>
+    public class GameWindowKeyboardInputSource : IKeyboardInputSource
 	{
 		private GameWindow      window          = null;
 		private bool            hasFocus        = false;
@@ -19,33 +22,69 @@ namespace Rydia.Input
 		private StringBuilder   charInputBuffer = new StringBuilder();
 		private TKKeyboardState keyState        = default(TKKeyboardState);
 		private TKKeyboardState keyStateBuffer  = default(TKKeyboardState);
-		
-		public string Id
+
+        /// <summary>
+        /// 入力ソースを識別するための ID を取得します。
+        /// </summary>
+        public string Id
 		{
 			get { return "Keyboard"; }
 		}
-		public Guid ProductId
+
+        /// <summary>
+        /// 入力デバイスの製品 ID を取得します。
+        /// </summary>
+        public Guid ProductId
 		{
 			get { return Guid.Empty; }
 		}
-		public string ProductName
+
+        /// <summary>
+        /// 入力デバイスの製品名を取得します。
+        /// </summary>
+        public string ProductName
 		{
 			get { return "Keyboard"; }
 		}
-		public bool IsAvailable
+
+        /// <summary>
+        /// キーボード入力が現在利用可能かどうかを示す値を取得します。
+        /// </summary>
+        /// <remarks>
+        /// 対象となる <see cref="GameWindow"/> が存在し、かつウィンドウがフォーカスを持っている場合に
+        /// <see langword="true"/> を返します。
+        /// </remarks>
+        public bool IsAvailable
 		{
 			get { return this.window != null && this.hasFocus; }
 		}
-		public string CharInput
+
+        /// <summary>
+        /// 現在のフレームで入力された文字列を取得します。
+        /// </summary>
+        public string CharInput
 		{
 			get { return this.charInput ?? string.Empty; }
-		}
-		public bool this[Key key]
+        }
+
+        /// <summary>
+        /// 指定したキーが現在押されているかどうかを取得します。
+        /// </summary>
+        /// <param name="key">状態を取得するキー。</param>
+        /// <returns>
+        /// 指定したキーが押されている場合は <see langword="true"/>、
+        /// それ以外の場合は <see langword="false"/>。
+        /// </returns>
+        public bool this[Key key]
 		{
 			get { return this.keyState[GetOpenTKKey(key)]; }
 		}
 
-		public GameWindowKeyboardInputSource(GameWindow window)
+        /// <summary>
+        /// <see cref="GameWindowKeyboardInputSource"/> クラスの新しいインスタンスを初期化します。
+        /// </summary>
+        /// <param name="window">キーボード入力を取得する OpenTK のゲームウィンドウ。</param>
+        public GameWindowKeyboardInputSource(GameWindow window)
 		{
 			this.window = window;
 			this.window.KeyPress += window_KeyPress;
@@ -53,7 +92,14 @@ namespace Rydia.Input
 			this.window.KeyUp += window_KeyUp;
 		}
 
-		public void UpdateState()
+        /// <summary>
+        /// キーボード入力の状態を更新します。
+        /// </summary>
+        /// <remarks>
+        /// ウィンドウのフォーカス状態、文字入力、およびキー状態を入力イベントから取得した
+        /// 最新の状態に更新します。
+        /// </remarks>
+        public void UpdateState()
 		{
 			this.hasFocus = this.window.Focused;
 			this.charInput = this.charInputBuffer.ToString();
@@ -61,21 +107,42 @@ namespace Rydia.Input
 			this.keyState = this.keyStateBuffer;
 		}
 
-
-		private void window_KeyPress(object sender, TKKeyPressEventArgs e)
+        /// <summary>
+        /// キー入力によって文字が入力されたときに呼び出されます。
+        /// </summary>
+        /// <param name="sender">イベントの送信元。</param>
+        /// <param name="e">キー入力イベントの引数。</param>
+        private void window_KeyPress(object sender, TKKeyPressEventArgs e)
 		{
 			this.charInputBuffer.Append(e.KeyChar);
 		}
-		private void window_KeyDown(object sender, TKKeyboardKeyEventArgs e)
-		{
-			this.keyStateBuffer = e.Keyboard;
-		}
-		private void window_KeyUp(object sender, TKKeyboardKeyEventArgs e)
+
+        /// <summary>
+        /// キーが押されたときに呼び出されます。
+        /// </summary>
+        /// <param name="sender">イベントの送信元。</param>
+        /// <param name="e">キーボードキーイベントの引数。</param>
+        private void window_KeyDown(object sender, TKKeyboardKeyEventArgs e)
 		{
 			this.keyStateBuffer = e.Keyboard;
 		}
 
-		private static OpenTK.Input.Key GetOpenTKKey(Key key)
+        /// <summary>
+        /// キーが離されたときに呼び出されます。
+        /// </summary>
+        /// <param name="sender">イベントの送信元。</param>
+        /// <param name="e">キーボードキーイベントの引数。</param>
+        private void window_KeyUp(object sender, TKKeyboardKeyEventArgs e)
+		{
+			this.keyStateBuffer = e.Keyboard;
+		}
+
+        /// <summary>
+        /// Rydia の <see cref="Key"/> を OpenTK のキーコードに変換します。
+        /// </summary>
+        /// <param name="key">変換する Rydia のキー。</param>
+        /// <returns>対応する OpenTK のキーコード。</returns>
+        private static OpenTK.Input.Key GetOpenTKKey(Key key)
 		{
 			switch (key)
 			{

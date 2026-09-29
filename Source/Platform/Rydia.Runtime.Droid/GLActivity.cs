@@ -14,6 +14,10 @@ using static Android.Icu.Text.CaseMap;
 namespace Rydia.Runtime.Droid
 {
 
+    /// <summary>
+    /// OpenGL ES を使用するモバイルアプリケーションのメインアクティビティを提供します。
+    /// モバイルプラットフォームとしての各種入力、画面スケール、アプリケーション実行環境を管理します。
+    /// </summary>
     public class GLActivity : Activity, IMobilePlatform
     {
 
@@ -22,6 +26,9 @@ namespace Rydia.Runtime.Droid
         KeyboardHandler keyHandler;
         TouchHandler touchHandler;
 
+        /// <summary>
+        /// 加速度センサーの入力ハンドラーを取得します。
+        /// </summary>
         public IAccelerometer Accelerometer
         {
             get
@@ -30,6 +37,9 @@ namespace Rydia.Runtime.Droid
             }
         }
 
+        /// <summary>
+        /// モバイルキーボードの入力ハンドラーを取得します。
+        /// </summary>
         public IMobileKeyboard Keyboard
         {
             get
@@ -38,6 +48,9 @@ namespace Rydia.Runtime.Droid
             }
         }
 
+        /// <summary>
+        /// タッチ入力のハンドラーを取得します。
+        /// </summary>
         public ITouchHandler Touch
         {
             get
@@ -46,12 +59,19 @@ namespace Rydia.Runtime.Droid
             }
         }
 
+        /// <summary>
+        /// オーディオの設定を取得します。
+        /// </summary>
         public AudioOptions AudioOptions
         {
             get;
             private set;
         }
 
+        /// <summary>
+        /// <see cref="GLActivity"/> クラスの新しいインスタンスを初期化します。
+        /// </summary>
+        /// <param name="runner">アプリケーションの実行を管理する <see cref="AppRunner"/> を指定します。</param>
         public GLActivity(AppRunner runner)
         {
             App = runner;
@@ -62,6 +82,9 @@ namespace Rydia.Runtime.Droid
             AudioHost.CreateDeviceContext(AudioOptions);
         }
 
+        /// <summary>
+        /// オーディオの初期設定を行います。
+        /// </summary>
         protected virtual void IniyAudioSettings()
         {
             // 既定のデバイスを使用
@@ -81,11 +104,25 @@ namespace Rydia.Runtime.Droid
         // 2. 【必須】JNI アクティベーション用のコンストラクタ
         // プロセスの復帰時に、Monoランタイムがこのコンストラクタを使って
         // JavaインスタンスとC#インスタンスを紐付け直します。
+
+        /// <summary>
+        /// Android の Java インスタンスと C# インスタンスを関連付けるための
+        /// JNI アクティベーション用コンストラクターです。
+        /// </summary>
+        /// <param name="javaReference">Java オブジェクトへの参照を指定します。</param>
+        /// <param name="transfer">JNI ハンドルの所有権を指定します。</param>
         protected GLActivity(IntPtr javaReference, JniHandleOwnership transfer)
             : base(javaReference, transfer)
         {
         }
 
+        /// <summary>
+        /// アクティビティの作成時に呼び出され、OpenGL ES ビューや各種入力ハンドラーを初期化します。
+        /// </summary>
+        /// <param name="savedInstanceState">
+        /// 保存されたアクティビティの状態を指定します。
+        /// 状態が保存されていない場合は <c>null</c> です。
+        /// </param>
         protected override void OnCreate(Bundle? savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -116,12 +153,20 @@ namespace Rydia.Runtime.Droid
             SetContentView(this._view);
         }
 
+        /// <summary>
+        /// アクティビティが一時停止したときに呼び出されます。
+        /// OpenGL ES ビューの描画処理を一時停止します。
+        /// </summary>
         protected override void OnPause()
         {
             base.OnPause();
             this._view.Pause();
         }
 
+        /// <summary>
+        /// アクティビティが再開したときに呼び出されます。
+        /// OpenGL ES ビューの描画処理を再開し、没入型フルスクリーン表示を設定します。
+        /// </summary>
         protected override void OnResume()
         {
             base.OnResume();
@@ -134,12 +179,23 @@ namespace Rydia.Runtime.Droid
                 | SystemUiFlags.LayoutStable);
         }
 
+        /// <summary>
+        /// アクティビティが破棄されるときに呼び出されます。
+        /// オーディオデバイスなどのリソースを終了します。
+        /// </summary>
         protected override void OnDestroy()
         {
             base.OnDestroy();
             AudioHost.Terminate();
         }
 
+        /// <summary>
+        /// メッセージダイアログを表示します。
+        /// </summary>
+        /// <param name="args">表示するメッセージダイアログの設定を指定します。</param>
+        /// <returns>
+        /// ユーザーが選択したダイアログの結果を返します。
+        /// </returns>
         public Shared.DialogResult ShowMessage(MessageDialogEventArgs args)
         {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
@@ -197,12 +253,18 @@ namespace Rydia.Runtime.Droid
             return result;
         }
 
+        /// <summary>
+        /// 画面のスケールを取得します。
+        /// </summary>
         public float ScreenScale
         {
             get;
             private set;
         }
 
+        /// <summary>
+        /// アプリケーションランナーを取得します。
+        /// </summary>
         public AppRunner App
         {
             get;

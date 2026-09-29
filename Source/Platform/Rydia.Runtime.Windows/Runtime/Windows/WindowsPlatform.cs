@@ -15,7 +15,9 @@ using Rydia.Runtime.Shared;
 namespace Rydia.Runtime.Windows
 {
 
-
+    /// <summary>
+    /// Windows環境におけるプラットフォーム機能を提供します。
+    /// </summary>
     public class WindowsPlatform : DisposableBase, IDesktopPlatform
     {
 
@@ -36,12 +38,18 @@ namespace Rydia.Runtime.Windows
 
         #region IDesktopPlatform
 
+        /// <summary>
+        /// ウィンドウの設定を取得します。
+        /// </summary>
         public WindowOptions WindowOptions
         {
             get;
             private set;
         }
 
+        /// <summary>
+        /// デスクトップウィンドウを取得します。
+        /// </summary>
         public IDesktopWindow Window
         {
             get;
@@ -52,12 +60,21 @@ namespace Rydia.Runtime.Windows
 
         #region IPlatform
 
+        /// <summary>
+        /// 実行中のアプリケーションを取得します。
+        /// </summary>
         public AppRunner App
         {
             get;
             private set;
         }
 
+        /// <summary>
+        /// 画面のスケールを取得します。
+        /// </summary>
+        /// <value>
+        /// Windows環境では常に <c>1.0f</c> を返します。
+        /// </value>
         public float ScreenScale
         {
             get
@@ -66,6 +83,9 @@ namespace Rydia.Runtime.Windows
             }
         }
 
+        /// <summary>
+        /// オーディオ設定を取得します。
+        /// </summary>
         public AudioOptions AudioOptions
         {
             get;
@@ -74,6 +94,9 @@ namespace Rydia.Runtime.Windows
 
         #endregion
 
+        /// <summary>
+        /// <see cref="WindowsPlatform"/> クラスの新しいインスタンスを初期化します。
+        /// </summary>
         public WindowsPlatform()
         {
             WindowOptions = new WindowOptions();
@@ -82,6 +105,10 @@ namespace Rydia.Runtime.Windows
             AudioHost.Init(new ALBindings(), new AlcBindings());
         }
 
+        /// <summary>
+        /// 指定したアプリケーションを実行します。
+        /// </summary>
+        /// <param name="app">実行するアプリケーション。</param>
         public void Run(AppRunner app)
         {
             App = app;
@@ -91,12 +118,25 @@ namespace Rydia.Runtime.Windows
             Window.Run(60);
         }
 
+        /// <summary>
+        /// 管理対象および管理対象外のリソースを解放します。
+        /// </summary>
+        /// <param name="disposing">
+        /// 管理対象リソースを解放する場合は <see langword="true"/>。
+        /// </param>
         protected override void Disposing(bool disposing)
         {
             AudioHost.Terminate();
             Window.Dispose();
         }
 
+        /// <summary>
+        /// メッセージボックスを表示します。
+        /// </summary>
+        /// <param name="args">メッセージボックスの設定。</param>
+        /// <returns>
+        /// ユーザーが選択したダイアログ結果。
+        /// </returns>
         public Shared.DialogResult ShowMessage(MessageDialogEventArgs args)
         {
             var button = 
