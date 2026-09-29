@@ -16,4 +16,6 @@
 
   <Import Project="..\Lib\Rydia.Serialization\Rydia.Serialization.projitems" Label="Shared" />
 
+  <Import Project="..\Lib\Rydia.Randomizer\Rydia.Randomizer.projitems" Label="Shared" />
+
 </Project>

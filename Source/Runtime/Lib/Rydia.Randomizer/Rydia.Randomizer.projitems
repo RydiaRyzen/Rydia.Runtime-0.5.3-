@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>880ee0b7-073d-471f-bd3d-88f2e7d6ea4f</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Rydia.Randomizer</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)LinearCongruentialGenerator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MersenneTwister.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MotherOfAll.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RamdomExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RanrotB.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Well.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)XorShift.cs" />
+  </ItemGroup>
+</Project>

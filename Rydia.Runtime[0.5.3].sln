@@ -90,6 +90,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rydia.SolutionBuilder.App",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rydia.Runtime", "Source\Runtime\Rydia.Runtime\Rydia.Runtime.csproj", "{61FA57D0-4CBE-4405-8D92-5C7D88160ECC}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Rydia.Randomizer", "Source\Runtime\Lib\Rydia.Randomizer\Rydia.Randomizer.shproj", "{880EE0B7-073D-471F-BD3D-88F2E7D6EA4F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -182,6 +184,7 @@ Global
 		{5E295DFA-21C3-487E-8E3E-B2957E1D354A} = {D2E1A055-2A2E-4B82-8E97-DB4FF2FBFB5B}
 		{09E0AF1E-03C9-4918-9969-499D2B12F6ED} = {D2E1A055-2A2E-4B82-8E97-DB4FF2FBFB5B}
 		{61FA57D0-4CBE-4405-8D92-5C7D88160ECC} = {3240D1A5-4C4B-4755-B3FF-3FDDA6586857}
+		{880EE0B7-073D-471F-BD3D-88F2E7D6EA4F} = {CEE52E90-564B-44DF-844F-2C833FED466C}
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Source\Runtime\Lib\Rydia.Serialization\Rydia.Serialization.projitems*{006c9f26-6fa8-45cb-b2d4-ce716f5c60b6}*SharedItemsImports = 13
@@ -198,11 +201,13 @@ Global
 		Source\Editor\Rydia.SolutionBuilder\Rydia.SolutionBuilder.projitems*{5e295dfa-21c3-487e-8e3e-b2957e1d354a}*SharedItemsImports = 13
 		Source\Runtime\Lib\Rydia.Diagnostics\Rydia.Diagnostics.projitems*{61fa57d0-4cbe-4405-8d92-5c7d88160ecc}*SharedItemsImports = 5
 		Source\Runtime\Lib\Rydia.Primitives\Rydia.Primitives.projitems*{61fa57d0-4cbe-4405-8d92-5c7d88160ecc}*SharedItemsImports = 5
+		Source\Runtime\Lib\Rydia.Randomizer\Rydia.Randomizer.projitems*{61fa57d0-4cbe-4405-8d92-5c7d88160ecc}*SharedItemsImports = 5
 		Source\Runtime\Lib\Rydia.Serialization\Rydia.Serialization.projitems*{61fa57d0-4cbe-4405-8d92-5c7d88160ecc}*SharedItemsImports = 5
 		Source\Runtime\Lib\Rydia\Rydia.projitems*{61fa57d0-4cbe-4405-8d92-5c7d88160ecc}*SharedItemsImports = 5
 		Source\Runtime\Rydia.Runtime.Core\Rydia.Runtime.Core.projitems*{61fa57d0-4cbe-4405-8d92-5c7d88160ecc}*SharedItemsImports = 5
 		Source\Runtime\Samples\SampleEngine\SampleEngine.projitems*{8160fcea-1387-4352-9f54-443ba45c5905}*SharedItemsImports = 5
 		Source\Runtime\Samples\Rydia.Runtime.OooglesSamples.Shared\Rydia.Runtime.OooglesSamples.Shared.projitems*{83e8c81b-2609-470e-9378-435e813b013c}*SharedItemsImports = 13
+		Source\Runtime\Lib\Rydia.Randomizer\Rydia.Randomizer.projitems*{880ee0b7-073d-471f-bd3d-88f2e7d6ea4f}*SharedItemsImports = 13
 		Source\Runtime\Lib\Rydia\Rydia.projitems*{8ba16d4d-0767-483f-9232-4782924cb4e3}*SharedItemsImports = 13
 		Source\Runtime\Samples\Rydia.Runtime.OooglesSamples.Shared\Rydia.Runtime.OooglesSamples.Shared.projitems*{922df265-51da-4482-8696-9709e80f5e46}*SharedItemsImports = 5
 		Source\Runtime\Samples\SampleEngine\SampleEngine.projitems*{922df265-51da-4482-8696-9709e80f5e46}*SharedItemsImports = 5
