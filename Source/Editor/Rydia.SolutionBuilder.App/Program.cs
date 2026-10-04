@@ -13,8 +13,8 @@ namespace Rydia.SolutionBuilder.App
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
 
-            // 再生成のためにディレクトリを削除
-            string solutionDirectory = Path.Combine(Environment.CurrentDirectory, "TestSolution");
+            // テスト中のため、ディレクトリを削除
+            string solutionDirectory = Path.Combine(Environment.CurrentDirectory, "Source", "Code", "TestSolution");
 
             if (Directory.Exists(solutionDirectory))
             {
@@ -25,51 +25,61 @@ namespace Rydia.SolutionBuilder.App
 
             // ソリューションを生成
             var solutionFile = new SolutionFile("TestSolution");
-            solutionFile.Path = Path.Combine(Environment.CurrentDirectory, solutionFile.Name);
 
+            // ソリューションのパスを設定
+            solutionFile.Path = Path.Combine(Environment.CurrentDirectory, "Source", "Code", solutionFile.Name);
+
+            // プロジェクトAを生成
             var projectA = new ProjectFile("ProjectA", ProjectType.ClassLibrary);
+            {
+                // クラスAを生成
+                var classA = new ClassFile("ClassA");
+                // System.Numerics名前空間を追加
+                classA.AddUsing("System.Numerics");
 
-            var classA = new ClassFile("ClassA");
-            classA.AddUsing("System.Numerics");
-            classA.AddProperty("Name", "string");
-            classA.AddProperty("Age", "int");
-            classA.AddProperty("Enabled", "bool");
-            classA.AddProperty("Position", "Vector3");
-            classA.AddMethod("Initialize");
-            //classA.AddMethod("GetName", "string");
+                // クラスAにプロパティとメソッドを追加
+                classA.AddProperty("Name", "string");
+                classA.AddProperty("Age", "int");
+                classA.AddProperty("Enabled", "bool");
+                classA.AddProperty("Position", "Vector3");
+                classA.AddMethod("Initialize");
+                // classA.AddMethod("GetName", "string");
 
-            projectA.AddClass(classA);
+                // プロジェクトAにクラスAを追加
+                projectA.AddClass(classA);
 
-            var classB = new ClassFile("ClassB");
-            projectA.AddClass(classB);
+                var classB = new ClassFile("ClassB");
+                projectA.AddClass(classB);
 
-            var classC = new ClassFile("ClassC");
-            projectA.AddClass(classC);
-
-            solutionFile.AddProject(projectA);
+                var classC = new ClassFile("ClassC");
+                projectA.AddClass(classC);
+                solutionFile.AddProject(projectA);
+            }
 
             var projectB = new ProjectFile("ProjectB");
+            {
+                var classD = new ClassFile("ClassD");
+                classD.AddProperty("Name", "string");
+                classD.AddMethod("Initialize");
 
-            var classD = new ClassFile("ClassD");
-            classD.AddProperty("Name", "string");
-            classD.AddMethod("Initialize");
+                projectB.AddClass(classD);
 
-            projectB.AddClass(classD);
+                var classE = new ClassFile("ClassE");
+                projectB.AddClass(classE);
 
-            var classE = new ClassFile("ClassE");
-            projectB.AddClass(classE);
+                var classF = new ClassFile("ClassF");
+                projectB.AddClass(classF);
 
-            var classF = new ClassFile("ClassF");
-            projectB.AddClass(classF);
-
-            solutionFile.AddProject(projectB);
+                solutionFile.AddProject(projectB);
+            }
 
             var projectC = new ProjectFile("ProjectC");
+            {
+                projectC.AddReference(projectA);
+                projectC.AddReference(projectB);
 
-            projectC.AddReference(projectA);
-            projectC.AddReference(projectB);
-
-            solutionFile.AddProject(projectC);
+                solutionFile.AddProject(projectC);
+            }
 
             // ソリューションを生成
             solutionFile.Generate();
@@ -77,7 +87,6 @@ namespace Rydia.SolutionBuilder.App
             //solutionFile.Build();
 
             // ソリューションを開く
-            
             solutionFile.Open();
         }
     }

@@ -26,7 +26,7 @@ namespace SampleEngine.Drawing2D
 
             Texture = new NativeTexture(Rydia.Graphics.Api.ES20.TextureTargetType.TwoD);
             Texture.Bind();
-
+            
             Texture.MinificationFilter = Rydia.Graphics.Api.ES20.TextureMinFilter.Linear;
             Texture.MagnificationFilter = Rydia.Graphics.Api.ES20.TextureMagFilter.Linear;
             Texture.WrapS = Rydia.Graphics.Api.ES20.TextureWrapMode.ClampToEdge;

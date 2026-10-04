@@ -50,6 +50,6 @@
 
   <Import Project="..\..\Runtime\Api\Rydia.Graphics.Api.ES30\Rydia.Graphics.Api.ES20.projitems" Label="Shared" />
 
-  <Import Project="..\Rydia.Runtime.OpenTKBindings\Rydia.Runtime.OpenTKBindings.projitems" Label="Shared" />
+  <Import Project="..\..\Runtime\Api\Rydia.Graphics.Api.ES30.OpenTKBindings\Rydia.Graphics.Api.ES30.OpenTKBindings.projitems" Label="Shared" />
 
 </Project>

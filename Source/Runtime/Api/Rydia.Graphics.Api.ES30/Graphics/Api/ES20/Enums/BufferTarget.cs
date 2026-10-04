@@ -7,7 +7,7 @@ namespace Rydia.Graphics.Api.ES20
 {
 
     /// <summary>
-    /// <see cref="DataBuffer"/> のサポートされているタイプ
+    /// <see cref=" DataBuffer"/> のサポートされているタイプ
     /// </summary>
     public enum BufferTarget
     {

@@ -18,4 +18,6 @@
 
   <Import Project="..\Lib\Rydia.Randomizer\Rydia.Randomizer.projitems" Label="Shared" />
 
+  <Import Project="..\Lib\Rydia.Physics\Rydia.Physics.projitems" Label="Shared" />
+
 </Project>

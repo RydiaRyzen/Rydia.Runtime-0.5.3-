@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>8a213178-04ac-4b17-a9c2-6199c956c0b1</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Rydia.Physics</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Collision\Collision.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Collision\Distance.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Collision\DynamicTree.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Collision\DynamicTreeBroadPhase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Collision\IBroadPhase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Collision\QuadTree.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Collision\QuadTreeBroadPhase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Collision\Shapes\ChainShape.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Collision\Shapes\CircleShape.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Collision\Shapes\EdgeShape.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Collision\Shapes\PolygonShape.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Collision\Shapes\Shape.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Collision\TimeOfImpact.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\ConvexHull\ChainHull.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\ConvexHull\GiftWrap.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\ConvexHull\Melkman.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Decomposition\BayazitDecomposer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Decomposition\CDTDecomposer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Decomposition\CDT\Delaunay\DelaunayTriangle.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Decomposition\CDT\Delaunay\Sweep\AdvancingFront.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Decomposition\CDT\Delaunay\Sweep\AdvancingFrontNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Decomposition\CDT\Delaunay\Sweep\DTSweep.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Decomposition\CDT\Delaunay\Sweep\DTSweepConstraint.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Decomposition\CDT\Delaunay\Sweep\DTSweepContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Decomposition\CDT\Delaunay\Sweep\DTSweepPointComparator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Decomposition\CDT\Delaunay\Sweep\PointOnEdgeException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Decomposition\CDT\ITriangulatable.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Decomposition\CDT\Orientation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Decomposition\CDT\Polygon\Polygon.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Decomposition\CDT\Polygon\PolygonPoint.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Decomposition\CDT\Polygon\PolygonSet.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Decomposition\CDT\Sets\ConstrainedPointSet.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Decomposition\CDT\Sets\PointSet.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Decomposition\CDT\TriangulationConstraint.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Decomposition\CDT\TriangulationContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Decomposition\CDT\TriangulationMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Decomposition\CDT\TriangulationPoint.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Decomposition\CDT\TriangulationUtil.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Decomposition\CDT\Util\FixedArray3.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Decomposition\CDT\Util\FixedBitArray3.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Decomposition\CDT\Util\PointGenerator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Decomposition\CDT\Util\PolygonGenerator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Decomposition\EarclipDecomposer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Decomposition\FlipcodeDecomposer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Decomposition\SeidelDecomposer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Decomposition\Seidel\Edge.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Decomposition\Seidel\MonotoneMountain.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Decomposition\Seidel\Node.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Decomposition\Seidel\Point.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Decomposition\Seidel\QueryGraph.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Decomposition\Seidel\Sink.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Decomposition\Seidel\Trapezoid.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Decomposition\Seidel\TrapezoidalMap.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Decomposition\Seidel\Triangulator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Decomposition\Seidel\XNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Decomposition\Seidel\YNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Decomposition\Triangulate.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\FixedArray.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\LineTools.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Math.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Path.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\PathManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\PolygonManipulation\CuttingTools.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\PolygonManipulation\SimplifyTools.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\PolygonManipulation\YuPengClipper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\PolygonTools.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\TextureTools\MarchingSquares.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\TextureTools\MSTerrain.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\TextureTools\TextureConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Vertices.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dynamics\Body.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dynamics\ContactManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dynamics\Contacts\Contact.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dynamics\Contacts\ContactSolver.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dynamics\Fixture.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dynamics\Island.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dynamics\Joints\AngleJoint.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dynamics\Joints\DistanceJoint.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dynamics\Joints\FrictionJoint.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dynamics\Joints\GearJoint.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dynamics\Joints\Joint.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dynamics\Joints\LineJoint.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dynamics\Joints\PrismaticJoint.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dynamics\Joints\PulleyJoint.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dynamics\Joints\RevoluteJoint.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dynamics\Joints\RopeJoint.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dynamics\Joints\SliderJoint.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dynamics\Joints\WeldJoint.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dynamics\TimeStep.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dynamics\World.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dynamics\WorldCallbacks.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Factories\BodyFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Factories\FixtureFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Factories\JointFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Factories\LinkFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Settings.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Wrapper\MathHelper.cs" />
+  </ItemGroup>
+</Project>

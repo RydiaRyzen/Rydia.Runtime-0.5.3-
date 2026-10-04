@@ -20,7 +20,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Backend\ES20\VertexAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Backend\ES20\VertexAttributenfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Backend\GLObject.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Drawing2D\Shader2D.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Drawing2D\Texture2D.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GLES30App.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Resources\AudioData.cs" />

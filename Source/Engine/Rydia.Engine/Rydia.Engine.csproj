@@ -10,6 +10,11 @@
     <Folder Include="Backend\Audio\" />
     <Folder Include="Backend\Graphics\" />
     <Folder Include="Backend\Physics\" />
+    <Folder Include="Backend\FileSystem\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Runtime\Rydia.Runtime\Rydia.Runtime.csproj" />
   </ItemGroup>
 
 </Project>

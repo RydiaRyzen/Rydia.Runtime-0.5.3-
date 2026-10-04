@@ -70,8 +70,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1700-Samples", "1700-Sample
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Rydia.Runtime.GLES2Samples.Shared", "Source\Runtime\Samples\Rydia.Runtime.OooglesSamples.Shared\Rydia.Runtime.GLES2Samples.Shared.shproj", "{83E8C81B-2609-470E-9378-435E813B013C}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Rydia.Runtime.OpenTKBindings", "Source\Platform\Rydia.Runtime.OpenTKBindings\Rydia.Runtime.OpenTKBindings.shproj", "{D27EBCD9-EF59-48A9-90D2-8A67A0D09B96}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rydia.ResourceConverter", "Source\Editor\Rydia.ResourceConverter\Rydia.ResourceConverter.csproj", "{8160FCEA-1387-4352-9F54-443BA45C5905}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1710-Engine", "1710-Engine", "{6C4B4291-15CF-4965-A078-8422A19CE2C1}"
@@ -91,6 +89,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rydia.Runtime", "Source\Runtime\Rydia.Runtime\Rydia.Runtime.csproj", "{61FA57D0-4CBE-4405-8D92-5C7D88160ECC}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Rydia.Randomizer", "Source\Runtime\Lib\Rydia.Randomizer\Rydia.Randomizer.shproj", "{880EE0B7-073D-471F-BD3D-88F2E7D6EA4F}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Rydia.Graphics.Api.ES30.OpenTKBindings", "Source\Runtime\Api\Rydia.Graphics.Api.ES30.OpenTKBindings\Rydia.Graphics.Api.ES30.OpenTKBindings.shproj", "{584781E6-0B78-4EC3-8E44-097CE89D32D4}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Rydia.Physics", "Source\Runtime\Lib\Rydia.Physics\Rydia.Physics.shproj", "{8A213178-04AC-4B17-A9C2-6199C956C0B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -174,32 +176,35 @@ Global
 		{D1348E79-A58B-4189-9AD2-687DDF786463} = {CEE52E90-564B-44DF-844F-2C833FED466C}
 		{4ED1A28F-F2BB-4330-8421-40BC771A0CFC} = {83E6FB72-0FA9-4EDF-9A04-C0B6284ED320}
 		{83E8C81B-2609-470E-9378-435E813B013C} = {2AF1B92E-909E-43F1-92D8-7C09C3BCEFF7}
-		{D27EBCD9-EF59-48A9-90D2-8A67A0D09B96} = {3B2BF8FC-A92C-40BB-9B1D-EF90F7EECDF3}
 		{8160FCEA-1387-4352-9F54-443BA45C5905} = {4E5876F9-5C6D-4B48-A131-BC1429DE80D8}
 		{6C4B4291-15CF-4965-A078-8422A19CE2C1} = {4ED1A28F-F2BB-4330-8421-40BC771A0CFC}
 		{1AA4AFF5-B295-420E-96CF-119B60040C5D} = {6C4B4291-15CF-4965-A078-8422A19CE2C1}
 		{4E5876F9-5C6D-4B48-A131-BC1429DE80D8} = {4ED1A28F-F2BB-4330-8421-40BC771A0CFC}
 		{2AF1B92E-909E-43F1-92D8-7C09C3BCEFF7} = {4ED1A28F-F2BB-4330-8421-40BC771A0CFC}
 		{D4452F1A-D863-42EB-8334-266D0FED6F34} = {DB75DE5C-6FCD-41F0-A340-E26FCC0C2342}
-		{5E295DFA-21C3-487E-8E3E-B2957E1D354A} = {D2E1A055-2A2E-4B82-8E97-DB4FF2FBFB5B}
-		{09E0AF1E-03C9-4918-9969-499D2B12F6ED} = {D2E1A055-2A2E-4B82-8E97-DB4FF2FBFB5B}
+		{5E295DFA-21C3-487E-8E3E-B2957E1D354A} = {43E1EC05-7FA9-4FD7-8C54-B42FDE8B5B8A}
+		{09E0AF1E-03C9-4918-9969-499D2B12F6ED} = {5F3B155B-B6F1-473E-B65D-30097EB5D7CE}
 		{61FA57D0-4CBE-4405-8D92-5C7D88160ECC} = {3240D1A5-4C4B-4755-B3FF-3FDDA6586857}
 		{880EE0B7-073D-471F-BD3D-88F2E7D6EA4F} = {CEE52E90-564B-44DF-844F-2C833FED466C}
+		{584781E6-0B78-4EC3-8E44-097CE89D32D4} = {5F423DFC-2C74-4AF2-A1D1-B8E2716C7C48}
+		{8A213178-04AC-4B17-A9C2-6199C956C0B1} = {CEE52E90-564B-44DF-844F-2C833FED466C}
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Source\Runtime\Lib\Rydia.Serialization\Rydia.Serialization.projitems*{006c9f26-6fa8-45cb-b2d4-ce716f5c60b6}*SharedItemsImports = 13
 		Source\Editor\Rydia.SolutionBuilder\Rydia.SolutionBuilder.projitems*{09e0af1e-03c9-4918-9969-499d2b12f6ed}*SharedItemsImports = 5
 		Source\Runtime\Samples\SampleEngine\SampleEngine.projitems*{1aa4aff5-b295-420e-96cf-119b60040c5d}*SharedItemsImports = 13
-		Source\Platform\Rydia.Runtime.OpenTKBindings\Rydia.Runtime.OpenTKBindings.projitems*{1d8c5ef2-9028-4ec0-b3e4-bf23f3d7fb70}*SharedItemsImports = 5
 		Source\Runtime\Api\Rydia.Audio.Api.NVorbis\Rydia.Audio.Api.NVorbis.projitems*{1d8c5ef2-9028-4ec0-b3e4-bf23f3d7fb70}*SharedItemsImports = 5
 		Source\Runtime\Api\Rydia.Audio.Api.OpenAL\Rydia.Audio.Api.OpenAL.projitems*{1d8c5ef2-9028-4ec0-b3e4-bf23f3d7fb70}*SharedItemsImports = 5
+		Source\Runtime\Api\Rydia.Graphics.Api.ES30.OpenTKBindings\Rydia.Graphics.Api.ES30.OpenTKBindings.projitems*{1d8c5ef2-9028-4ec0-b3e4-bf23f3d7fb70}*SharedItemsImports = 5
 		Source\Runtime\Api\Rydia.Graphics.Api.ES30\Rydia.Graphics.Api.ES20.projitems*{1d8c5ef2-9028-4ec0-b3e4-bf23f3d7fb70}*SharedItemsImports = 5
 		Source\Runtime\Samples\Rydia.Runtime.OooglesSamples.Shared\Rydia.Runtime.OooglesSamples.Shared.projitems*{21b9fd91-14b2-4beb-86d4-b2a349607dbe}*SharedItemsImports = 5
 		Source\Runtime\Samples\SampleEngine\SampleEngine.projitems*{21b9fd91-14b2-4beb-86d4-b2a349607dbe}*SharedItemsImports = 5
 		Source\Runtime\Api\Rydia.Audio.Api.OpenAL\Rydia.Audio.Api.OpenAL.projitems*{3f310f20-6d7c-472c-8a04-2f385ec8118f}*SharedItemsImports = 13
 		Source\Runtime\Rydia.Runtime.Core\Rydia.Runtime.Core.projitems*{4ccb0314-92ea-4e60-9f4c-a3372e93d666}*SharedItemsImports = 13
+		Source\Runtime\Api\Rydia.Graphics.Api.ES30.OpenTKBindings\Rydia.Graphics.Api.ES30.OpenTKBindings.projitems*{584781e6-0b78-4ec3-8e44-097ce89d32d4}*SharedItemsImports = 13
 		Source\Editor\Rydia.SolutionBuilder\Rydia.SolutionBuilder.projitems*{5e295dfa-21c3-487e-8e3e-b2957e1d354a}*SharedItemsImports = 13
 		Source\Runtime\Lib\Rydia.Diagnostics\Rydia.Diagnostics.projitems*{61fa57d0-4cbe-4405-8d92-5c7d88160ecc}*SharedItemsImports = 5
+		Source\Runtime\Lib\Rydia.Physics\Rydia.Physics.projitems*{61fa57d0-4cbe-4405-8d92-5c7d88160ecc}*SharedItemsImports = 5
 		Source\Runtime\Lib\Rydia.Primitives\Rydia.Primitives.projitems*{61fa57d0-4cbe-4405-8d92-5c7d88160ecc}*SharedItemsImports = 5
 		Source\Runtime\Lib\Rydia.Randomizer\Rydia.Randomizer.projitems*{61fa57d0-4cbe-4405-8d92-5c7d88160ecc}*SharedItemsImports = 5
 		Source\Runtime\Lib\Rydia.Serialization\Rydia.Serialization.projitems*{61fa57d0-4cbe-4405-8d92-5c7d88160ecc}*SharedItemsImports = 5
@@ -208,6 +213,7 @@ Global
 		Source\Runtime\Samples\SampleEngine\SampleEngine.projitems*{8160fcea-1387-4352-9f54-443ba45c5905}*SharedItemsImports = 5
 		Source\Runtime\Samples\Rydia.Runtime.OooglesSamples.Shared\Rydia.Runtime.OooglesSamples.Shared.projitems*{83e8c81b-2609-470e-9378-435e813b013c}*SharedItemsImports = 13
 		Source\Runtime\Lib\Rydia.Randomizer\Rydia.Randomizer.projitems*{880ee0b7-073d-471f-bd3d-88f2e7d6ea4f}*SharedItemsImports = 13
+		Source\Runtime\Lib\Rydia.Physics\Rydia.Physics.projitems*{8a213178-04ac-4b17-a9c2-6199c956c0b1}*SharedItemsImports = 13
 		Source\Runtime\Lib\Rydia\Rydia.projitems*{8ba16d4d-0767-483f-9232-4782924cb4e3}*SharedItemsImports = 13
 		Source\Runtime\Samples\Rydia.Runtime.OooglesSamples.Shared\Rydia.Runtime.OooglesSamples.Shared.projitems*{922df265-51da-4482-8696-9709e80f5e46}*SharedItemsImports = 5
 		Source\Runtime\Samples\SampleEngine\SampleEngine.projitems*{922df265-51da-4482-8696-9709e80f5e46}*SharedItemsImports = 5
@@ -216,11 +222,10 @@ Global
 		Source\Runtime\Lib\Rydia.Primitives\Rydia.Primitives.projitems*{9b9f4db5-3f1c-4b88-86dc-b3d748df8fe3}*SharedItemsImports = 5
 		Source\Runtime\Lib\Rydia\Rydia.projitems*{9b9f4db5-3f1c-4b88-86dc-b3d748df8fe3}*SharedItemsImports = 5
 		Source\Runtime\Lib\Rydia.Diagnostics\Rydia.Diagnostics.projitems*{d1348e79-a58b-4189-9ad2-687ddf786463}*SharedItemsImports = 13
-		Source\Platform\Rydia.Runtime.OpenTKBindings\Rydia.Runtime.OpenTKBindings.projitems*{d27ebcd9-ef59-48a9-90d2-8a67a0d09b96}*SharedItemsImports = 13
 		Source\Runtime\Lib\Rydia.Primitives\Rydia.Primitives.projitems*{f895a511-30d7-4a30-83fe-ed5b32fa5cf4}*SharedItemsImports = 13
-		Source\Platform\Rydia.Runtime.OpenTKBindings\Rydia.Runtime.OpenTKBindings.projitems*{fc768e1d-075e-46eb-a0c3-c8ed1190af9d}*SharedItemsImports = 5
 		Source\Runtime\Api\Rydia.Audio.Api.NVorbis\Rydia.Audio.Api.NVorbis.projitems*{fc768e1d-075e-46eb-a0c3-c8ed1190af9d}*SharedItemsImports = 5
 		Source\Runtime\Api\Rydia.Audio.Api.OpenAL\Rydia.Audio.Api.OpenAL.projitems*{fc768e1d-075e-46eb-a0c3-c8ed1190af9d}*SharedItemsImports = 5
+		Source\Runtime\Api\Rydia.Graphics.Api.ES30.OpenTKBindings\Rydia.Graphics.Api.ES30.OpenTKBindings.projitems*{fc768e1d-075e-46eb-a0c3-c8ed1190af9d}*SharedItemsImports = 5
 		Source\Runtime\Api\Rydia.Graphics.Api.ES30\Rydia.Graphics.Api.ES20.projitems*{fc768e1d-075e-46eb-a0c3-c8ed1190af9d}*SharedItemsImports = 5
 	EndGlobalSection
 EndGlobal

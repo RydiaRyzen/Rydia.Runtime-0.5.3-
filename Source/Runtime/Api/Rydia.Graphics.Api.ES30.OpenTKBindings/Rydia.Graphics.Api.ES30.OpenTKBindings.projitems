@@ -3,10 +3,10 @@
   <PropertyGroup>
     <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
     <HasSharedItems>true</HasSharedItems>
-    <SharedGUID>d27ebcd9-ef59-48a9-90d2-8a67a0d09b96</SharedGUID>
+    <SharedGUID>584781e6-0b78-4ec3-8e44-097ce89d32d4</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>Rydia.Runtime.OpenTKBindings</Import_RootNamespace>
+    <Import_RootNamespace>Rydia.Graphics.Api.ES30.OpenTKBindings</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)ALBindings.cs" />
