@@ -17,6 +17,8 @@ namespace Rydia.Runtime.Windows.App
             ApplicationConfiguration.Initialize();
             var ConsoleLog = new ConsoleLogListener();
             GlobalLogger.AddListener(ConsoleLog);
+            var fileLog = new FileLogListener("Logs\\Rydia.Runtime.Windows.App.log");
+            GlobalLogger.AddListener(fileLog);
             var app = SampleApp.E(24);
             using (var platform = new WindowsPlatform())
             {
