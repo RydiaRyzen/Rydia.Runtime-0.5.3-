@@ -8,6 +8,7 @@ using System.Linq.Expressions;
 
 namespace Rydia
 {
+
     /// <summary>
     /// 汎用型に対する数学演算を提供するクラスです。
     /// 演算は各型が最初に使用された時点で動的に解決されます。

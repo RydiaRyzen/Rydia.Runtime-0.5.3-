@@ -53,6 +53,7 @@ namespace Rydia.SolutionBuilder.App
 
                 var classC = new ClassFile("ClassC");
                 projectA.AddClass(classC);
+
                 solutionFile.AddProject(projectA);
             }
 
