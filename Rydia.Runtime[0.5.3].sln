@@ -120,6 +120,8 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Rydia.Windows.Forms.Timelin
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Rydia.Windows.Forms.TreeView", "Source\Editor\Lib\Rydia.Windows.Forms.TreeView\Rydia.Windows.Forms.TreeView.shproj", "{BE91C21F-923B-4848-B35C-D473C5B6F2EB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rydia.GameStudio.App", "Source\Editor\Rydia.GameStudio.App\Rydia.GameStudio.App.csproj", "{A722DE6E-5323-4A75-A521-82118612275D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -176,6 +178,10 @@ Global
 		{7F250995-6592-45C7-849C-40EDA42E3805}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F250995-6592-45C7-849C-40EDA42E3805}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F250995-6592-45C7-849C-40EDA42E3805}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A722DE6E-5323-4A75-A521-82118612275D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A722DE6E-5323-4A75-A521-82118612275D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A722DE6E-5323-4A75-A521-82118612275D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A722DE6E-5323-4A75-A521-82118612275D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -234,6 +240,7 @@ Global
 		{2E2346BB-3E71-4DCC-AD49-2DFA96500906} = {A98FB95E-213F-41D9-A16E-C245212AD627}
 		{F0496118-7EA0-47B6-A4B9-4A93B7CF2061} = {A98FB95E-213F-41D9-A16E-C245212AD627}
 		{BE91C21F-923B-4848-B35C-D473C5B6F2EB} = {A98FB95E-213F-41D9-A16E-C245212AD627}
+		{A722DE6E-5323-4A75-A521-82118612275D} = {381829E0-EEC7-4907-8E5F-7631EEC1A367}
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Source\Runtime\Lib\Rydia.Serialization\Rydia.Serialization.projitems*{006c9f26-6fa8-45cb-b2d4-ce716f5c60b6}*SharedItemsImports = 13

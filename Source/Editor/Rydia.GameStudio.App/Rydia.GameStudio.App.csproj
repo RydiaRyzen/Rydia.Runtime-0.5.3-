@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Rydia</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="GameStudio\EmbeddedResources\SplashLogo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Platform\Rydia.Runtime.Windows\Rydia.Runtime.Windows.csproj" />
+    <ProjectReference Include="..\Lib\Rydia.Windows.Forms\Rydia.Windows.Forms.csproj" />
+  </ItemGroup>
+
+</Project>

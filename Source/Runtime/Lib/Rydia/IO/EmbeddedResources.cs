@@ -18,7 +18,6 @@ namespace Rydia.IO
     {
 
         private Assembly _assembly = null;
-        private string _prefix;
 
         public EmbeddedResources()
         {
@@ -26,7 +25,6 @@ namespace Rydia.IO
             if (this._assembly == null)
                 this._assembly = Assembly.GetAssembly(typeof(TTypeInAssetsAssembly));
             Debug.Assert(this._assembly != null);
-            this._prefix = this._assembly.GetName().Name + ".";
         }
 
         /// <summary>
@@ -43,7 +41,7 @@ namespace Rydia.IO
             Debug.Assert(this._assembly != null, "Did you forget to call Initialize()?");
             var names = this._assembly.GetManifestResourceNames();
             var modules = this._assembly.GetLoadedModules();
-            return this._assembly.GetManifestResourceStream(this._prefix + filename); //(_prefix + filename);
+            return this._assembly.GetManifestResourceStream(filename); //(_prefix + filename);
         }
 
         /// <summary>
