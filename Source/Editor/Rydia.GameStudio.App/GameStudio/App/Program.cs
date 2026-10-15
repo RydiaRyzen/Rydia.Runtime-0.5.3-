@@ -14,13 +14,13 @@ namespace Rydia.GameStudio.App
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             
-            using (var hub = new HubForm())
+            using (var splash = new SplashForm())
             {
-                if (hub.ShowDialog() != DialogResult.OK)
+                if (splash.ShowDialog() != DialogResult.OK)
                     return;
-                using (var splash = new SplashForm())
+                using (var hub = new HubForm())
                 {
-                    if (splash.ShowDialog() != DialogResult.OK)
+                    if (hub.ShowDialog() != DialogResult.OK)
                         return;
                 }
             }
