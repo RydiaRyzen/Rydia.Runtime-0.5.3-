@@ -82,5 +82,29 @@ namespace Rydia.GameStudio.Forms
             this.statusLabel.Text = message;
         }
 
+        protected override async void OnShown(EventArgs e)
+        {
+            base.OnShown(e);
+            // フォームが表示された後に、初期化処理を開始する
+            try
+            {
+                await AppInitializer.InitializeAsync(SetStatus);
+
+                DialogResult = DialogResult.OK;
+                Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    this,
+                    $"初期化に失敗しました。\n{ex.Message}",
+                    "エラー",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                DialogResult = DialogResult.Abort;
+                Close();
+            }
+        }
     }
 }

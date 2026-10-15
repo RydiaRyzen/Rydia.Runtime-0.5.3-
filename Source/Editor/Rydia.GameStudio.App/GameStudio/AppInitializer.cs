@@ -10,11 +10,13 @@ namespace Rydia.GameStudio
     internal static class AppInitializer
     {
 
-        public static async Task InitializeAsync(
-            Action<string> reportStatus)
+        public static async Task InitializeAsync(Action<string> reportStatus)
         {
             reportStatus("設定ファイルを読み込んでいます...");
             await LoadSettingsAsync();
+
+            reportStatus("プラグインを読み込んでいます...");
+            await LoadPluginAsync();
 
             reportStatus("リソースを読み込んでいます...");
             await LoadResourcesAsync();
@@ -27,23 +29,26 @@ namespace Rydia.GameStudio
 
         private static async Task LoadSettingsAsync()
         {
+            EditorContext.LoadSettings();
             await Task.Delay(3000);
+        }
 
-            // TODO: 設定ファイルの読み込み処理
+        private static async Task LoadPluginAsync()
+        {
+            EditorContext.LoadPlugin();
+            await Task.Delay(3000);
         }
 
         private static async Task LoadResourcesAsync()
         {
-            await Task.Delay(5000);
-
-            // TODO: 画像、フォントなどの読み込み処理
+            EditorContext.LoadResorces();
+            await Task.Delay(3000);
         }
 
         private static async Task InitializeServicesAsync()
         {
-            await Task.Delay(6000);
-
-            // TODO: 各種サービスの初期化処理
+            EditorContext.LoadServices();
+            await Task.Delay(3000);
         }
 
     }

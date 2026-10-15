@@ -15,31 +15,13 @@ namespace Rydia.GameStudio.App
             ApplicationConfiguration.Initialize();
             using (var splash = new SplashForm())
             {
-                splash.Shown += async (_, _) =>
-                {
-                    try
-                    {
-                        await AppInitializer.InitializeAsync(splash.SetStatus);
-
-                        splash.DialogResult = DialogResult.OK;
-                        splash.Close();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(
-                            splash,
-                            $"èâä˙âªÇ…é∏îsÇµÇ‹ÇµÇΩÅB\n{ex.Message}",
-                            "ÉGÉâÅ[",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Error);
-
-                        splash.DialogResult = DialogResult.Abort;
-                        splash.Close();
-                    }
-                };
-
                 if (splash.ShowDialog() != DialogResult.OK)
                     return;
+                using (var hub = new HubForm())
+                {
+                    if (hub.ShowDialog() != DialogResult.OK)
+                        return;
+                }
             }
             Application.Run(new MainForm());
         }

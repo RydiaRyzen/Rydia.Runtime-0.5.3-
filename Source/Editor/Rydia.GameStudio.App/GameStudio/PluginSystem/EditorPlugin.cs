@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Rydia.Engine
+namespace Rydia.GameStudio.PluginSystem
 {
 
-    
-    public interface IPlugin
+
+    public class EditorPlugin : IPlugin
     {
 
     }
