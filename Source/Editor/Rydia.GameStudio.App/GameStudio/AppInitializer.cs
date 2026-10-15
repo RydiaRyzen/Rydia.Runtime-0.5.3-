@@ -15,6 +15,9 @@ namespace Rydia.GameStudio
             reportStatus("設定ファイルを読み込んでいます...");
             await LoadSettingsAsync();
 
+            reportStatus("アップデートを確認しています...");
+            await LoadUpdater();
+
             reportStatus("プラグインを読み込んでいます...");
             await LoadPluginAsync();
 
@@ -25,6 +28,12 @@ namespace Rydia.GameStudio
             await InitializeServicesAsync();
 
             reportStatus("起動準備完了");
+        }
+
+        private static async Task LoadUpdater()
+        {
+            EditorContext.LoadUpdater();
+            await Task.Delay(3000);
         }
 
         private static async Task LoadSettingsAsync()

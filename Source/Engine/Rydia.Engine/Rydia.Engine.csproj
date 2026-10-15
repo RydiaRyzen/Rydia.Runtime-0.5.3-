@@ -4,18 +4,125 @@
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <RootNamespace>Rydia</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Backend\Audio\" />
-    <Folder Include="Backend\Graphics\" />
-    <Folder Include="Backend\Physics\" />
-    <Folder Include="Backend\FileSystem\" />
-    <Folder Include="Properties\" />
+    <None Remove="Engine\EmbeddedResources\Array.png" />
+    <None Remove="Engine\EmbeddedResources\Class.png" />
+    <None Remove="Engine\EmbeddedResources\Delegate.png" />
+    <None Remove="Engine\EmbeddedResources\Event.png" />
+    <None Remove="Engine\EmbeddedResources\Field.png" />
+    <None Remove="Engine\EmbeddedResources\iconBinarySerializer.png" />
+    <None Remove="Engine\EmbeddedResources\iconCmpCamera.png" />
+    <None Remove="Engine\EmbeddedResources\iconCmpCapsuleCollider.png" />
+    <None Remove="Engine\EmbeddedResources\iconCmpCircleCollider.png" />
+    <None Remove="Engine\EmbeddedResources\iconCmpEdgeCollider.png" />
+    <None Remove="Engine\EmbeddedResources\iconCmpLoopCollider.png" />
+    <None Remove="Engine\EmbeddedResources\iconCmpProfileRenderer.png" />
+    <None Remove="Engine\EmbeddedResources\iconCmpRectCollider.png" />
+    <None Remove="Engine\EmbeddedResources\iconCmpRigidBodyRenderer.png" />
+    <None Remove="Engine\EmbeddedResources\iconCmpSoundListener.png" />
+    <None Remove="Engine\EmbeddedResources\iconCmpSpriteAnimator.png" />
+    <None Remove="Engine\EmbeddedResources\iconCmpSpriteRenderer.png" />
+    <None Remove="Engine\EmbeddedResources\iconCmpTransform.png" />
+    <None Remove="Engine\EmbeddedResources\iconCmpUnknown.png" />
+    <None Remove="Engine\EmbeddedResources\iconCmpVelocityTracker.png" />
+    <None Remove="Engine\EmbeddedResources\iconGameObj.png" />
+    <None Remove="Engine\EmbeddedResources\iconResAudioData.png" />
+    <None Remove="Engine\EmbeddedResources\iconResDrawTechnique.png" />
+    <None Remove="Engine\EmbeddedResources\iconResFont.png" />
+    <None Remove="Engine\EmbeddedResources\iconResFragmentShader.png" />
+    <None Remove="Engine\EmbeddedResources\iconResMaterial.png" />
+    <None Remove="Engine\EmbeddedResources\iconResPixmap.png" />
+    <None Remove="Engine\EmbeddedResources\iconResPrefabEmpty.png" />
+    <None Remove="Engine\EmbeddedResources\iconResPrefabFull.png" />
+    <None Remove="Engine\EmbeddedResources\iconResRenderSetup.png" />
+    <None Remove="Engine\EmbeddedResources\iconResRenderTarget.png" />
+    <None Remove="Engine\EmbeddedResources\iconResScene.png" />
+    <None Remove="Engine\EmbeddedResources\iconResShaderProgram.png" />
+    <None Remove="Engine\EmbeddedResources\iconResSound.png" />
+    <None Remove="Engine\EmbeddedResources\iconResTexture.png" />
+    <None Remove="Engine\EmbeddedResources\iconResUnknown.png" />
+    <None Remove="Engine\EmbeddedResources\iconResVertexShader.png" />
+    <None Remove="Engine\EmbeddedResources\iconXmlSerializer.png" />
+    <None Remove="Engine\EmbeddedResources\Method.png" />
+    <None Remove="Engine\EmbeddedResources\Object.png" />
+    <None Remove="Engine\EmbeddedResources\ObjectRef.png" />
+    <None Remove="Engine\EmbeddedResources\Primitive.png" />
+    <None Remove="Engine\EmbeddedResources\Property.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Engine\EmbeddedResources\Array.png" />
+    <EmbeddedResource Include="Engine\EmbeddedResources\Class.png" />
+    <EmbeddedResource Include="Engine\EmbeddedResources\Delegate.png" />
+    <EmbeddedResource Include="Engine\EmbeddedResources\Event.png" />
+    <EmbeddedResource Include="Engine\EmbeddedResources\Field.png" />
+    <EmbeddedResource Include="Engine\EmbeddedResources\iconBinarySerializer.png" />
+    <EmbeddedResource Include="Engine\EmbeddedResources\iconCmpCamera.png" />
+    <EmbeddedResource Include="Engine\EmbeddedResources\iconCmpCapsuleCollider.png" />
+    <EmbeddedResource Include="Engine\EmbeddedResources\iconCmpCircleCollider.png" />
+    <EmbeddedResource Include="Engine\EmbeddedResources\iconCmpEdgeCollider.png" />
+    <EmbeddedResource Include="Engine\EmbeddedResources\iconCmpLoopCollider.png" />
+    <EmbeddedResource Include="Engine\EmbeddedResources\iconCmpProfileRenderer.png" />
+    <EmbeddedResource Include="Engine\EmbeddedResources\iconCmpRectCollider.png" />
+    <EmbeddedResource Include="Engine\EmbeddedResources\iconCmpRigidBodyRenderer.png" />
+    <EmbeddedResource Include="Engine\EmbeddedResources\iconCmpSoundListener.png" />
+    <EmbeddedResource Include="Engine\EmbeddedResources\iconCmpSpriteAnimator.png" />
+    <EmbeddedResource Include="Engine\EmbeddedResources\iconCmpSpriteRenderer.png" />
+    <EmbeddedResource Include="Engine\EmbeddedResources\iconCmpTransform.png" />
+    <EmbeddedResource Include="Engine\EmbeddedResources\iconCmpUnknown.png" />
+    <EmbeddedResource Include="Engine\EmbeddedResources\iconCmpVelocityTracker.png" />
+    <EmbeddedResource Include="Engine\EmbeddedResources\iconGameObj.png" />
+    <EmbeddedResource Include="Engine\EmbeddedResources\iconResAudioData.png" />
+    <EmbeddedResource Include="Engine\EmbeddedResources\iconResDrawTechnique.png" />
+    <EmbeddedResource Include="Engine\EmbeddedResources\iconResFont.png" />
+    <EmbeddedResource Include="Engine\EmbeddedResources\iconResFragmentShader.png" />
+    <EmbeddedResource Include="Engine\EmbeddedResources\iconResMaterial.png" />
+    <EmbeddedResource Include="Engine\EmbeddedResources\iconResPixmap.png" />
+    <EmbeddedResource Include="Engine\EmbeddedResources\iconResPrefabEmpty.png" />
+    <EmbeddedResource Include="Engine\EmbeddedResources\iconResPrefabFull.png" />
+    <EmbeddedResource Include="Engine\EmbeddedResources\iconResRenderSetup.png" />
+    <EmbeddedResource Include="Engine\EmbeddedResources\iconResRenderTarget.png" />
+    <EmbeddedResource Include="Engine\EmbeddedResources\iconResScene.png" />
+    <EmbeddedResource Include="Engine\EmbeddedResources\iconResShaderProgram.png" />
+    <EmbeddedResource Include="Engine\EmbeddedResources\iconResSound.png" />
+    <EmbeddedResource Include="Engine\EmbeddedResources\iconResTexture.png" />
+    <EmbeddedResource Include="Engine\EmbeddedResources\iconResUnknown.png" />
+    <EmbeddedResource Include="Engine\EmbeddedResources\iconResVertexShader.png" />
+    <EmbeddedResource Include="Engine\EmbeddedResources\iconXmlSerializer.png" />
+    <EmbeddedResource Include="Engine\EmbeddedResources\Method.png" />
+    <EmbeddedResource Include="Engine\EmbeddedResources\Object.png" />
+    <EmbeddedResource Include="Engine\EmbeddedResources\ObjectRef.png" />
+    <EmbeddedResource Include="Engine\EmbeddedResources\Primitive.png" />
+    <EmbeddedResource Include="Engine\EmbeddedResources\Property.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Engine\Backend\Audio\" />
+    <Folder Include="Engine\Backend\Graphics\" />
+    <Folder Include="Engine\Backend\Physics\" />
+    <Folder Include="Engine\Backend\FileSystem\" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\Runtime\Rydia.Runtime\Rydia.Runtime.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Engine\Properties\CoreResource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CoreResource.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Engine\Properties\CoreResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CoreResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

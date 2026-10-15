@@ -47,6 +47,11 @@ namespace Rydia.GameStudio
             // TODO: 各種サービスの初期化処理
         }
 
+        internal static void LoadUpdater()
+        {
+            // TODO: アップデートの確認処理
+
+        }
     }
 
 }
