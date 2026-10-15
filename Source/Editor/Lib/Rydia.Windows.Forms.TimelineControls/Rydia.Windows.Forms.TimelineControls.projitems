@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>f0496118-7ea0-47b6-a4b9-4a93b7cf2061</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Rydia.Windows.Forms.TimelineControls</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)EventArgs\TimelineGraphCollectionEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EventArgs\TimelineGraphEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EventArgs\TimelineGraphModelChangedEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EventArgs\TimelineGraphRangeEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EventArgs\TimelineTrackModelChangedEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EventArgs\TimelineTrackModelCollectionEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EventArgs\TimelineTrackModelEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EventArgs\TimelineViewCursorEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EventArgs\TimelineViewEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EventArgs\TimelineViewPaintEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EventArgs\TimelineViewSelectionEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EventArgs\TimelineViewTrackEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EventArgs\TimelineViewTrackPaintEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ITimelineGraphModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ITimelineGraphTrackModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ITimelineModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ITimelineTrackModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\TimelineGraphTrackModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\TimelineLinearGraphModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\TimelineModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\TimelineTrackModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TimelineModelViewAssignmentAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TimelineView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)TimelineViewControlRenderer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TimelineViewGraph.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TimelineViewGraphTrack.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TimelineViewRulerMark.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TimelineViewRulerMarkWeight.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TimelineViewTrack.cs" />
+  </ItemGroup>
+</Project>

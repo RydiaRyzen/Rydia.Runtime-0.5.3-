@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>2e2346bb-3e71-4dcc-ad49-2dfa96500906</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Rydia.Windows.Forms.PropertyEditing</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)BitmaskItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EditorTemplates\BitmaskEditorTemplate.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EditorTemplates\BitmaskSelectorDropDown.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)EditorTemplates\ComboBoxDropDown.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)EditorTemplates\ComboBoxEditorTemplate.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EditorTemplates\EditorTemplate.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EditorTemplates\MultiComboBoxDropDown.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)EditorTemplates\MultiComboBoxEditorTemplate.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EditorTemplates\NumericEditorTemplate.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EditorTemplates\StringEditorTemplate.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GroupedPropertyEditor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MemberwisePropertyEditor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ObjectItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PropertyEditor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PropertyEditors\BitmaskPropertyEditor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PropertyEditors\BoolPropertyEditor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PropertyEditors\EnumPropertyEditor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PropertyEditors\FlaggedEnumPropertyEditor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PropertyEditors\IDictionaryPropertyEditor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PropertyEditors\IListPropertyEditor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PropertyEditors\LabelPropertyEditor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PropertyEditors\NumericPropertyEditor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PropertyEditors\ObjectSelectorPropertyEditor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PropertyEditors\StringPropertyEditor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PropertyGrid.cs" />
+  </ItemGroup>
+</Project>

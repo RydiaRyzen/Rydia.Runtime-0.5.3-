@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>3ffac5f9-de27-47c0-9785-2e75352143bc</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Rydia.Windows.Forms.DesktopIntegration</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Interop\CTaskbarList.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interop\ITaskbarList3.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interop\RECT.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interop\TBATFLAG.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interop\TBPFLAG.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interop\THBFLAGS.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interop\THBMASK.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interop\THUMBBUTTON.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Taskbar.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ThumbnailProgressState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)WindowsFormsExtensions.cs" />
+  </ItemGroup>
+</Project>

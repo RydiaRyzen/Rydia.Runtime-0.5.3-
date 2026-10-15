@@ -1,0 +1,57 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+	  <UseWindowsForms>true</UseWindowsForms>
+	  <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+	  <GenerateDocumentationFile>True</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <Import Project="..\Rydia.Windows.Forms.TreeView\Rydia.Windows.Forms.TreeView.projitems" Label="Shared" />
+
+  <Import Project="..\Rydia.Windows.Forms.DesktopIntegration\Rydia.Windows.Forms.DesktopIntegration.projitems" Label="Shared" />
+
+  <Import Project="..\Rydia.Windows.Forms.ColorControls\Rydia.Windows.Forms.ColorControls.projitems" Label="Shared" />
+
+  <Import Project="..\Rydia.Windows.Forms.Core\Rydia.Windows.Forms.Core.projitems" Label="Shared" />
+
+  <Import Project="..\Rydia.Windows.Forms.PropertyEditing\Rydia.Windows.Forms.PropertyEditing.projitems" Label="Shared" />
+
+  <Import Project="..\Rydia.Windows.Forms.PopupControl\Rydia.Windows.Forms.PopupControl.projitems" Label="Shared" />
+
+  <Import Project="..\Rydia.Windows.Forms.TimelineControls\Rydia.Windows.Forms.TimelineControls.projitems" Label="Shared" />
+
+  <Import Project="..\Rydia.Windows.Forms.Docking\Rydia.Windows.Forms.Docking.projitems" Label="Shared" />
+
+  <ItemGroup>
+    <Reference Include="System.Design" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="..\Rydia.Windows.Forms.Core\Properties\CoreResources.Designer.cs">
+      <DependentUpon>CoreResources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="E:\0000-Duality\Duality[3.0.1]\Duality[3.0.1]\Source\Core\Lib\Rydia.Windows.Forms.Docking\Resources.Designer.cs">
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="E:\0000-Duality\Duality[3.0.1]\Duality[3.0.1]\Source\Core\Lib\Rydia.Windows.Forms.Docking\Strings.Designer.cs">
+      <DependentUpon>Strings.resx</DependentUpon>
+    </Compile>
+    <Compile Update="ItemViews\TiledView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="ItemViews\TiledViewTextItemEditor.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="OriginSelector.cs">
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="E:\0000-Duality\Duality[3.0.1]\Duality[3.0.1]\Source\Core\Lib\Rydia.Windows.Forms.Core\Properties\CoreResources.resx">
+      <LastGenOutput>CoreResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

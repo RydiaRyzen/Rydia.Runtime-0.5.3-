@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>be91c21f-923b-4848-b35c-d473c5b6f2eb</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Rydia.Windows.Forms.TreeView</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Tree\TreeViewAdv.resx">
+      <DependentUpon>TreeViewAdv.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)BitmapHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GifDecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NumericTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)PerformanceAnalyzer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Properties\Resources.Designer.cs">
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ResourceHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)StringCollectionEditor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TextHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Threading\AbortableThreadPool.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Threading\WorkItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Threading\WorkItemStatus.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TimeCounter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\AutoHeaderHeightLayout.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\AutoRowHeightLayout.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\ColumnCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\DrawColumnEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\DrawContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\DropNodeValidatingEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\DropPosition.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\EditorContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\Enums.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\FixedHeaderHeightLayout.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\FixedRowHeightLayout.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\IHeaderLayout.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\IncrementalSearch.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\Input\ClickColumnState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\Input\ColumnState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\Input\InputState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\Input\InputWithControl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\Input\InputWithShift.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\Input\NormalInputState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\Input\ReorderColumnState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\Input\ResizeColumnState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\IRowLayout.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\IToolTipProvider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\ITreeModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\ListModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\NativeMethods.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\Node.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\NodeControlInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\NodeControls\BaseTextControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\NodeControls\BindableControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\NodeControls\DrawEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\NodeControls\DrawIconEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\NodeControls\DrawTextEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\NodeControls\EditableControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\NodeControls\EditEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\NodeControls\ExpandingIcon.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\NodeControls\InteractiveControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\NodeControls\LabelEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\NodeControls\NodeCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\NodeControls\NodeComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\NodeControls\NodeControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\NodeControls\NodeControlsCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\NodeControls\NodeControlValueEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\NodeControls\NodeDecimalTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\NodeControls\NodeEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\NodeControls\NodeIcon.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\NodeControls\NodeIntegerTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\NodeControls\NodeNumericUpDown.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\NodeControls\NodePlusMinus.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\NodeControls\NodeStateIcon.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\NodeControls\NodeTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\SortedTreeModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\TreeColumn.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\TreeColumnCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\TreeColumnEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\TreeListAdapter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\TreeModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\TreeModelBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\TreeModelEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\TreeNodeAdv.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\TreeNodeAdvMouseEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\TreePath.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\TreePathEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\TreeViewAdv.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\TreeViewAdv.Designer.cs">
+      <DependentUpon>TreeViewAdv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\TreeViewAdv.Draw.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\TreeViewAdv.Editor.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\TreeViewAdv.Input.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\TreeViewAdv.Properties.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\TreeViewAdvCancelEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\TreeViewAdvEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tree\TreeViewRowDrawEventArgs.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)Migrated rules for Aga.Controls.ruleset" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\check.bmp" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\DVSplit.cur" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\Folder.bmp" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\FolderClosed.bmp" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\Leaf.bmp" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\loading_icon" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\minus.bmp" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\plus.bmp" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\Thumbs.db" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\uncheck.bmp" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\unknown.bmp" />
+    <None Include="$(MSBuildThisFileDirectory)Tree\ClassDiagram.cd" />
+    <None Include="$(MSBuildThisFileDirectory)Tree\NodeControls\ClassDiagram.cd" />
+  </ItemGroup>
+</Project>

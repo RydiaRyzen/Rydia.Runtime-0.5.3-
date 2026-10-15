@@ -82,8 +82,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1730-Sources", "1730-Source
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rydia.Engine", "Source\Engine\Rydia.Engine\Rydia.Engine.csproj", "{D4452F1A-D863-42EB-8334-266D0FED6F34}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Rydia.SolutionBuilder", "Source\Editor\Rydia.SolutionBuilder\Rydia.SolutionBuilder.shproj", "{5E295DFA-21C3-487E-8E3E-B2957E1D354A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rydia.SolutionBuilder.App", "Source\Editor\Rydia.SolutionBuilder.App\Rydia.SolutionBuilder.App.csproj", "{09E0AF1E-03C9-4918-9969-499D2B12F6ED}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rydia.Runtime", "Source\Runtime\Rydia.Runtime\Rydia.Runtime.csproj", "{61FA57D0-4CBE-4405-8D92-5C7D88160ECC}"
@@ -101,6 +99,26 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2400-Platforms", "2400-Platforms", "{B1B3A2B9-6196-47FD-A060-1E95A82A230B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rydia.Engine.Windows.App", "Source\Engine\Rydia.Engine.Windows.App\Rydia.Engine.Windows.App.csproj", "{401BF0A0-6126-45A9-BE02-D8292C3DBE25}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3200-Editor", "3200-Editor", "{381829E0-EEC7-4907-8E5F-7631EEC1A367}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rydia.Windows.Forms", "Source\Editor\Lib\Rydia.Windows.Forms\Rydia.Windows.Forms.csproj", "{7F250995-6592-45C7-849C-40EDA42E3805}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Rydia.Windows.Forms.ColorControls", "Source\Editor\Lib\Rydia.Windows.Forms.ColorControls\Rydia.Windows.Forms.ColorControls.shproj", "{80D80FAF-8EAD-400B-A379-BD5A36280FB4}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Rydia.Windows.Forms.Core", "Source\Editor\Lib\Rydia.Windows.Forms.Core\Rydia.Windows.Forms.Core.shproj", "{47C1342B-D08C-456F-9CCC-DD3A6CA0D512}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Rydia.Windows.Forms.DesktopIntegration", "Source\Editor\Lib\Rydia.Windows.Forms.DesktopIntegration\Rydia.Windows.Forms.DesktopIntegration.shproj", "{3FFAC5F9-DE27-47C0-9785-2E75352143BC}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Rydia.Windows.Forms.Docking", "Source\Editor\Lib\Rydia.Windows.Forms.Docking\Rydia.Windows.Forms.Docking.shproj", "{551BF23F-FD4F-47BD-A809-F144683F48A3}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Rydia.Windows.Forms.PopupControl", "Source\Editor\Lib\Rydia.Windows.Forms.PopupControl\Rydia.Windows.Forms.PopupControl.shproj", "{94E90868-0A71-46B3-8707-F885F5587944}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Rydia.Windows.Forms.PropertyEditing", "Source\Editor\Lib\Rydia.Windows.Forms.PropertyEditing\Rydia.Windows.Forms.PropertyEditing.shproj", "{2E2346BB-3E71-4DCC-AD49-2DFA96500906}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Rydia.Windows.Forms.TimelineControls", "Source\Editor\Lib\Rydia.Windows.Forms.TimelineControls\Rydia.Windows.Forms.TimelineControls.shproj", "{F0496118-7EA0-47B6-A4B9-4A93B7CF2061}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Rydia.Windows.Forms.TreeView", "Source\Editor\Lib\Rydia.Windows.Forms.TreeView\Rydia.Windows.Forms.TreeView.shproj", "{BE91C21F-923B-4848-B35C-D473C5B6F2EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -154,6 +172,10 @@ Global
 		{401BF0A0-6126-45A9-BE02-D8292C3DBE25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{401BF0A0-6126-45A9-BE02-D8292C3DBE25}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{401BF0A0-6126-45A9-BE02-D8292C3DBE25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F250995-6592-45C7-849C-40EDA42E3805}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F250995-6592-45C7-849C-40EDA42E3805}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F250995-6592-45C7-849C-40EDA42E3805}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F250995-6592-45C7-849C-40EDA42E3805}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -193,7 +215,6 @@ Global
 		{4E5876F9-5C6D-4B48-A131-BC1429DE80D8} = {4ED1A28F-F2BB-4330-8421-40BC771A0CFC}
 		{2AF1B92E-909E-43F1-92D8-7C09C3BCEFF7} = {4ED1A28F-F2BB-4330-8421-40BC771A0CFC}
 		{D4452F1A-D863-42EB-8334-266D0FED6F34} = {DB75DE5C-6FCD-41F0-A340-E26FCC0C2342}
-		{5E295DFA-21C3-487E-8E3E-B2957E1D354A} = {A98FB95E-213F-41D9-A16E-C245212AD627}
 		{09E0AF1E-03C9-4918-9969-499D2B12F6ED} = {4800F8DC-BCE8-41E1-87B5-0879266795CD}
 		{61FA57D0-4CBE-4405-8D92-5C7D88160ECC} = {3240D1A5-4C4B-4755-B3FF-3FDDA6586857}
 		{880EE0B7-073D-471F-BD3D-88F2E7D6EA4F} = {CEE52E90-564B-44DF-844F-2C833FED466C}
@@ -203,10 +224,19 @@ Global
 		{4800F8DC-BCE8-41E1-87B5-0879266795CD} = {034CD51D-5725-485B-9076-B39CA8C5B7C4}
 		{B1B3A2B9-6196-47FD-A060-1E95A82A230B} = {74CEE0EF-CB7C-4765-A4BB-F27F2A9BBB00}
 		{401BF0A0-6126-45A9-BE02-D8292C3DBE25} = {D8A641D1-4E25-46C6-84B2-605C7808DF08}
+		{381829E0-EEC7-4907-8E5F-7631EEC1A367} = {034CD51D-5725-485B-9076-B39CA8C5B7C4}
+		{7F250995-6592-45C7-849C-40EDA42E3805} = {A98FB95E-213F-41D9-A16E-C245212AD627}
+		{80D80FAF-8EAD-400B-A379-BD5A36280FB4} = {A98FB95E-213F-41D9-A16E-C245212AD627}
+		{47C1342B-D08C-456F-9CCC-DD3A6CA0D512} = {A98FB95E-213F-41D9-A16E-C245212AD627}
+		{3FFAC5F9-DE27-47C0-9785-2E75352143BC} = {A98FB95E-213F-41D9-A16E-C245212AD627}
+		{551BF23F-FD4F-47BD-A809-F144683F48A3} = {A98FB95E-213F-41D9-A16E-C245212AD627}
+		{94E90868-0A71-46B3-8707-F885F5587944} = {A98FB95E-213F-41D9-A16E-C245212AD627}
+		{2E2346BB-3E71-4DCC-AD49-2DFA96500906} = {A98FB95E-213F-41D9-A16E-C245212AD627}
+		{F0496118-7EA0-47B6-A4B9-4A93B7CF2061} = {A98FB95E-213F-41D9-A16E-C245212AD627}
+		{BE91C21F-923B-4848-B35C-D473C5B6F2EB} = {A98FB95E-213F-41D9-A16E-C245212AD627}
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Source\Runtime\Lib\Rydia.Serialization\Rydia.Serialization.projitems*{006c9f26-6fa8-45cb-b2d4-ce716f5c60b6}*SharedItemsImports = 13
-		Source\Editor\Rydia.SolutionBuilder\Rydia.SolutionBuilder.projitems*{09e0af1e-03c9-4918-9969-499d2b12f6ed}*SharedItemsImports = 5
 		Source\Runtime\Samples\SampleEngine\SampleEngine.projitems*{1aa4aff5-b295-420e-96cf-119b60040c5d}*SharedItemsImports = 13
 		Source\Runtime\Api\Rydia.Audio.Api.NVorbis\Rydia.Audio.Api.NVorbis.projitems*{1d8c5ef2-9028-4ec0-b3e4-bf23f3d7fb70}*SharedItemsImports = 5
 		Source\Runtime\Api\Rydia.Audio.Api.OpenAL\Rydia.Audio.Api.OpenAL.projitems*{1d8c5ef2-9028-4ec0-b3e4-bf23f3d7fb70}*SharedItemsImports = 5
@@ -214,16 +244,28 @@ Global
 		Source\Runtime\Api\Rydia.Graphics.Api.ES30\Rydia.Graphics.Api.ES20.projitems*{1d8c5ef2-9028-4ec0-b3e4-bf23f3d7fb70}*SharedItemsImports = 5
 		Source\Runtime\Samples\Rydia.Runtime.OooglesSamples.Shared\Rydia.Runtime.OooglesSamples.Shared.projitems*{21b9fd91-14b2-4beb-86d4-b2a349607dbe}*SharedItemsImports = 5
 		Source\Runtime\Samples\SampleEngine\SampleEngine.projitems*{21b9fd91-14b2-4beb-86d4-b2a349607dbe}*SharedItemsImports = 5
+		Source\Editor\Lib\Rydia.Windows.Forms.PropertyEditing\Rydia.Windows.Forms.PropertyEditing.projitems*{2e2346bb-3e71-4dcc-ad49-2dfa96500906}*SharedItemsImports = 13
 		Source\Runtime\Api\Rydia.Audio.Api.OpenAL\Rydia.Audio.Api.OpenAL.projitems*{3f310f20-6d7c-472c-8a04-2f385ec8118f}*SharedItemsImports = 13
+		Source\Editor\Lib\Rydia.Windows.Forms.DesktopIntegration\Rydia.Windows.Forms.DesktopIntegration.projitems*{3ffac5f9-de27-47c0-9785-2e75352143bc}*SharedItemsImports = 13
+		Source\Editor\Lib\Rydia.Windows.Forms.Core\Rydia.Windows.Forms.Core.projitems*{47c1342b-d08c-456f-9ccc-dd3a6ca0d512}*SharedItemsImports = 13
 		Source\Runtime\Rydia.Runtime.Core\Rydia.Runtime.Core.projitems*{4ccb0314-92ea-4e60-9f4c-a3372e93d666}*SharedItemsImports = 13
+		Source\Editor\Lib\Rydia.Windows.Forms.Docking\Rydia.Windows.Forms.Docking.projitems*{551bf23f-fd4f-47bd-a809-f144683f48a3}*SharedItemsImports = 13
 		Source\Runtime\Api\Rydia.Graphics.Api.ES30.OpenTKBindings\Rydia.Graphics.Api.ES30.OpenTKBindings.projitems*{584781e6-0b78-4ec3-8e44-097ce89d32d4}*SharedItemsImports = 13
-		Source\Editor\Rydia.SolutionBuilder\Rydia.SolutionBuilder.projitems*{5e295dfa-21c3-487e-8e3e-b2957e1d354a}*SharedItemsImports = 13
 		Source\Runtime\Lib\Rydia.Diagnostics\Rydia.Diagnostics.projitems*{61fa57d0-4cbe-4405-8d92-5c7d88160ecc}*SharedItemsImports = 5
 		Source\Runtime\Lib\Rydia.Primitives\Rydia.Primitives.projitems*{61fa57d0-4cbe-4405-8d92-5c7d88160ecc}*SharedItemsImports = 5
 		Source\Runtime\Lib\Rydia.Randomizer\Rydia.Randomizer.projitems*{61fa57d0-4cbe-4405-8d92-5c7d88160ecc}*SharedItemsImports = 5
 		Source\Runtime\Lib\Rydia.Serialization\Rydia.Serialization.projitems*{61fa57d0-4cbe-4405-8d92-5c7d88160ecc}*SharedItemsImports = 5
 		Source\Runtime\Lib\Rydia\Rydia.projitems*{61fa57d0-4cbe-4405-8d92-5c7d88160ecc}*SharedItemsImports = 5
 		Source\Runtime\Rydia.Runtime.Core\Rydia.Runtime.Core.projitems*{61fa57d0-4cbe-4405-8d92-5c7d88160ecc}*SharedItemsImports = 5
+		Source\Editor\Lib\Rydia.Windows.Forms.ColorControls\Rydia.Windows.Forms.ColorControls.projitems*{7f250995-6592-45c7-849c-40eda42e3805}*SharedItemsImports = 5
+		Source\Editor\Lib\Rydia.Windows.Forms.Core\Rydia.Windows.Forms.Core.projitems*{7f250995-6592-45c7-849c-40eda42e3805}*SharedItemsImports = 5
+		Source\Editor\Lib\Rydia.Windows.Forms.DesktopIntegration\Rydia.Windows.Forms.DesktopIntegration.projitems*{7f250995-6592-45c7-849c-40eda42e3805}*SharedItemsImports = 5
+		Source\Editor\Lib\Rydia.Windows.Forms.Docking\Rydia.Windows.Forms.Docking.projitems*{7f250995-6592-45c7-849c-40eda42e3805}*SharedItemsImports = 5
+		Source\Editor\Lib\Rydia.Windows.Forms.PopupControl\Rydia.Windows.Forms.PopupControl.projitems*{7f250995-6592-45c7-849c-40eda42e3805}*SharedItemsImports = 5
+		Source\Editor\Lib\Rydia.Windows.Forms.PropertyEditing\Rydia.Windows.Forms.PropertyEditing.projitems*{7f250995-6592-45c7-849c-40eda42e3805}*SharedItemsImports = 5
+		Source\Editor\Lib\Rydia.Windows.Forms.TimelineControls\Rydia.Windows.Forms.TimelineControls.projitems*{7f250995-6592-45c7-849c-40eda42e3805}*SharedItemsImports = 5
+		Source\Editor\Lib\Rydia.Windows.Forms.TreeView\Rydia.Windows.Forms.TreeView.projitems*{7f250995-6592-45c7-849c-40eda42e3805}*SharedItemsImports = 5
+		Source\Editor\Lib\Rydia.Windows.Forms.ColorControls\Rydia.Windows.Forms.ColorControls.projitems*{80d80faf-8ead-400b-a379-bd5a36280fb4}*SharedItemsImports = 13
 		Source\Runtime\Samples\SampleEngine\SampleEngine.projitems*{8160fcea-1387-4352-9f54-443ba45c5905}*SharedItemsImports = 5
 		Source\Runtime\Samples\Rydia.Runtime.OooglesSamples.Shared\Rydia.Runtime.OooglesSamples.Shared.projitems*{83e8c81b-2609-470e-9378-435e813b013c}*SharedItemsImports = 13
 		Source\Runtime\Lib\Rydia.Randomizer\Rydia.Randomizer.projitems*{880ee0b7-073d-471f-bd3d-88f2e7d6ea4f}*SharedItemsImports = 13
@@ -231,11 +273,14 @@ Global
 		Source\Runtime\Lib\Rydia\Rydia.projitems*{8ba16d4d-0767-483f-9232-4782924cb4e3}*SharedItemsImports = 13
 		Source\Runtime\Samples\Rydia.Runtime.OooglesSamples.Shared\Rydia.Runtime.OooglesSamples.Shared.projitems*{922df265-51da-4482-8696-9709e80f5e46}*SharedItemsImports = 5
 		Source\Runtime\Samples\SampleEngine\SampleEngine.projitems*{922df265-51da-4482-8696-9709e80f5e46}*SharedItemsImports = 5
+		Source\Editor\Lib\Rydia.Windows.Forms.PopupControl\Rydia.Windows.Forms.PopupControl.projitems*{94e90868-0a71-46b3-8707-f885f5587944}*SharedItemsImports = 13
 		Source\Runtime\Api\Rydia.Audio.Api.NVorbis\Rydia.Audio.Api.NVorbis.projitems*{99c9a6b6-00ad-401f-865a-73f57f2d5297}*SharedItemsImports = 13
 		Source\Runtime\Api\Rydia.Graphics.Api.ES30\Rydia.Graphics.Api.ES20.projitems*{9b866439-6210-4815-9430-dc85721ce9f2}*SharedItemsImports = 13
 		Source\Runtime\Lib\Rydia.Primitives\Rydia.Primitives.projitems*{9b9f4db5-3f1c-4b88-86dc-b3d748df8fe3}*SharedItemsImports = 5
 		Source\Runtime\Lib\Rydia\Rydia.projitems*{9b9f4db5-3f1c-4b88-86dc-b3d748df8fe3}*SharedItemsImports = 5
+		Source\Editor\Lib\Rydia.Windows.Forms.TreeView\Rydia.Windows.Forms.TreeView.projitems*{be91c21f-923b-4848-b35c-d473c5b6f2eb}*SharedItemsImports = 13
 		Source\Runtime\Lib\Rydia.Diagnostics\Rydia.Diagnostics.projitems*{d1348e79-a58b-4189-9ad2-687ddf786463}*SharedItemsImports = 13
+		Source\Editor\Lib\Rydia.Windows.Forms.TimelineControls\Rydia.Windows.Forms.TimelineControls.projitems*{f0496118-7ea0-47b6-a4b9-4a93b7cf2061}*SharedItemsImports = 13
 		Source\Runtime\Lib\Rydia.Primitives\Rydia.Primitives.projitems*{f895a511-30d7-4a30-83fe-ed5b32fa5cf4}*SharedItemsImports = 13
 		Source\Runtime\Api\Rydia.Audio.Api.NVorbis\Rydia.Audio.Api.NVorbis.projitems*{fc768e1d-075e-46eb-a0c3-c8ed1190af9d}*SharedItemsImports = 5
 		Source\Runtime\Api\Rydia.Audio.Api.OpenAL\Rydia.Audio.Api.OpenAL.projitems*{fc768e1d-075e-46eb-a0c3-c8ed1190af9d}*SharedItemsImports = 5

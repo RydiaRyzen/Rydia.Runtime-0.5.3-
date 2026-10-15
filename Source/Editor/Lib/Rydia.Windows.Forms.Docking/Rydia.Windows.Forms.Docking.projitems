@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>551bf23f-fd4f-47bd-a809-f144683f48a3</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Rydia.Windows.Forms.Docking</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)AutoHideStripBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)DockAreasEditor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DockContent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)DockContentCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DockContentEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DockContentHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DockOutlineBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DockPane.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)DockPane.SplitterControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)DockPaneCaptionBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)DockPaneCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DockPanel.Appearance.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)DockPanel.AutoHideWindow.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)DockPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)DockPanel.DockDragHandler.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)DockPanel.DragHandler.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)DockPanel.FocusManager.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)DockPanel.MdiClientController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)DockPanel.Persistor.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)DockPanel.SplitterDragHandler.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)DockPanelExtender.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DockPanelSkin.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DockPaneStripBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)DockWindow.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)DockWindow.SplitterControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)DockWindowCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DragForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)DummyControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Enums.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FloatWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)FloatWindowCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\DockHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\DrawHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\ResourceHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\Win32Helper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)InertButtonBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Localization.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Measures.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NestedDockingStatus.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NestedPaneCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Skins\DockPanelSkinBuilder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Skins\Style.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SplitterBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Strings.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)VisibleNestedPaneCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)VS2005AutoHideStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)VS2005DockPaneCaption.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)VS2005DockPaneStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Win32\Enums.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Win32\NativeMethods.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)Resources\DockIndicator_PaneDiamond.bmp" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\DockIndicator_PaneDiamond_Bottom.bmp" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\Dockindicator_PaneDiamond_Fill.bmp" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\DockIndicator_PaneDiamond_Hotspot.bmp" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\DockIndicator_PaneDiamond_HotspotIndex.bmp" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\DockIndicator_PaneDiamond_Left.bmp" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\DockIndicator_PaneDiamond_Right.bmp" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\DockIndicator_PaneDiamond_Top.bmp" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\DockIndicator_PanelBottom.bmp" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\DockIndicator_PanelBottom_Active.bmp" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\DockIndicator_PanelFill.bmp" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\DockIndicator_PanelFill_Active.bmp" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\DockIndicator_PanelLeft.bmp" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\DockIndicator_PanelLeft_Active.bmp" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\DockIndicator_PanelRight.bmp" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\DockIndicator_PanelRight_Active.bmp" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\DockIndicator_PanelTop.bmp" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\DockIndicator_PanelTop_Active.bmp" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\DockPane_AutoHide.bmp" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\DockPane_Close.bmp" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\DockPane_Dock.bmp" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\DockPane_Option.bmp" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\DockPane_OptionOverflow.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)DockPanel.bmp" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources.resx">
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Strings.resx">
+      <SubType>Designer</SubType>
+      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

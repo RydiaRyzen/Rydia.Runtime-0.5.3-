@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>47c1342b-d08c-456f-9ccc-dd3a6ca0d512</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Rydia.Windows.Forms.Core</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Drawing\BorderState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Drawing\BorderStyle.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Drawing\ButtonState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Drawing\CheckBoxState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Drawing\ControlRenderer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Drawing\ExpandBoxState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Drawing\ExpandNodeState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Drawing\IconImage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Drawing\QualityLevel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Drawing\TextBoxState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Drawing\TextBoxStyle.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\ExtMethodsColor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\ExtMethodsMessage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\NativeWinAPI.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\ReflectionHelper.cs" />
+    <Compile Include="..\Rydia.Windows.Forms.Core\Properties\CoreResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Properties\ResourcesCache.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)EmbeddedResources\add.png" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)EmbeddedResources\cross.png" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)EmbeddedResources\DropDownIcon.png" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)EmbeddedResources\ExpandNodeClosedDisabled.png" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)EmbeddedResources\ExpandNodeClosedHot.png" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)EmbeddedResources\ExpandNodeClosedNormal.png" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)EmbeddedResources\ExpandNodeClosedPressed.png" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)EmbeddedResources\ExpandNodeOpenedDisabled.png" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)EmbeddedResources\ExpandNodeOpenedHot.png" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)EmbeddedResources\ExpandNodeOpenedNormal.png" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)EmbeddedResources\ExpandNodeOpenedPressed.png" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)EmbeddedResources\NumberGripIcon.png" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Properties\CoreResources.resx">
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)EmbeddedResources\arrow_down.png" />
+    <None Include="$(MSBuildThisFileDirectory)EmbeddedResources\arrow_downleft.png" />
+    <None Include="$(MSBuildThisFileDirectory)EmbeddedResources\arrow_downright.png" />
+    <None Include="$(MSBuildThisFileDirectory)EmbeddedResources\arrow_left.png" />
+    <None Include="$(MSBuildThisFileDirectory)EmbeddedResources\arrow_right.png" />
+    <None Include="$(MSBuildThisFileDirectory)EmbeddedResources\arrow_up.png" />
+    <None Include="$(MSBuildThisFileDirectory)EmbeddedResources\arrow_upleft.png" />
+    <None Include="$(MSBuildThisFileDirectory)EmbeddedResources\arrow_upright.png" />
+  </ItemGroup>
+</Project>

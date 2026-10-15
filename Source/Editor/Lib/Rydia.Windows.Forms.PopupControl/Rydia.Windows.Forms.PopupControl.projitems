@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>94e90868-0a71-46b3-8707-f885f5587944</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Rydia.Windows.Forms.PopupControl</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)GripAlignMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GripRenderer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IPopupControlHost.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PopupControl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PopupDropDown.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)PopupResizeMode.cs" />
+  </ItemGroup>
+</Project>

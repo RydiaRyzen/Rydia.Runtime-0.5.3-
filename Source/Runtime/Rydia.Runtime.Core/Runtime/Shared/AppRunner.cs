@@ -66,6 +66,17 @@ namespace Rydia.Runtime
         }
 
         /// <summary>
+        /// 現在のプラットフォームがデスクトッププラットフォームかどうかを判定します。
+        /// </summary>
+        public bool IsDesktopPlatform
+        {
+            get
+            {
+                return Platform.Is<IDesktopPlatform>();
+            }
+        }
+
+        /// <summary>
         /// アプリケーションを初期化します。
         /// </summary>
         /// <param name="platform">使用するプラットフォームを指定します。</param>
