@@ -24,7 +24,7 @@ namespace Rydia.GameStudio
 
         public string PluginExtension { get; set; } = "*.dll";
 
-        public void LoadPlugins()
+        public virtual void LoadPlugins()
         {
             if (!Directory.Exists(PluginFolderPath))
                 return;
