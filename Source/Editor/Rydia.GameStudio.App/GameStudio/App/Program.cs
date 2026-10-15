@@ -1,4 +1,4 @@
-using Rydia.GameStudio.Forms;
+
 
 namespace Rydia.GameStudio.App
 {
@@ -18,11 +18,13 @@ namespace Rydia.GameStudio.App
             {
                 if (splash.ShowDialog() != DialogResult.OK)
                     return;
+                
                 using (var hub = new HubForm())
                 {
                     if (hub.ShowDialog() != DialogResult.OK)
                         return;
                 }
+                
             }
             Application.Run(new MainForm());
         }

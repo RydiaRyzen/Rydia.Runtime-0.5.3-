@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Engine\Rydia.Engine\Rydia.Engine.csproj" />
     <ProjectReference Include="..\..\Platform\Rydia.Runtime.Windows\Rydia.Runtime.Windows.csproj" />
     <ProjectReference Include="..\Lib\Rydia.Windows.Forms\Rydia.Windows.Forms.csproj" />
   </ItemGroup>

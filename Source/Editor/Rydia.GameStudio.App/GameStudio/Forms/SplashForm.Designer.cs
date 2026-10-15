@@ -1,4 +1,4 @@
-﻿namespace Rydia.GameStudio.Forms
+﻿namespace Rydia.GameStudio
 {
     partial class SplashForm
     {

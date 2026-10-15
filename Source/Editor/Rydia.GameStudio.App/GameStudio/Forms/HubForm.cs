@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Rydia.GameStudio.Forms;
 
 namespace Rydia.GameStudio
 {
@@ -31,6 +30,7 @@ namespace Rydia.GameStudio
         public HubForm()
         {
             InitializeComponent();
+
             Text = "Rydia GameStudio";
             ClientSize = new Size(1200, 760);
             MinimumSize = new Size(900, 600);
@@ -51,11 +51,16 @@ namespace Rydia.GameStudio
             this.learnButton.FlatAppearance.BorderSize = 0;
             this.communityButton.FlatAppearance.BorderSize = 0;
 
+            var engineAssembly = typeof(Rydia.Engine.LauncherApp).Assembly;
+            var editorAssembly = typeof(HubForm).Assembly;
+
+            this.versionLabel2.Text = $"{"Rydia Engine".PadRight(20)}{engineAssembly.GetName().Version}";
+            this.versionLabel1.Text = $"{"Rydia GameStudio".PadRight(15)}{editorAssembly.GetName().Version}";
+
             // メイン領域
             this.contentPanel.BackColor = this.backgroundColor;
+
             projectButton_Click(this, EventArgs.Empty);
-
-
         }
 
         private Button CreateActionButton(
@@ -81,14 +86,14 @@ namespace Rydia.GameStudio
             // TODO:
             // プロジェクト名、テンプレート、保存先を指定する
             // NewProjectForm を実装してここから起動する。
+            var form = new NewProjectForm();
 
-            DialogResult = MessageBox.Show(
-                this,
-                "ここに新規プロジェクト作成画面を接続します。",
-                "Rydia GameStudio",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
-            Close();
+            var dResult = form.ShowDialog(this);
+            if(dResult == DialogResult.OK)
+            {
+                DialogResult = DialogResult.OK;
+                Close();
+            }
         }
 
         private void OpenProject()
@@ -219,11 +224,11 @@ namespace Rydia.GameStudio
             newButton.Click += (_, _) => CreateProject();
 
             var openButton = CreateActionButton(
-                "開く",
+                "プロジェクトフォルダーを開く",
                 this.panelColor);
 
             openButton.Location = new Point(200, 10);
-            openButton.Size = new Size(100, 42);
+            openButton.Size = new Size(190, 42);
             openButton.Click += (_, _) => OpenProject();
 
             toolbar.Controls.Add(newButton);

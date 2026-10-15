@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Rydia.GameStudio.App;
 
-namespace Rydia.GameStudio.Forms
+namespace Rydia.GameStudio
 {
     public partial class SplashForm : Form
     {

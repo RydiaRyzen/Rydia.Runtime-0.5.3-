@@ -191,10 +191,11 @@
             ClientSize = new Size(800, 450);
             Controls.Add(this.contentPanel);
             Controls.Add(this.sidebar);
+            FormBorderStyle = FormBorderStyle.Fixed3D;
             MaximizeBox = false;
             Name = "HubForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Hub";
+            Text = "Rydia Engine Hub";
             this.sidebar.ResumeLayout(false);
             this.sidebar.PerformLayout();
             this.navigation.ResumeLayout(false);
