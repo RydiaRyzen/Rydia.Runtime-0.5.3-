@@ -111,15 +111,15 @@ namespace Rydia.Runtime.GLES2Samples
             // Load the textures
             var embedded = new EmbeddedResources<E07MultiTextureApp>();
 
-            var str = embedded.LoadText("Assets.basemap.PixelData.ryd");
+            var str = embedded.LoadText("Rydia.Runtime.Windows.App.Assets.basemap.PixelData.ryd");
             var temp = Convert.FromBase64String(str);
             var resource = new BinarySerializer().Deserialize<PixelData>(temp);
             this._texBaseMap = resource.ToTexture();
 
-            str = embedded.LoadText("Assets.lightmap.PixelData.ryd");
+            str = embedded.LoadText("Rydia.Runtime.Windows.App.Assets.lightmap.PixelData.ryd");
             temp = Convert.FromBase64String(str);
             resource = new BinarySerializer().Deserialize<PixelData>(temp);
-            this._texLightMap = Texture2D.LoadEmbedded<E07MultiTextureApp>("Assets.lightmap.PixelData.ryd").Texture;
+            this._texLightMap = Texture2D.LoadEmbedded<E07MultiTextureApp>("Rydia.Runtime.Windows.App.Assets.lightmap.PixelData.ryd").Texture;
 
             // Set clear color to black
             GL.ClearColor(ColorRgba.DarkBlue);

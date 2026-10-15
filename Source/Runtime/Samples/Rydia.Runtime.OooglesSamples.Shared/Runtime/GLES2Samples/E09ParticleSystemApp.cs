@@ -140,7 +140,7 @@ namespace Rydia.Runtime.GLES2Samples
             // Load the textures
             var embedded = new EmbeddedResources<SampleApp>();
 
-            var str = embedded.LoadText("Assets.smoke.PixelData.ryd");
+            var str = embedded.LoadText("Rydia.Runtime.Windows.App.Assets.smoke.PixelData.ryd");
             var temp = Convert.FromBase64String(str);
             var resource = new BinarySerializer().Deserialize<PixelData>(temp);
             this._texture = resource.ToTexture();

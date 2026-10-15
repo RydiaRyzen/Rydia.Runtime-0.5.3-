@@ -43,7 +43,7 @@ namespace Rydia.Runtime.GLES2Samples
             var er = new EmbeddedResources<E25FontSampleApp>();
 
             // フォントを読み込む
-            var str = er.LoadText("Assets.Arial_33px_Regular.ryres");
+            var str = er.LoadText("Rydia.Runtime.Windows.App.Assets.Arial_33px_Regular.ryres");
             var temp = Convert.FromBase64String(str);
             var resource = new BinarySerializer().Deserialize<FontCharSet>(temp);
             resource.CreateCharSet();

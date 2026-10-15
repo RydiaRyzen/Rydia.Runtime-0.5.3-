@@ -11,6 +11,7 @@
     <Folder Include="Backend\Graphics\" />
     <Folder Include="Backend\Physics\" />
     <Folder Include="Backend\FileSystem\" />
+    <Folder Include="Properties\" />
   </ItemGroup>
 
   <ItemGroup>

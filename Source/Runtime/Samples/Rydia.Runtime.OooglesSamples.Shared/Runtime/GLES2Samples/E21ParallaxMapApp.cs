@@ -217,7 +217,7 @@ namespace Rydia.Runtime.GLES2Samples
             */
             var embedded = new EmbeddedResources<E07MultiTextureApp>();
 
-            var str = embedded.LoadText("Assets.texture.PixelData.ryd");
+            var str = embedded.LoadText("Rydia.Runtime.Windows.App.Assets.texture.PixelData.ryd");
             var temp = Convert.FromBase64String(str);
             var resource = new BinarySerializer().Deserialize<PixelData>(temp);
 

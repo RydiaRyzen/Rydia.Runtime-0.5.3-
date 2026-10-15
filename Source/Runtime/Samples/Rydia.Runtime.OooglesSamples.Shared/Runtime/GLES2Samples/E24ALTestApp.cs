@@ -35,7 +35,7 @@ namespace Rydia.Runtime.GLES2Samples
             wavFile.Serialize();
             */
             this.wavSound = new Sound();
-            var str = embedded.LoadText("Assets.0_001.AudioData.ryd");
+            var str = embedded.LoadText("Rydia.Runtime.Windows.App.Assets.0_001.AudioData.ryd");
             var temp = Convert.FromBase64String(str);
             var resource = new BinarySerializer().Deserialize<AudioData>(temp);
             this.wavSound.AudioData = resource;
@@ -48,7 +48,7 @@ namespace Rydia.Runtime.GLES2Samples
             oggFile.Serialize();
             */
             this.oggSound = new Sound();
-            str = embedded.LoadText(@"Assets.chicken_cluck_happy.AudioData.ryd");
+            str = embedded.LoadText(@"Rydia.Runtime.Windows.App.Assets.chicken_cluck_happy.AudioData.ryd");
             temp = Convert.FromBase64String(str);
             resource = new BinarySerializer().Deserialize<AudioData>(temp);
             this.oggSound.AudioData = resource;
@@ -61,7 +61,7 @@ namespace Rydia.Runtime.GLES2Samples
             mp3File.Serialize();
             */
             this.mp3Sound = new Sound();
-            str = embedded.LoadText(@"Assets.background.AudioData.ryd");
+            str = embedded.LoadText(@"Rydia.Runtime.Windows.App.Assets.background.AudioData.ryd");
             temp = Convert.FromBase64String(str);
             resource = new BinarySerializer().Deserialize<AudioData>(temp);
             this.mp3Sound.AudioData = resource;
