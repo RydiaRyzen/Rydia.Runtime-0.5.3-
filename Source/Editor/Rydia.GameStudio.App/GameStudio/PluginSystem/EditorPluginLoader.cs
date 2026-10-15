@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Rydia.GameStudio.PluginSystem
 {
-    internal class EditorPluginLoader : PluginLoader<EditorPlugin>
+    public class EditorPluginLoader : PluginLoader<EditorPlugin>
     {
 
 

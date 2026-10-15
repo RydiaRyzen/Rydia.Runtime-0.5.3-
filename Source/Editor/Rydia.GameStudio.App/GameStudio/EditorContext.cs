@@ -16,6 +16,14 @@ namespace Rydia.GameStudio
 
         private static EditorPluginLoader pluginLoader;
 
+        public static EditorPluginLoader PluginLoader
+        {
+            get
+            {
+                return pluginLoader;
+            }
+        }
+
         internal static void LoadSettings()
         {
             // TODO: 設定ファイルの読み込み処理
