@@ -12,6 +12,9 @@ namespace Rydia.GameStudio
 
         public static async Task InitializeAsync(Action<string> reportStatus)
         {
+            reportStatus("初期化しています...");
+            await InitializeServicesAsync();
+
             reportStatus("設定ファイルを読み込んでいます...");
             await LoadSettingsAsync();
 
@@ -24,10 +27,8 @@ namespace Rydia.GameStudio
             reportStatus("リソースを読み込んでいます...");
             await LoadResourcesAsync();
 
-            reportStatus("初期化しています...");
-            await InitializeServicesAsync();
-
             reportStatus("起動準備完了");
+            await Task.Delay(3000);
         }
 
         private static async Task LoadUpdater()
@@ -56,6 +57,22 @@ namespace Rydia.GameStudio
 
         private static async Task InitializeServicesAsync()
         {
+            // Pluginフォルダーの確認
+            if(!System.IO.Directory.Exists("Plugins"))
+            {
+                System.IO.Directory.CreateDirectory("Plugins");
+            }
+            // Projectフォルダーの確認
+            if (!System.IO.Directory.Exists("Projects"))
+            {
+                System.IO.Directory.CreateDirectory("Projects");
+            }
+            // Downloadフォルダーの確認
+            if (!System.IO.Directory.Exists("Download"))
+            {
+                System.IO.Directory.CreateDirectory("Download");
+            }
+            // Serviceの初期化
             EditorContext.LoadServices();
             await Task.Delay(3000);
         }
