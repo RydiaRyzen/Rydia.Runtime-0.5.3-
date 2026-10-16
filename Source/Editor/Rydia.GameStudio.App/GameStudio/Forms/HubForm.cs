@@ -10,23 +10,47 @@ using System.Windows.Forms;
 
 namespace Rydia.GameStudio
 {
+
+    /// <summary>
+    /// Rydia GameStudio のプロジェクト管理画面を提供します。
+    /// </summary>
+    /// <remarks>
+    /// プロジェクトの一覧表示、新規プロジェクトの作成、既存プロジェクトの登録および
+    /// 各種管理画面への切り替えを行います。
+    /// </remarks>
     public partial class HubForm : Form
     {
 
+        /// <summary>
+        /// メイン領域の背景色を取得します。
+        /// </summary>
         private readonly Color backgroundColor =
             Color.FromArgb(24, 26, 32);
 
-        private readonly Color sidebarColor =
-            Color.FromArgb(30, 32, 39);
-
+        /// <summary>
+        /// パネルおよびプロジェクト一覧の背景色を取得します。
+        /// </summary>
         private readonly Color panelColor =
             Color.FromArgb(38, 41, 49);
 
+        /// <summary>
+        /// 選択状態や主要な操作ボタンに使用するアクセントカラーを取得します。
+        /// </summary>
         private readonly Color accentColor =
             Color.FromArgb(0, 160, 240);
 
+        /// <summary>
+        /// 登録されたプロジェクトの一覧を表示するリストビューを取得または設定します。
+        /// </summary>
         private ListView projectList;
 
+        /// <summary>
+        /// <see cref="HubForm"/> クラスの新しいインスタンスを初期化します。
+        /// </summary>
+        /// <remarks>
+        /// フォームの基本設定、サイドバーの配色、アセンブリのバージョン表示を設定し、
+        /// プロジェクト管理画面を初期表示します。
+        /// </remarks>
         public HubForm()
         {
             InitializeComponent();
@@ -63,6 +87,12 @@ namespace Rydia.GameStudio
             projectButton_Click(this, EventArgs.Empty);
         }
 
+        /// <summary>
+        /// 指定された文字列と背景色を使用して操作ボタンを生成します。
+        /// </summary>
+        /// <param name="text">ボタンに表示する文字列。</param>
+        /// <param name="color">ボタンの背景色。</param>
+        /// <returns>指定された設定を適用したボタン。</returns>
         private Button CreateActionButton(
             string text, Color color)
         {
@@ -81,6 +111,13 @@ namespace Rydia.GameStudio
             return button;
         }
 
+        /// <summary>
+        /// 新規プロジェクトの作成画面を表示します。
+        /// </summary>
+        /// <remarks>
+        /// 作成画面が <see cref="DialogResult.OK"/> を返した場合、
+        /// 本フォームを閉じ、作成処理の完了を呼び出し元に通知します。
+        /// </remarks>
         private void CreateProject()
         {
             // TODO:
@@ -96,19 +133,37 @@ namespace Rydia.GameStudio
             }
         }
 
+        /// <summary>
+        /// フォルダー選択ダイアログを表示し、既存のプロジェクトフォルダーを登録します。
+        /// </summary>
+        /// <remarks>
+        /// 初期ディレクトリには、エディターのアセンブリが配置されたディレクトリ内の
+        /// Projects フォルダーを指定します。
+        /// </remarks>
         private void OpenProject()
         {
             using var dialog = new FolderBrowserDialog
             {
                 Description = "プロジェクトのフォルダーを選択してください。"
             };
-
+            var dir = typeof(HubForm).Assembly.Location;
+            dir = Path.GetDirectoryName(dir);
+            dialog.InitialDirectory = Path.Combine(dir, "Projects");
             if (dialog.ShowDialog(this) != DialogResult.OK)
                 return;
 
             AddProject(dialog.SelectedPath);
         }
 
+        /// <summary>
+        /// 指定されたフォルダーをプロジェクト一覧に登録します。
+        /// </summary>
+        /// <param name="path">登録するプロジェクトフォルダーのパス。</param>
+        /// <remarks>
+        /// フォルダーが存在しない場合は登録しません。
+        /// 同じパスがすでに登録されている場合は、新しい項目を追加せず、
+        /// 該当する項目を選択して表示します。
+        /// </remarks>
         private void AddProject(string path)
         {
             if (!Directory.Exists(path))
@@ -147,6 +202,14 @@ namespace Rydia.GameStudio
             this.projectList.Items.Add(item);
         }
 
+        /// <summary>
+        /// 一覧で選択されているプロジェクトを開きます。
+        /// </summary>
+        /// <remarks>
+        /// 選択項目が存在しない場合や、プロジェクトフォルダーが存在しない場合は
+        /// 処理を終了します。
+        /// 現在は選択されたプロジェクトのパスをメッセージボックスに表示します。
+        /// </remarks>
         private void OpenSelectedProject()
         {
             if (this.projectList.SelectedItems.Count == 0)
@@ -178,6 +241,15 @@ namespace Rydia.GameStudio
                 MessageBoxIcon.Information);
         }
 
+        /// <summary>
+        /// プロジェクト管理画面を構築して表示します。
+        /// </summary>
+        /// <param name="sender">イベントの発生元。</param>
+        /// <param name="e">イベントデータ。</param>
+        /// <remarks>
+        /// メイン領域にヘッダー、操作ボタン、新規プロジェクトの作成ボタン、
+        /// プロジェクトフォルダーの選択ボタン、およびプロジェクト一覧を配置します。
+        /// </remarks>
         private void projectButton_Click(object sender, EventArgs e)
         {
             this.contentPanel.SuspendLayout();
@@ -287,6 +359,14 @@ namespace Rydia.GameStudio
             this.contentPanel.ResumeLayout(true);
         }
 
+        /// <summary>
+        /// インストール管理画面への切り替えを処理します。
+        /// </summary>
+        /// <param name="sender">イベントの発生元。</param>
+        /// <param name="e">イベントデータ。</param>
+        /// <remarks>
+        /// 現在はメイン領域をクリアし、インストール画面が未実装であることを表示します。
+        /// </remarks>
         private void installButton_Click(object sender, EventArgs e)
         {
             // TODO: インストール画面を表示する
@@ -299,6 +379,14 @@ namespace Rydia.GameStudio
                 MessageBoxIcon.Information);
         }
 
+        /// <summary>
+        /// 学習画面への切り替えを処理します。
+        /// </summary>
+        /// <param name="sender">イベントの発生元。</param>
+        /// <param name="e">イベントデータ。</param>
+        /// <remarks>
+        /// 現在はメイン領域をクリアし、学習画面が未実装であることを表示します。
+        /// </remarks>
         private void learnButton_Click(object sender, EventArgs e)
         {
             // TODO: 学習画面を表示する
@@ -311,6 +399,14 @@ namespace Rydia.GameStudio
                 MessageBoxIcon.Information);
         }
 
+        /// <summary>
+        /// コミュニティ画面への切り替えを処理します。
+        /// </summary>
+        /// <param name="sender">イベントの発生元。</param>
+        /// <param name="e">イベントデータ。</param>
+        /// <remarks>
+        /// 現在はメイン領域をクリアし、コミュニティ画面が未実装であることを表示します。
+        /// </remarks>
         private void communityButton_Click(object sender, EventArgs e)
         {
             // TODO: コミュニティ画面を表示する

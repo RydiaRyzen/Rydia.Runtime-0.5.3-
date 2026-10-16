@@ -122,6 +122,8 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Rydia.Windows.Forms.TreeVie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rydia.GameStudio.App", "Source\Editor\Rydia.GameStudio.App\Rydia.GameStudio.App.csproj", "{A722DE6E-5323-4A75-A521-82118612275D}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Rydia.SolutionBuilder", "Source\Editor\Rydia.SolutionBuilder\Rydia.SolutionBuilder.shproj", "{5E295DFA-21C3-487E-8E3E-B2957E1D354A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -241,9 +243,11 @@ Global
 		{F0496118-7EA0-47B6-A4B9-4A93B7CF2061} = {A98FB95E-213F-41D9-A16E-C245212AD627}
 		{BE91C21F-923B-4848-B35C-D473C5B6F2EB} = {A98FB95E-213F-41D9-A16E-C245212AD627}
 		{A722DE6E-5323-4A75-A521-82118612275D} = {381829E0-EEC7-4907-8E5F-7631EEC1A367}
+		{5E295DFA-21C3-487E-8E3E-B2957E1D354A} = {A98FB95E-213F-41D9-A16E-C245212AD627}
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Source\Runtime\Lib\Rydia.Serialization\Rydia.Serialization.projitems*{006c9f26-6fa8-45cb-b2d4-ce716f5c60b6}*SharedItemsImports = 13
+		Source\Editor\Rydia.SolutionBuilder\Rydia.SolutionBuilder.projitems*{09e0af1e-03c9-4918-9969-499d2b12f6ed}*SharedItemsImports = 5
 		Source\Runtime\Samples\SampleEngine\SampleEngine.projitems*{1aa4aff5-b295-420e-96cf-119b60040c5d}*SharedItemsImports = 13
 		Source\Runtime\Api\Rydia.Audio.Api.NVorbis\Rydia.Audio.Api.NVorbis.projitems*{1d8c5ef2-9028-4ec0-b3e4-bf23f3d7fb70}*SharedItemsImports = 5
 		Source\Runtime\Api\Rydia.Audio.Api.OpenAL\Rydia.Audio.Api.OpenAL.projitems*{1d8c5ef2-9028-4ec0-b3e4-bf23f3d7fb70}*SharedItemsImports = 5
@@ -258,6 +262,7 @@ Global
 		Source\Runtime\Rydia.Runtime.Core\Rydia.Runtime.Core.projitems*{4ccb0314-92ea-4e60-9f4c-a3372e93d666}*SharedItemsImports = 13
 		Source\Editor\Lib\Rydia.Windows.Forms.Docking\Rydia.Windows.Forms.Docking.projitems*{551bf23f-fd4f-47bd-a809-f144683f48a3}*SharedItemsImports = 13
 		Source\Runtime\Api\Rydia.Graphics.Api.ES30.OpenTKBindings\Rydia.Graphics.Api.ES30.OpenTKBindings.projitems*{584781e6-0b78-4ec3-8e44-097ce89d32d4}*SharedItemsImports = 13
+		Source\Editor\Rydia.SolutionBuilder\Rydia.SolutionBuilder.projitems*{5e295dfa-21c3-487e-8e3e-b2957e1d354a}*SharedItemsImports = 13
 		Source\Runtime\Lib\Rydia.Diagnostics\Rydia.Diagnostics.projitems*{61fa57d0-4cbe-4405-8d92-5c7d88160ecc}*SharedItemsImports = 5
 		Source\Runtime\Lib\Rydia.Primitives\Rydia.Primitives.projitems*{61fa57d0-4cbe-4405-8d92-5c7d88160ecc}*SharedItemsImports = 5
 		Source\Runtime\Lib\Rydia.Randomizer\Rydia.Randomizer.projitems*{61fa57d0-4cbe-4405-8d92-5c7d88160ecc}*SharedItemsImports = 5
