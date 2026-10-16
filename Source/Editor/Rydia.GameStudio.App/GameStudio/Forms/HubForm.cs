@@ -136,6 +136,9 @@ namespace Rydia.GameStudio
                 }
             }
 
+            // TODO: プロジェクトの状態を判定する処理を追加する
+
+            // プロジェクトをリストに追加する
             var item = new ListViewItem(name);
             item.SubItems.Add(path);
             item.SubItems.Add("登録済み");
@@ -177,19 +180,40 @@ namespace Rydia.GameStudio
 
         private void projectButton_Click(object sender, EventArgs e)
         {
+            this.contentPanel.SuspendLayout();
             this.contentPanel.Controls.Clear();
+
+            // メイン領域を3行に分割
+            var layout = new TableLayoutPanel
+            {
+                Dock = DockStyle.Fill,
+                ColumnCount = 1,
+                RowCount = 3,
+                BackColor = this.backgroundColor,
+                Padding = new Padding(32, 24, 32, 24),
+                Margin = Padding.Empty
+            };
+            layout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100));
+
+            layout.RowStyles.Add(
+                new RowStyle(SizeType.Absolute, 100));
+
+            layout.RowStyles.Add(
+                new RowStyle(SizeType.Absolute, 65));
+
+            layout.RowStyles.Add(
+                new RowStyle(SizeType.Percent, 100));
             // ヘッダー
             var header = new Panel
             {
-                Dock = DockStyle.Top,
-                Height = 100,
-                Location = new Point(250, 0)
+                Dock = DockStyle.Fill,
+                BackColor = this.backgroundColor
             };
 
             var heading = new Label
             {
                 Text = "プロジェクト",
-                Font = new System.Drawing.Font("Segoe UI", 24, FontStyle.Bold),
+                Font = new Font("Segoe UI", 24, FontStyle.Bold),
                 ForeColor = Color.White,
                 Dock = DockStyle.Top,
                 Height = 45
@@ -200,19 +224,17 @@ namespace Rydia.GameStudio
                 Text = "Rydia Engine プロジェクトを管理します。",
                 ForeColor = Color.Silver,
                 Dock = DockStyle.Top,
-                Height = 30,
-                Location = new Point(100, 50)
+                Height = 30
             };
 
             header.Controls.Add(description);
             header.Controls.Add(heading);
-            this.contentPanel.Controls.Add(header);
 
             // 操作ボタン
             var toolbar = new Panel
             {
-                Dock = DockStyle.Top,
-                Height = 65
+                Dock = DockStyle.Fill,
+                BackColor = this.backgroundColor
             };
 
             var newButton = CreateActionButton(
@@ -233,10 +255,9 @@ namespace Rydia.GameStudio
 
             toolbar.Controls.Add(newButton);
             toolbar.Controls.Add(openButton);
-            this.contentPanel.Controls.Add(toolbar);
 
             // プロジェクト一覧
-            this.projectList = new System.Windows.Forms.ListView
+            this.projectList = new ListView
             {
                 Dock = DockStyle.Fill,
                 View = View.Details,
@@ -245,8 +266,9 @@ namespace Rydia.GameStudio
                 BorderStyle = BorderStyle.None,
                 BackColor = this.panelColor,
                 ForeColor = Color.White,
-                Font = new System.Drawing.Font("Segoe UI", 10),
-                HideSelection = false
+                Font = new Font("Segoe UI", 10),
+                HideSelection = false,
+                MultiSelect = false
             };
 
             this.projectList.Columns.Add("プロジェクト名", 230);
@@ -256,12 +278,13 @@ namespace Rydia.GameStudio
             this.projectList.DoubleClick += (_, _) =>
                 OpenSelectedProject();
 
-            this.contentPanel.Controls.Add(this.projectList);
+            layout.Controls.Add(header, 0, 0);
+            layout.Controls.Add(toolbar, 0, 1);
+            layout.Controls.Add(this.projectList, 0, 2);
 
-            // Dock の順序を整理
-            this.contentPanel.Controls.SetChildIndex(header, 0);
-            this.contentPanel.Controls.SetChildIndex(toolbar, 1);
-            this.contentPanel.Controls.SetChildIndex(this.projectList, 2);
+            this.contentPanel.Controls.Add(layout);
+
+            this.contentPanel.ResumeLayout(true);
         }
 
         private void installButton_Click(object sender, EventArgs e)
