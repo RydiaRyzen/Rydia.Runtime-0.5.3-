@@ -379,13 +379,333 @@ namespace Rydia.GameStudio
         private void learnButton_Click(object sender, EventArgs e)
         {
             // TODO: 学習画面を表示する
+            this.contentPanel.SuspendLayout();
             this.contentPanel.Controls.Clear();
-            MessageBox.Show(
-                this,
-                "ここに学習画面を接続します。",
-                "Rydia GameStudio",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
+
+            var layout = new TableLayoutPanel
+            {
+                Dock = DockStyle.Fill,
+                ColumnCount = 1,
+                RowCount = 3,
+                BackColor = this.backgroundColor,
+                Padding = new Padding(32, 24, 32, 24)
+            };
+
+            layout.ColumnStyles.Add(
+                new ColumnStyle(SizeType.Percent, 100));
+            layout.RowStyles.Add(
+                new RowStyle(SizeType.Absolute, 100));
+            layout.RowStyles.Add(
+                new RowStyle(SizeType.Absolute, 60));
+            layout.RowStyles.Add(
+                new RowStyle(SizeType.Percent, 100));
+
+            // ヘッダー
+            var header = new Panel
+            {
+                Dock = DockStyle.Fill,
+                BackColor = this.backgroundColor
+            };
+
+            var heading = new Label
+            {
+                Text = "学習",
+                Font = new Font("Segoe UI", 24, FontStyle.Bold),
+                ForeColor = Color.White,
+                Dock = DockStyle.Top,
+                Height = 45
+            };
+
+            var description = new Label
+            {
+                Text = "Rydia Engine の機能や使い方を学習します。",
+                ForeColor = Color.Silver,
+                Dock = DockStyle.Top,
+                Height = 30
+            };
+
+            header.Controls.Add(description);
+            header.Controls.Add(heading);
+
+            // カテゴリ選択
+            var categoryPanel = new FlowLayoutPanel
+            {
+                Dock = DockStyle.Fill,
+                FlowDirection = FlowDirection.LeftToRight,
+                WrapContents = false,
+                AutoScroll = true,
+                BackColor = this.backgroundColor,
+                Padding = new Padding(0, 8, 0, 8)
+            };
+
+            var detailTitle = new Label
+            {
+                Text = "学習項目を選択してください",
+                Dock = DockStyle.Top,
+                Height = 36,
+                Font = new Font("Segoe UI", 15, FontStyle.Bold),
+                ForeColor = Color.White
+            };
+
+            var detailDescription = new Label
+            {
+                Text = "左側のカテゴリから学習したい項目を選択してください。",
+                Dock = DockStyle.Fill,
+                ForeColor = Color.Silver,
+                Font = new Font("Segoe UI", 10),
+                Padding = new Padding(0, 12, 0, 0),
+                TextAlign = ContentAlignment.TopLeft
+            };
+
+            var detailPanel = new Panel
+            {
+                Dock = DockStyle.Fill,
+                BackColor = this.panelColor,
+                Padding = new Padding(24)
+            };
+
+            detailPanel.Controls.Add(detailDescription);
+            detailPanel.Controls.Add(detailTitle);
+
+            // 学習コンテンツ
+            var courses = new[]
+            {
+        new
+        {
+            Category = "入門",
+            Title = "Rydia Engine の概要",
+            Description =
+                "Rydia Engine の基本構成や、GameStudio の役割を学びます。\n\n" +
+                "学習内容\n" +
+                "・エンジンとエディターの役割\n" +
+                "・プロジェクトの構成\n" +
+                "・アプリケーションの起動から終了まで"
+        },
+        new
+        {
+            Category = "入門",
+            Title = "開発環境の準備",
+            Description =
+                "C# による開発環境とプロジェクトの準備について学びます。\n\n" +
+                "学習内容\n" +
+                "・必要な開発ツール\n" +
+                "・プロジェクトの作成\n" +
+                "・ビルドと実行"
+        },
+        new
+        {
+            Category = "グラフィックス",
+            Title = "描画処理の基礎",
+            Description =
+                "ゲーム画面の描画に必要な基本概念を学びます。\n\n" +
+                "学習内容\n" +
+                "・レンダリングの基本\n" +
+                "・頂点バッファとインデックスバッファ\n" +
+                "・描画コマンドの流れ"
+        },
+        new
+        {
+            Category = "グラフィックス",
+            Title = "シェーダー",
+            Description =
+                "GPU 上で実行されるシェーダーの基本を学びます。\n\n" +
+                "学習内容\n" +
+                "・頂点シェーダー\n" +
+                "・フラグメントシェーダー\n" +
+                "・ユニフォーム変数"
+        },
+        new
+        {
+            Category = "プログラミング",
+            Title = "ゲームループ",
+            Description =
+                "ゲームの更新処理と描画処理の基本を学びます。\n\n" +
+                "学習内容\n" +
+                "・Update と Render\n" +
+                "・経過時間の管理\n" +
+                "・フレームレート"
+        },
+        new
+        {
+            Category = "プログラミング",
+            Title = "入力処理",
+            Description =
+                "キーボード、マウス、タッチ入力の扱い方を学びます。\n\n" +
+                "学習内容\n" +
+                "・キー入力の取得\n" +
+                "・マウス操作\n" +
+                "・タッチイベント"
+        },
+        new
+        {
+            Category = "リソース",
+            Title = "テクスチャとフォント",
+            Description =
+                "画像やフォントなどのリソースの基本を学びます。\n\n" +
+                "学習内容\n" +
+                "・画像リソースの読み込み\n" +
+                "・テクスチャの利用\n" +
+                "・文字の描画"
+        },
+        new
+        {
+            Category = "リソース",
+            Title = "オーディオ",
+            Description =
+                "ゲームで音声を再生するための基本を学びます。\n\n" +
+                "学習内容\n" +
+                "・オーディオデバイス\n" +
+                "・音声データの読み込み\n" +
+                "・再生と停止"
+        }
+    };
+
+            var categories = new[]
+            {
+        "すべて",
+        "入門",
+        "グラフィックス",
+        "プログラミング",
+        "リソース"
+    };
+
+            string selectedCategory = "すべて";
+
+            var courseList = new FlowLayoutPanel
+            {
+                Dock = DockStyle.Fill,
+                FlowDirection = FlowDirection.TopDown,
+                WrapContents = false,
+                AutoScroll = true,
+                BackColor = this.panelColor,
+                Padding = new Padding(12)
+            };
+
+            void RefreshCourses()
+            {
+                courseList.SuspendLayout();
+                courseList.Controls.Clear();
+
+                foreach (var course in courses)
+                {
+                    if (selectedCategory != "すべて" &&
+                        course.Category != selectedCategory)
+                    {
+                        continue;
+                    }
+
+                    var courseButton = new Button
+                    {
+                        Text = $"{course.Category}  |  {course.Title}",
+                        Width = Math.Max(300, courseList.ClientSize.Width - 35),
+                        Height = 48,
+                        TextAlign = ContentAlignment.MiddleLeft,
+                        FlatStyle = FlatStyle.Flat,
+                        BackColor = this.backgroundColor,
+                        ForeColor = Color.White,
+                        Font = new Font("Segoe UI", 10),
+                        Margin = new Padding(0, 0, 0, 8),
+                        Cursor = Cursors.Hand
+                    };
+
+                    courseButton.FlatAppearance.BorderSize = 0;
+
+                    courseButton.Click += (_, _) =>
+                    {
+                        detailTitle.Text = course.Title;
+                        detailDescription.Text = course.Description;
+                    };
+
+                    courseList.Controls.Add(courseButton);
+                }
+
+                courseList.ResumeLayout(true);
+            }
+
+            foreach (string category in categories)
+            {
+                var categoryButton = CreateActionButton(
+                    category,
+                    category == selectedCategory
+                        ? this.accentColor
+                        : this.panelColor);
+
+                categoryButton.Height = 36;
+                categoryButton.Width =
+                    category == "グラフィックス" ? 140 :
+                    category == "プログラミング" ? 145 :
+                    category == "すべて" ? 90 : 110;
+
+                categoryButton.Margin = new Padding(0, 0, 8, 0);
+
+                categoryButton.Click += (_, _) =>
+                {
+                    selectedCategory = category;
+
+                    foreach (Control control in categoryPanel.Controls)
+                    {
+                        if (control is Button button)
+                        {
+                            button.BackColor =
+                                button.Text == selectedCategory
+                                    ? this.accentColor
+                                    : this.panelColor;
+                        }
+                    }
+
+                    RefreshCourses();
+                };
+
+                categoryPanel.Controls.Add(categoryButton);
+            }
+            // 一覧と詳細を左右に配置
+            var content = new TableLayoutPanel
+            {
+                Dock = DockStyle.Fill,
+                ColumnCount = 2,
+                RowCount = 1,
+                BackColor = this.backgroundColor,
+                Padding = new Padding(0, 12, 0, 0)
+            };
+
+            content.ColumnStyles.Add(
+                new ColumnStyle(SizeType.Percent, 48));
+            content.ColumnStyles.Add(
+                new ColumnStyle(SizeType.Percent, 52));
+            content.RowStyles.Add(
+                new RowStyle(SizeType.Percent, 100));
+
+            var leftPanel = new Panel
+            {
+                Dock = DockStyle.Fill,
+                BackColor = this.backgroundColor,
+                Padding = new Padding(0, 0, 12, 0)
+            };
+
+            var listHeading = new Label
+            {
+                Text = "学習コース",
+                Dock = DockStyle.Top,
+                Height = 36,
+                ForeColor = Color.White,
+                Font = new Font("Segoe UI", 13, FontStyle.Bold)
+            };
+
+            leftPanel.Controls.Add(courseList);
+            leftPanel.Controls.Add(listHeading);
+
+            content.Controls.Add(leftPanel, 0, 0);
+            content.Controls.Add(detailPanel, 1, 0);
+
+            layout.Controls.Add(header, 0, 0);
+            layout.Controls.Add(categoryPanel, 0, 1);
+            layout.Controls.Add(content, 0, 2);
+
+            this.contentPanel.Controls.Add(layout);
+
+            RefreshCourses();
+
+            this.contentPanel.ResumeLayout(true);
         }
 
         /// <summary>
