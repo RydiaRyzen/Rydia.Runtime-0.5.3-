@@ -360,12 +360,170 @@ namespace Rydia.GameStudio
         {
             // TODO: インストール画面を表示する
             this.contentPanel.Controls.Clear();
-            MessageBox.Show(
-                this,
-                "ここにインストール画面を接続します。",
-                "Rydia GameStudio",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
+            this.contentPanel.SuspendLayout();
+            this.contentPanel.Controls.Clear();
+
+            var layout = new TableLayoutPanel
+            {
+                Dock = DockStyle.Fill,
+                ColumnCount = 1,
+                RowCount = 4,
+                BackColor = this.backgroundColor,
+                Padding = new Padding(24)
+            };
+
+            layout.RowStyles.Add(new RowStyle(SizeType.Absolute, 75));
+            layout.RowStyles.Add(new RowStyle(SizeType.Absolute, 55));
+            layout.RowStyles.Add(new RowStyle(SizeType.Percent, 100));
+            layout.RowStyles.Add(new RowStyle(SizeType.Absolute, 90));
+
+            var header = new Label
+            {
+                Text = "ランタイム管理",
+                Dock = DockStyle.Fill,
+                ForeColor = Color.White,
+                Font = new Font("Segoe UI", 20, FontStyle.Bold),
+                TextAlign = ContentAlignment.MiddleLeft
+            };
+
+            var description = new Label
+            {
+                Text = "Rydia Engine のランタイムを確認し、最新の状態に更新します。",
+                Dock = DockStyle.Fill,
+                ForeColor = Color.LightGray,
+                Font = new Font("Segoe UI", 10),
+                TextAlign = ContentAlignment.MiddleLeft
+            };
+
+            var runtimeList = new FlowLayoutPanel
+            {
+                Dock = DockStyle.Fill,
+                AutoScroll = true,
+                FlowDirection = FlowDirection.TopDown,
+                WrapContents = false,
+                BackColor = this.backgroundColor,
+                Padding = new Padding(0, 8, 8, 8)
+            };
+
+            AddRuntimeItem(
+                runtimeList,
+                "Rydia Engine Runtime",
+                "エンジンの基本実行環境",
+                "状態未確認");
+
+            var bottomPanel = new Panel
+            {
+                Dock = DockStyle.Fill,
+                BackColor = this.backgroundColor
+            };
+
+            var statusLabel = new Label
+            {
+                Text = "ランタイムの状態を確認してください。",
+                ForeColor = Color.LightGray,
+                Font = new Font("Segoe UI", 9),
+                AutoSize = true,
+                Location = new Point(0, 10)
+            };
+
+            var updateButton = CreateActionButton(
+                "ランタイムを更新",
+                this.accentColor);
+
+            updateButton.Size = new Size(190, 42);
+            updateButton.Anchor = AnchorStyles.Right | AnchorStyles.Top;
+            updateButton.Location = new Point(
+                Math.Max(0, bottomPanel.ClientSize.Width - 190),
+                25);
+
+            bottomPanel.Resize += (_, _) =>
+            {
+                updateButton.Location = new Point(
+                    Math.Max(0, bottomPanel.ClientSize.Width
+                        - updateButton.Width),
+                    25);
+            };
+
+            updateButton.Click += (_, _) =>
+            {
+                statusLabel.Text =
+                    "更新サービスが未接続です。";
+
+                MessageBox.Show(
+                    "ランタイムの更新処理は、更新サービスの実装後に利用できます。",
+                    "ランタイム管理",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            };
+
+            bottomPanel.Controls.Add(statusLabel);
+            bottomPanel.Controls.Add(updateButton);
+
+            layout.Controls.Add(header, 0, 0);
+            layout.Controls.Add(description, 0, 1);
+            layout.Controls.Add(runtimeList, 0, 2);
+            layout.Controls.Add(bottomPanel, 0, 3);
+
+            this.contentPanel.Controls.Add(layout);
+            this.contentPanel.ResumeLayout(true);
+        }
+
+        private void AddRuntimeItem(FlowLayoutPanel parent, string name, string description, string status)
+        {
+            var item = new Panel
+            {
+                Width = Math.Max(300, parent.ClientSize.Width - 30),
+                Height = 88,
+                BackColor = this.panelColor,
+                Margin = new Padding(0, 0, 0, 12),
+                Padding = new Padding(16)
+            };
+
+            var nameLabel = new Label
+            {
+                Text = name,
+                ForeColor = Color.White,
+                Font = new Font("Segoe UI", 11, FontStyle.Bold),
+                Location = new Point(16, 12),
+                AutoSize = true
+            };
+
+            var descriptionLabel = new Label
+            {
+                Text = description,
+                ForeColor = Color.LightGray,
+                Font = new Font("Segoe UI", 9),
+                Location = new Point(16, 43),
+                AutoSize = true
+            };
+
+            var statusLabel = new Label
+            {
+                Text = status,
+                ForeColor = Color.Silver,
+                Font = new Font("Segoe UI", 9),
+                AutoSize = true,
+                Anchor = AnchorStyles.Top | AnchorStyles.Right
+            };
+
+            item.Controls.Add(nameLabel);
+            item.Controls.Add(descriptionLabel);
+            item.Controls.Add(statusLabel);
+
+            item.Resize += (_, _) =>
+            {
+                statusLabel.Location = new Point(
+                    Math.Max(16, item.ClientSize.Width
+                        - statusLabel.Width - 16),
+                    16);
+            };
+
+            statusLabel.Location = new Point(
+                Math.Max(16, item.ClientSize.Width
+                    - statusLabel.Width - 16),
+                16);
+
+            parent.Controls.Add(item);
         }
 
         /// <summary>

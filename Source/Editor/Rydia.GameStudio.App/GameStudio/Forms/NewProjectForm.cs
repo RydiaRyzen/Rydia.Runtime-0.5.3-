@@ -115,7 +115,6 @@ namespace Rydia.GameStudio
             {
             "3D プロジェクト",
             "2D プロジェクト",
-            "空のプロジェクト"
             });
             this.templateComboBox.SelectedIndex = 0;
 
