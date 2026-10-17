@@ -55,7 +55,7 @@ namespace Rydia.GameStudio
         {
             InitializeComponent();
 
-            Text = "Rydia GameStudio";
+            Text = "Rydia Engine Hub";
             ClientSize = new Size(1200, 760);
             MinimumSize = new Size(900, 600);
             StartPosition = FormStartPosition.CenterScreen;
@@ -134,28 +134,6 @@ namespace Rydia.GameStudio
         }
 
         /// <summary>
-        /// フォルダー選択ダイアログを表示し、既存のプロジェクトフォルダーを登録します。
-        /// </summary>
-        /// <remarks>
-        /// 初期ディレクトリには、エディターのアセンブリが配置されたディレクトリ内の
-        /// Projects フォルダーを指定します。
-        /// </remarks>
-        private void OpenProject()
-        {
-            using var dialog = new FolderBrowserDialog
-            {
-                Description = "プロジェクトのフォルダーを選択してください。"
-            };
-            var dir = typeof(HubForm).Assembly.Location;
-            dir = Path.GetDirectoryName(dir);
-            dialog.InitialDirectory = Path.Combine(dir, "Projects");
-            if (dialog.ShowDialog(this) != DialogResult.OK)
-                return;
-
-            AddProject(dialog.SelectedPath);
-        }
-
-        /// <summary>
         /// 指定されたフォルダーをプロジェクト一覧に登録します。
         /// </summary>
         /// <param name="path">登録するプロジェクトフォルダーのパス。</param>
@@ -196,6 +174,8 @@ namespace Rydia.GameStudio
             // プロジェクトをリストに追加する
             var item = new ListViewItem(name);
             item.SubItems.Add(path);
+            // TODO : プロジェクトのバージョン情報を取得して表示する処理を追加する
+            // 現時点ではバージョン情報の保存方法が無いため、登録済みとする
             item.SubItems.Add("登録済み");
 
             item.Tag = path;
@@ -230,7 +210,7 @@ namespace Rydia.GameStudio
                 return;
             }
 
-            // TODO:
+            // TODO: 
             // Rydia のプロジェクトファイルを読み込み、
             // エディター本体を起動する。
             MessageBox.Show(
@@ -316,7 +296,9 @@ namespace Rydia.GameStudio
             newButton.Location = new Point(0, 10);
             newButton.Size = new Size(190, 42);
             newButton.Click += (_, _) => CreateProject();
-
+            
+            /*
+             * Projectフォルダー内のプロジェクトを一覧表示するため、ボタンをコメントアウトする
             var openButton = CreateActionButton(
                 "プロジェクトフォルダーを開く",
                 this.panelColor);
@@ -324,9 +306,9 @@ namespace Rydia.GameStudio
             openButton.Location = new Point(200, 10);
             openButton.Size = new Size(190, 42);
             openButton.Click += (_, _) => OpenProject();
-
+            */
+            //toolbar.Controls.Add(openButton);
             toolbar.Controls.Add(newButton);
-            toolbar.Controls.Add(openButton);
 
             // プロジェクト一覧
             this.projectList = new ListView
@@ -355,6 +337,13 @@ namespace Rydia.GameStudio
             layout.Controls.Add(this.projectList, 0, 2);
 
             this.contentPanel.Controls.Add(layout);
+
+            // TODO: プロジェクトフォルダー内のプロジェクトを自動的に読み込む処理を追加する
+            var projectsFolder = Path.Combine(Environment.CurrentDirectory, "Projects");
+            foreach(var dir in Directory.GetDirectories(projectsFolder))
+            {
+                AddProject(dir);
+            }
 
             this.contentPanel.ResumeLayout(true);
         }
@@ -411,12 +400,230 @@ namespace Rydia.GameStudio
         {
             // TODO: コミュニティ画面を表示する
             this.contentPanel.Controls.Clear();
-            MessageBox.Show(
-                this,
-                "ここにコミュニティ画面を接続します。",
-                "Rydia GameStudio",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
+            this.contentPanel.SuspendLayout();
+            this.contentPanel.Controls.Clear();
+
+            var layout = new TableLayoutPanel
+            {
+                Dock = DockStyle.Fill,
+                ColumnCount = 1,
+                RowCount = 3,
+                BackColor = this.backgroundColor,
+                Padding = new Padding(32, 24, 32, 24),
+                Margin = Padding.Empty
+            };
+
+            layout.ColumnStyles.Add(
+                new ColumnStyle(SizeType.Percent, 100));
+
+            layout.RowStyles.Add(
+                new RowStyle(SizeType.Absolute, 100));
+
+            layout.RowStyles.Add(
+                new RowStyle(SizeType.Absolute, 100));
+
+            layout.RowStyles.Add(
+                new RowStyle(SizeType.Percent, 100));
+
+            // ヘッダー
+            var header = new Panel
+            {
+                Dock = DockStyle.Fill,
+                BackColor = this.backgroundColor
+            };
+
+            var heading = new Label
+            {
+                Text = "コミュニティ",
+                Font = new Font("Segoe UI", 24, FontStyle.Bold),
+                ForeColor = Color.White,
+                Dock = DockStyle.Top,
+                Height = 45
+            };
+
+            var description = new Label
+            {
+                Text = "Rydia Engine の情報を確認し、開発コミュニティに参加できます。",
+                ForeColor = Color.Silver,
+                Dock = DockStyle.Top,
+                Height = 30
+            };
+
+            header.Controls.Add(description);
+            header.Controls.Add(heading);
+
+            // 概要
+            var introduction = new Panel
+            {
+                Dock = DockStyle.Fill,
+                BackColor = this.panelColor,
+                Padding = new Padding(20)
+            };
+
+            var introductionTitle = new Label
+            {
+                Text = "Rydia GameStudio Community",
+                Font = new Font("Segoe UI", 14, FontStyle.Bold),
+                ForeColor = Color.White,
+                Dock = DockStyle.Top,
+                Height = 30
+            };
+
+            var introductionText = new Label
+            {
+                Text =
+                    "Rydia Engine の開発情報やドキュメントを確認できます。\n" +
+                    "各リンクの接続先は、公式 URL を設定してから使用してください。",
+                ForeColor = Color.Silver,
+                Dock = DockStyle.Fill,
+                TextAlign = ContentAlignment.MiddleLeft
+            };
+
+            introduction.Controls.Add(introductionText);
+            introduction.Controls.Add(introductionTitle);
+
+            // コミュニティリンク
+            var links = new TableLayoutPanel
+            {
+                Dock = DockStyle.Fill,
+                ColumnCount = 2,
+                RowCount = 2,
+                BackColor = this.backgroundColor,
+                Padding = new Padding(0, 20, 0, 0)
+            };
+
+            links.ColumnStyles.Add(
+                new ColumnStyle(SizeType.Percent, 50));
+
+            links.ColumnStyles.Add(
+                new ColumnStyle(SizeType.Percent, 50));
+
+            links.RowStyles.Add(
+                new RowStyle(SizeType.Percent, 50));
+
+            links.RowStyles.Add(
+                new RowStyle(SizeType.Percent, 50));
+
+            links.Controls.Add(
+                CreateCommunityCard(
+                    "公式サイト",
+                    "Rydia Engine の公式サイトを開きます。",
+                    string.Empty),
+                0, 0);
+
+            links.Controls.Add(
+                CreateCommunityCard(
+                    "GitHub",
+                    "ソースコードやリポジトリを確認します。",
+                    "https://github.com/RydiaRyzen/Rydia.Runtime-0.5.3-"),
+                1, 0);
+
+            links.Controls.Add(
+                CreateCommunityCard(
+                    "ドキュメント",
+                    "エンジンの使用方法や API を確認します。",
+                    string.Empty),
+                0, 1);
+
+            links.Controls.Add(
+                CreateCommunityCard(
+                    "ディスカッション",
+                    "質問や機能提案、開発に関する議論を行います。",
+                    string.Empty),
+                1, 1);
+
+            layout.Controls.Add(header, 0, 0);
+            layout.Controls.Add(introduction, 0, 1);
+            layout.Controls.Add(links, 0, 2);
+
+            this.contentPanel.Controls.Add(layout);
+            this.contentPanel.ResumeLayout(true);
+        }
+
+        /// <summary>
+        /// コミュニティへのリンクを表示するカードを生成します。
+        /// </summary>
+        /// <param name="title">カードのタイトル。</param>
+        /// <param name="description">カードの説明。</param>
+        /// <param name="url">リンク先の URL。未設定の場合はボタンを無効にします。</param>
+        /// <returns>生成されたコミュニティカード。</returns>
+        private Panel CreateCommunityCard(
+            string title,
+            string description,
+            string url)
+        {
+            var card = new Panel
+            {
+                Dock = DockStyle.Fill,
+                BackColor = this.panelColor,
+                Margin = new Padding(0, 0, 12, 12),
+                Padding = new Padding(20)
+            };
+
+            var heading = new Label
+            {
+                Text = title,
+                Dock = DockStyle.Top,
+                Height = 32,
+                Font = new Font("Segoe UI", 13, FontStyle.Bold),
+                ForeColor = Color.White
+            };
+
+            var detail = new Label
+            {
+                Text = description,
+                Dock = DockStyle.Fill,
+                ForeColor = Color.Silver,
+                TextAlign = ContentAlignment.MiddleLeft
+            };
+
+            var openButton = CreateActionButton(
+                "開く",
+                this.accentColor);
+
+            openButton.Size = new Size(100, 34);
+            openButton.Dock = DockStyle.Bottom;
+
+            // URL が設定されていない場合はリンクを無効にします。
+            openButton.Enabled = Uri.TryCreate(
+                url,
+                UriKind.Absolute,
+                out var uri)
+                && (uri.Scheme == Uri.UriSchemeHttp
+                    || uri.Scheme == Uri.UriSchemeHttps);
+
+            openButton.Click += (_, _) =>
+            {
+                if (Uri.TryCreate(url, UriKind.Absolute, out var target)
+                    && (target.Scheme == Uri.UriSchemeHttp
+                        || target.Scheme == Uri.UriSchemeHttps))
+                {
+                    try
+                    {
+                        System.Diagnostics.Process.Start(
+                            new System.Diagnostics.ProcessStartInfo
+                            {
+                                FileName = target.AbsoluteUri,
+                                UseShellExecute = true
+                            });
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(
+                            this,
+                            $"リンクを開けませんでした。\n{ex.Message}",
+                            "エラー",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                    }
+                }
+            };
+
+            card.Controls.Add(detail);
+            card.Controls.Add(openButton);
+            card.Controls.Add(heading);
+
+            return card;
         }
 
     }

@@ -28,36 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new Button();
             SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new Point(556, 335);
-            this.button1.Name = "button1";
-            this.button1.Size = new Size(172, 68);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += button1_Click;
             // 
             // NewProjectForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(this.button1);
-            FormBorderStyle = FormBorderStyle.Fixed3D;
+            BackColor = Color.FromArgb(37, 37, 38);
+            ClientSize = new Size(640, 440);
+            Font = new Font("Segoe UI", 9F);
+            ForeColor = Color.White;
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
             MinimizeBox = false;
+            MinimumSize = new Size(600, 440);
             Name = "NewProjectForm";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "新規プロジェクト作成";
+            ShowInTaskbar = false;
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "新しいプロジェクト";
             ResumeLayout(false);
         }
 
         #endregion
-
-        private Button button1;
     }
 }

@@ -11,13 +11,33 @@ using Rydia.GameStudio.App;
 
 namespace Rydia.GameStudio
 {
+
+    /// <summary>
+    /// Rydia GameStudio の起動時に表示するスプラッシュスクリーンを表します。
+    /// 初期化処理の進行状況を表示し、初期化完了後にフォームを閉じます。
+    /// </summary>
     public partial class SplashForm : Form
     {
 
+        /// <summary>
+        /// タイトルロゴを表示するピクチャボックスです。
+        /// </summary>
         private readonly PictureBox titlePictureBox;
+
+        /// <summary>
+        /// 初期化処理の状態を表示するラベルです。
+        /// </summary>
         private readonly Label statusLabel;
+
+        /// <summary>
+        /// 初期化処理の進行状況を表示するプログレスバーです。
+        /// </summary>
         private readonly ProgressBar progressBar;
 
+        /// <summary>
+        /// <see cref="SplashForm"/> クラスの新しいインスタンスを初期化します。
+        /// フォームの外観を設定し、埋め込みリソースからタイトル画像を読み込みます。
+        /// </summary>
         public SplashForm()
         {
             InitializeComponent();
@@ -69,8 +89,12 @@ namespace Rydia.GameStudio
         }
 
         /// <summary>
-        /// スプラッシュスクリーンの状態表示を更新します。
+        /// スプラッシュスクリーンに表示する初期化状態を更新します。
         /// </summary>
+        /// <param name="message">表示する状態メッセージ。</param>
+        /// <remarks>
+        /// 呼び出し元が UI スレッド以外の場合は、UI スレッドに処理を委譲します。
+        /// </remarks>
         public void SetStatus(string message)
         {
             if (InvokeRequired)
@@ -82,13 +106,22 @@ namespace Rydia.GameStudio
             this.statusLabel.Text = message;
         }
 
+        /// <summary>
+        /// フォームの表示後に非同期の初期化処理を開始します。
+        /// </summary>
+        /// <param name="e">イベントの追加情報。</param>
+        /// <remarks>
+        /// 初期化に成功した場合は <see cref="DialogResult.OK"/> を設定してフォームを閉じます。
+        /// 初期化に失敗した場合はエラーメッセージを表示し、
+        /// <see cref="DialogResult.Abort"/> を設定してフォームを閉じます。
+        /// </remarks>
         protected override async void OnShown(EventArgs e)
         {
             base.OnShown(e);
             // フォームが表示された後に、初期化処理を開始する
             try
             {
-                await AppInitializer.InitializeAsync(SetStatus);
+                await InitializeAsync(SetStatus);
 
                 DialogResult = DialogResult.OK;
                 Close();
@@ -106,5 +139,109 @@ namespace Rydia.GameStudio
                 Close();
             }
         }
+
+        /// <summary>
+        /// アプリケーションの起動に必要な初期化処理を順番に実行します。
+        /// </summary>
+        /// <param name="reportStatus">
+        /// 初期化状態を通知するコールバック関数。
+        /// 引数には現在の処理状態を表すメッセージが渡されます。
+        /// </param>
+        /// <returns>すべての初期化処理が完了したときに完了するタスク。</returns>
+        /// <remarks>
+        /// サービス、設定、アップデーター、プラグイン、リソースの順に初期化し、
+        /// 最後に起動準備完了の状態を通知します。
+        /// </remarks>
+        public static async Task InitializeAsync(Action<string> reportStatus)
+        {
+            reportStatus("初期化しています...");
+            await InitializeServicesAsync();
+
+            reportStatus("設定ファイルを読み込んでいます...");
+            await LoadSettingsAsync();
+
+            reportStatus("アップデートを確認しています...");
+            await LoadUpdater();
+
+            reportStatus("プラグインを読み込んでいます...");
+            await LoadPluginAsync();
+
+            reportStatus("リソースを読み込んでいます...");
+            await LoadResourcesAsync();
+
+            reportStatus("起動準備完了");
+            await Task.Delay(3000);
+        }
+
+        /// <summary>
+        /// アプリケーションの基本サービスを初期化します。
+        /// </summary>
+        /// <returns>サービスの初期化が完了したときに完了するタスク。</returns>
+        /// <remarks>
+        /// プラグイン、プロジェクト、ダウンロード用の各フォルダーが存在しない場合は作成し、
+        /// <see cref="EditorContext"/> を通じてサービスを初期化します。
+        /// </remarks>
+        private static async Task InitializeServicesAsync()
+        {
+            // Pluginフォルダーの確認
+            if (!System.IO.Directory.Exists("Plugins"))
+            {
+                System.IO.Directory.CreateDirectory("Plugins");
+            }
+            // Projectフォルダーの確認
+            if (!System.IO.Directory.Exists("Projects"))
+            {
+                System.IO.Directory.CreateDirectory("Projects");
+            }
+            // Downloadフォルダーの確認
+            if (!System.IO.Directory.Exists("Download"))
+            {
+                System.IO.Directory.CreateDirectory("Download");
+            }
+            // Serviceの初期化
+            EditorContext.LoadServices();
+            await Task.Delay(3000);
+        }
+
+        /// <summary>
+        /// アップデーターを初期化します。
+        /// </summary>
+        /// <returns>アップデーターの初期化が完了したときに完了するタスク。</returns>
+        private static async Task LoadUpdater()
+        {
+            EditorContext.LoadUpdater();
+            await Task.Delay(3000);
+        }
+
+        /// <summary>
+        /// アプリケーションの設定を読み込みます。
+        /// </summary>
+        /// <returns>設定の読み込みが完了したときに完了するタスク。</returns>
+        private static async Task LoadSettingsAsync()
+        {
+            EditorContext.LoadSettings();
+            await Task.Delay(3000);
+        }
+
+        /// <summary>
+        /// プラグインを読み込み、初期化します。
+        /// </summary>
+        /// <returns>プラグインの読み込みが完了したときに完了するタスク。</returns>
+        private static async Task LoadPluginAsync()
+        {
+            EditorContext.LoadPlugin();
+            await Task.Delay(3000);
+        }
+
+        /// <summary>
+        /// アプリケーションで使用するリソースを読み込みます。
+        /// </summary>
+        /// <returns>リソースの読み込みが完了したときに完了するタスク。</returns>
+        private static async Task LoadResourcesAsync()
+        {
+            EditorContext.LoadResorces();
+            await Task.Delay(3000);
+        }
+
     }
 }
