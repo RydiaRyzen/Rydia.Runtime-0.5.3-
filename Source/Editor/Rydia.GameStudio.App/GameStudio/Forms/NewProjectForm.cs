@@ -227,7 +227,7 @@ namespace Rydia.GameStudio
         /// <summary>
         /// 入力内容を検証し、新しいプロジェクトの作成を確定します。
         /// </summary>
-        private void createButton_Click(object sender, EventArgs e)
+        private async void createButton_Click(object sender, EventArgs e)
         {
             string projectName = ProjectName;
             string projectLocation = ProjectLocation;
@@ -293,6 +293,15 @@ namespace Rydia.GameStudio
                 return;
             }
 
+            // ログ表示フォームを開く
+            using var logForm = new ProjectGenerationLogForm();
+            logForm.Show(this);
+            logForm.AppendLog("プロジェクト生成処理を開始します。");
+
+            this.createButton.Enabled = false;
+
+            bool success = false;
+
             // TODO : プロジェクト作成
             // プロジェクトの保存先ディレクトリを作成
             var editordirectory = Path.GetDirectoryName(projectLocation);
@@ -310,13 +319,32 @@ namespace Rydia.GameStudio
             // ソリューションのパスを設定
             solutionFile.Path = Path.Combine(sourceDirectory, solutionFile.Name);
 
+            // プロジェクトCを生成
+            var projectC = new ProjectFile(projectName + ".Share", ProjectType.Shared);
+            {
+                var classB = new ClassFile("Class1");
+                {
+                    // 名前空間を設定
+                    classB.Namespace = "Rydia." + projectName;
+                    // usingを追加
+                    classB.AddUsing("System");
+                    classB.AddUsing("System.Collections.Generic");
+                    classB.AddUsing("System.Linq");
+                    classB.AddUsing("System.Text");
+                    classB.AddUsing("Rydia");
+
+                    projectC.AddClass(classB);
+                }
+                solutionFile.AddProject(projectC);
+            }
+
             // プロジェクトAを生成
             var projectA = new ProjectFile(projectName, ProjectType.ClassLibrary);
             {
                 // アセンブリ参照を追加
                 projectA.AddAssemblyReference("Rydia.Runtime", editordirectory + "/Rydia.Runtime.dll");
                 projectA.AddAssemblyReference("Rydia.Engine", editordirectory + "/Rydia.Engine.dll");
-
+                projectA.AddReference(projectC);
                 // クラスAを生成
                 var classA = new ClassFile("SampleClass");
                 {
@@ -401,7 +429,7 @@ namespace Rydia.GameStudio
     path = Path.GetDirectoryName(path);
     path = Path.GetDirectoryName(path);
     path = Path.Combine(path, (IntPtr.Size == 8) ? "x64" : "x86");
-    Rydia.Win32.Kernel32.SetDllDirectory(path);
+    WindowsPlatform.SetDllDirectory(path);
 
     // このアプリケーションはWindowsプラットフォーム専用のアプリケーションであるため、
     // Windowsプラットフォームの初期化を行う
@@ -456,15 +484,58 @@ namespace Rydia.GameStudio
                 solutionFile.AddProject(projectB);
             }
 
-            // ソリューションを生成
-            solutionFile.Generate();
-            // ビルド
-            //solutionFile.Build();
+            try
+            {
+                // ファイル生成とビルドを UI スレッドから分離する
+                await Task.Run(() =>
+                {
+                    logForm.SetStatus("ソリューションを生成しています...");
+                    logForm.AppendLog("ソリューション生成を開始します。");
 
-            // ソリューションを開く
-            solutionFile.Open();
-            DialogResult = DialogResult.OK;
-            Close();
+                    solutionFile.Generate();
+
+                    logForm.AppendLog("ソリューション生成が完了しました。");
+                    logForm.SetStatus("プロジェクトをビルドしています...");
+                    logForm.AppendLog("ビルドを開始します。");
+
+                    solutionFile.Build();
+
+                    logForm.AppendLog("ビルドが完了しました。");
+
+                    logForm.AppendLog("生成処理が正常に終了しました。");
+                    logForm.SetStatus("生成処理が完了しました。");
+                    success = true;
+                    Task.Delay(5000).Wait(); // 1秒待機してログを表示
+                });
+
+            }
+            catch (Exception ex)
+            {
+                logForm.AppendLog($"エラー: {ex.Message}");
+                logForm.AppendLog(ex.ToString());
+                logForm.SetStatus("生成処理に失敗しました。");
+
+                MessageBox.Show(
+                    logForm,
+                    $"プロジェクトの生成に失敗しました。\n\n{ex.Message}",
+                    "生成エラー",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            finally
+            {
+                logForm.Complete(success);
+                this.createButton.Enabled = true;
+            }
+
+            if (success)
+            {
+                // ソリューションを開く
+                solutionFile.Open();
+
+                DialogResult = DialogResult.OK;
+                Close();
+            }
         }
     }
 }

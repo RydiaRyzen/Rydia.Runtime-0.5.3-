@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.LinkLabel;
 
 namespace Rydia.SolutionBuilder
 {
@@ -94,35 +95,88 @@ namespace Rydia.SolutionBuilder
         private void GenerateSolutionFile()
         {
             string solutionPath = System.IO.Path.Combine(
-                Path,
-                Name + ".sln");
+        Path,
+        Name + ".sln");
 
-            // .sln を明示的に指定
-            RunDotNet(
-                Path,
-                "new",
-                "sln",
-                "--name",
-                Name,
-                "--format",
-                "sln");
-
-            // プロジェクトをソリューションへ追加
-            foreach (var project in this._projects)
+            // ソリューションが存在しない場合のみ生成する
+            if (!File.Exists(solutionPath))
             {
-                var ext = project.ProjectType == ProjectType.Shared ? ".shproj" : ".csproj";
-                string projectPath = System.IO.Path.Combine(
-                    Path,
-                    project.Name,
-                    project.Name + ext);
-
                 RunDotNet(
                     Path,
+                    "new",
                     "sln",
-                    solutionPath,
-                    "add",
-                    projectPath);
+                    "--name",
+                    Name,
+                    "--format",
+                    "sln");
             }
+
+            var lines = File.ReadAllLines(solutionPath).ToList();
+
+            // Shared Project と通常の C# プロジェクトの種類 GUID
+            const string sharedProjectTypeGuid =
+                "{D954291E-2A0B-460D-934E-DC6B0785DB48}";
+
+            const string csharpProjectTypeGuid =
+                "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}";
+
+            int globalIndex = lines.FindIndex(line =>
+                line.Trim().Equals("Global", StringComparison.Ordinal));
+
+            if (globalIndex < 0)
+            {
+                throw new InvalidOperationException(
+                    "The solution file does not contain a Global section.");
+            }
+
+            foreach (var project in this._projects)
+            {
+                string extension =
+                    project.ProjectType == ProjectType.Shared
+                        ? ".shproj"
+                        : ".csproj";
+
+                string relativePath = System.IO.Path.Combine(
+                    project.Name,
+                    project.Name + extension);
+
+                relativePath = relativePath.Replace('\\', '/');
+
+                // 同じプロジェクトが既に登録されている場合はスキップ
+                bool exists = lines.Any(line =>
+                    line.StartsWith("Project(", StringComparison.Ordinal) &&
+                    line.Contains(
+                        $"\"{relativePath}\"",
+                        StringComparison.OrdinalIgnoreCase));
+
+                if (exists)
+                    continue;
+
+                string typeGuid =
+                    project.ProjectType == ProjectType.Shared
+                        ? sharedProjectTypeGuid
+                        : csharpProjectTypeGuid;
+
+                string projectGuid =
+                    "{" + Guid.NewGuid().ToString().ToUpperInvariant() + "}";
+
+                string projectBlock =
+                    $"Project(\"{typeGuid}\") = " +
+                    $"\"{project.Name}\", " +
+                    $"\"{relativePath}\", " +
+                    $"\"{projectGuid}\"";
+
+                // Global セクションより前にプロジェクトブロックを追加
+                lines.Insert(globalIndex, "EndProject");
+                lines.Insert(globalIndex, projectBlock);
+
+                globalIndex += 2;
+            }
+
+            File.WriteAllText(
+                solutionPath,
+                string.Join("\r\n", lines) + "\r\n",
+                new System.Text.UTF8Encoding(true));
         }
 
         /// <summary>

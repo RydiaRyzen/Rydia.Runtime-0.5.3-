@@ -212,6 +212,62 @@ namespace Rydia.SolutionBuilder
             }
         }
 
+
+        /// <summary>
+        /// クラスライブラリのプロジェクトファイル（.csproj）を生成します。
+        /// </summary>
+        /// <remarks>
+        /// ターゲットフレームワーク、ビルド設定、プロジェクト参照、
+        /// アセンブリ参照をプロジェクトファイルに出力します。
+        /// </remarks>
+        private void GenerateClassLibrary()
+        {
+            var sb = new StringBuilder();
+
+            sb.AppendLine("""
+            <Project Sdk="Microsoft.NET.Sdk">
+
+              <PropertyGroup>
+                <TargetFramework>net9.0</TargetFramework>
+                <ImplicitUsings>enable</ImplicitUsings>
+                <Nullable>enable</Nullable>
+              </PropertyGroup>
+            """);
+
+            if (this._references.Count > 0)
+            {
+                GenerateProjectReference(sb);
+            }
+
+            if (this._assemblyReferences.Count > 0)
+            {
+                sb.AppendLine();
+                sb.AppendLine("  <ItemGroup>");
+
+                foreach (var reference in this._assemblyReferences)
+                {
+                    sb.AppendLine(
+                        $"    <Reference Include=\"{System.Security.SecurityElement.Escape(reference.Name)}\">");
+
+                    sb.AppendLine(
+                        $"      <HintPath>{System.Security.SecurityElement.Escape(reference.HintPath)}</HintPath>");
+
+                    sb.AppendLine("    </Reference>");
+                }
+
+                sb.AppendLine("  </ItemGroup>");
+            }
+
+            sb.AppendLine();
+            sb.AppendLine("</Project>");
+
+            File.WriteAllText(
+                Path.Combine(
+                    DirectoryPath,
+                    Name + ".csproj"),
+                sb.ToString());
+        }
+
         /// <summary>
         /// Windows Forms アプリケーションのプロジェクトファイル（.csproj）を生成します。
         /// </summary>
@@ -234,21 +290,7 @@ namespace Rydia.SolutionBuilder
 
             if (this._references.Count > 0)
             {
-                sb.AppendLine();
-                sb.AppendLine("  <ItemGroup>");
-
-                foreach (var reference in this._references)
-                {
-                    string relativePath = Path.Combine(
-                        "..",
-                        reference.Name,
-                        reference.Name + ".csproj");
-
-                    sb.AppendLine(
-                        $"    <ProjectReference Include=\"{System.Security.SecurityElement.Escape(relativePath)}\" />");
-                }
-
-                sb.AppendLine("  </ItemGroup>");
+                GenerateProjectReference(sb);
             }
 
             if (this._assemblyReferences.Count > 0)
@@ -348,28 +390,17 @@ namespace Rydia.SolutionBuilder
                 project.ToString());
         }
 
-        /// <summary>
-        /// クラスライブラリのプロジェクトファイル（.csproj）を生成します。
-        /// </summary>
-        /// <remarks>
-        /// ターゲットフレームワーク、ビルド設定、プロジェクト参照、
-        /// アセンブリ参照をプロジェクトファイルに出力します。
-        /// </remarks>
-        private void GenerateClassLibrary()
+        private void GenerateProjectReference(StringBuilder sb)
         {
-            var sb = new StringBuilder();
-
-            sb.AppendLine("""
-            <Project Sdk="Microsoft.NET.Sdk">
-
-              <PropertyGroup>
-                <TargetFramework>net9.0</TargetFramework>
-                <ImplicitUsings>enable</ImplicitUsings>
-                <Nullable>enable</Nullable>
-              </PropertyGroup>
-            """);
-
-            if (this._references.Count > 0)
+            var count = 0;
+            foreach (var reference in this._references)
+            {
+                if (reference.ProjectType != ProjectType.Shared)
+                {
+                    count++;
+                }
+            }
+            if (count > 0)
             {
                 sb.AppendLine();
                 sb.AppendLine("  <ItemGroup>");
@@ -379,43 +410,31 @@ namespace Rydia.SolutionBuilder
                     string relativePath = Path.Combine(
                         "..",
                         reference.Name,
-                        reference.Name + ".csproj");
-
-                    sb.AppendLine(
-                        $"    <ProjectReference Include=\"{relativePath}\" />");
+                        reference.Name);
+                    if (reference.ProjectType != ProjectType.Shared)
+                    {
+                        relativePath += ".csproj";
+                        sb.AppendLine(
+                            $"    <ProjectReference Include=\"{relativePath}\" />");
+                    }
                 }
 
                 sb.AppendLine("  </ItemGroup>");
             }
-
-            if (this._assemblyReferences.Count > 0)
+            foreach (var reference in this._references)
             {
-                sb.AppendLine();
-                sb.AppendLine("  <ItemGroup>");
-
-                foreach (var reference in this._assemblyReferences)
+                string relativePath = Path.Combine(
+                    "..",
+                    reference.Name,
+                    reference.Name);
+                if (reference.ProjectType == ProjectType.Shared)
                 {
-                    sb.AppendLine(
-                        $"    <Reference Include=\"{System.Security.SecurityElement.Escape(reference.Name)}\">");
-
-                    sb.AppendLine(
-                        $"      <HintPath>{System.Security.SecurityElement.Escape(reference.HintPath)}</HintPath>");
-
-                    sb.AppendLine("    </Reference>");
+                    relativePath += ".projitems";
+                    sb.AppendLine($"<Import Project=\"{relativePath}\" Label=\"Shared\"/>");
                 }
-
-                sb.AppendLine("  </ItemGroup>");
             }
-
-            sb.AppendLine();
-            sb.AppendLine("</Project>");
-
-            File.WriteAllText(
-                Path.Combine(
-                    DirectoryPath,
-                    Name + ".csproj"),
-                sb.ToString());
         }
+
 
     }
 
