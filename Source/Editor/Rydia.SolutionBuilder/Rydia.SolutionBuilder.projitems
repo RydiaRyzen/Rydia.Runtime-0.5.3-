@@ -9,6 +9,7 @@
     <Import_RootNamespace>Rydia.SolutionBuilder</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)AssemblyReference.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ClassFile.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MethodDefinition.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ProjectFile.cs" />

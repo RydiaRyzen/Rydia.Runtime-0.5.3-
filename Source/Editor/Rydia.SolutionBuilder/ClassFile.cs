@@ -109,20 +109,6 @@ namespace Rydia.SolutionBuilder
         }
 
         /// <summary>
-        /// クラスにメソッドを追加します。
-        /// </summary>
-        /// <param name="name">
-        /// メソッド名。
-        /// </param>
-        public void AddMethod(string name)
-        {
-            ArgumentException.ThrowIfNullOrWhiteSpace(name);
-
-            this._methods.Add(
-                new MethodDefinition(name));
-        }
-
-        /// <summary>
         /// 指定した戻り値の型を持つメソッドをクラスに追加します。
         /// </summary>
         /// <param name="name">
@@ -133,15 +119,15 @@ namespace Rydia.SolutionBuilder
         /// </param>
         public void AddMethod(
             string name,
-            string returnType)
+            string body,
+            string returnType = "void")
         {
             ArgumentException.ThrowIfNullOrWhiteSpace(name);
             ArgumentException.ThrowIfNullOrWhiteSpace(returnType);
 
-            this._methods.Add(
-                new MethodDefinition(
-                    name,
-                    returnType));
+            var method = new MethodDefinition(name, returnType);
+            method.Body = body;
+            this._methods.Add(method);
         }
 
         /// <summary>
@@ -190,6 +176,15 @@ namespace Rydia.SolutionBuilder
                 sb.AppendLine(
                     $"    public {method.ReturnType} {method.Name}()");
                 sb.AppendLine("    {");
+
+                if (!string.IsNullOrWhiteSpace(method.Body))
+                {
+                    foreach (string line in method.Body.Replace("\r\n", "\n").Split('\n'))
+                    {
+                        sb.AppendLine($"        {line}");
+                    }
+                }
+
                 sb.AppendLine("    }");
                 sb.AppendLine();
             }

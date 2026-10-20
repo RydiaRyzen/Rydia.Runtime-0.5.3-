@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Rydia.SolutionBuilder;
 
 namespace Rydia.GameStudio
 {
@@ -228,10 +229,10 @@ namespace Rydia.GameStudio
         /// </summary>
         private void createButton_Click(object sender, EventArgs e)
         {
-            string name = ProjectName;
-            string location = ProjectLocation;
+            string projectName = ProjectName;
+            string projectLocation = ProjectLocation;
 
-            if (string.IsNullOrWhiteSpace(name))
+            if (string.IsNullOrWhiteSpace(projectName))
             {
                 MessageBox.Show(
                     this,
@@ -244,8 +245,8 @@ namespace Rydia.GameStudio
                 return;
             }
 
-            if (name.IndexOfAny(Path.GetInvalidFileNameChars()) >= 0 ||
-                name == "." || name == "..")
+            if (projectName.IndexOfAny(Path.GetInvalidFileNameChars()) >= 0 ||
+                projectName == "." || projectName == "..")
             {
                 MessageBox.Show(
                     this,
@@ -258,7 +259,7 @@ namespace Rydia.GameStudio
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(location))
+            if (string.IsNullOrWhiteSpace(projectLocation))
             {
                 MessageBox.Show(
                     this,
@@ -274,7 +275,7 @@ namespace Rydia.GameStudio
             try
             {
                 // 保存先として指定されたパスが有効か確認します。
-                _ = Path.GetFullPath(location);
+                _ = Path.GetFullPath(projectLocation);
             }
             catch (Exception ex) when (
                 ex is ArgumentException ||
@@ -293,7 +294,175 @@ namespace Rydia.GameStudio
             }
 
             // TODO : プロジェクト作成
+            // プロジェクトの保存先ディレクトリを作成
+            var editordirectory = Path.GetDirectoryName(projectLocation);
+            var projectDirectory = Path.Combine(projectLocation, projectName);
+            Directory.CreateDirectory(projectDirectory);
+            var assetsDirectory = Path.Combine(projectDirectory, "Assets");
+            Directory.CreateDirectory(assetsDirectory);
+            var mediaDirectory = Path.Combine(projectDirectory, "Source", "Media");
+            Directory.CreateDirectory(mediaDirectory);
+            var sourceDirectory = Path.Combine(projectDirectory, "Source", "Code");
+            Directory.CreateDirectory(sourceDirectory);
+            // ソリューションを生成
+            var solutionFile = new SolutionFile(projectName);
 
+            // ソリューションのパスを設定
+            solutionFile.Path = Path.Combine(sourceDirectory, solutionFile.Name);
+
+            // プロジェクトAを生成
+            var projectA = new ProjectFile(projectName, ProjectType.ClassLibrary);
+            {
+                // アセンブリ参照を追加
+                projectA.AddAssemblyReference("Rydia.Runtime", editordirectory + "/Rydia.Runtime.dll");
+                projectA.AddAssemblyReference("Rydia.Engine", editordirectory + "/Rydia.Engine.dll");
+
+                // クラスAを生成
+                var classA = new ClassFile("SampleClass");
+                {
+                    // 名前空間を設定
+                    classA.Namespace = "Rydia." + projectName;
+
+                    // usingを追加
+                    classA.AddUsing("System");
+                    classA.AddUsing("System.Collections.Generic");
+                    classA.AddUsing("System.Linq");
+                    classA.AddUsing("System.Text");
+                    classA.AddUsing("Rydia");
+                    
+                    // クラスAにプロパティとメソッドを追加
+                    classA.AddProperty("Name", "string");
+                    classA.AddProperty("Age", "int");
+                    classA.AddProperty("Enabled", "bool");
+                    classA.AddProperty("Position", "Vector3");
+                    classA.AddMethod("Initialize", """
+    Name = "Player";
+    Age = 32;
+    """);
+                    classA.AddMethod("GetName", "return Name;", "string");
+                    
+                    // プロジェクトAにクラスAを追加
+                    projectA.AddClass(classA);
+                }
+
+                var classB = new ClassFile("Class1");
+                {
+                    // 名前空間を設定
+                    classB.Namespace = "Rydia." + projectName;
+                    // usingを追加
+                    classB.AddUsing("System");
+                    classB.AddUsing("System.Collections.Generic");
+                    classB.AddUsing("System.Linq");
+                    classB.AddUsing("System.Text");
+                    classB.AddUsing("Rydia");
+
+                    projectA.AddClass(classB);
+                }
+
+                solutionFile.AddProject(projectA);
+            }
+
+            var projectB = new ProjectFile(projectName + ".Debugger", ProjectType.WindowsApplication);
+            {
+                // アセンブリ参照を追加
+                projectB.AddAssemblyReference("Rydia.Runtime", editordirectory + "/Rydia.Runtime.dll");
+                projectB.AddAssemblyReference("Rydia.Engine", editordirectory + "/Rydia.Engine.dll");
+                projectB.AddAssemblyReference("Rydia.Runtime.Windows", editordirectory + "/Rydia.Runtime.Windows.dll");
+
+                // クラスAを生成
+                var classA = new ClassFile("Program");
+                {
+                    // 名前空間を設定
+                    classA.Namespace = "Rydia." + projectName + ".Debugger";
+
+                    // usingを追加
+                    classA.AddUsing("System");
+                    classA.AddUsing("System.Collections.Generic");
+                    classA.AddUsing("System.Linq");
+                    classA.AddUsing("System.Text");
+                    classA.AddUsing("System.Reflection");
+                    classA.AddUsing("Rydia.Diagnostics");
+                    classA.AddUsing("Rydia.Engine");
+                    classA.AddUsing("Rydia.Runtime.Windows");
+                    classA.AddUsing("Rydia.Runtime.Desktop");
+
+                    // クラスAにプロパティとメソッドを追加
+                    classA.AddMethod("Main", """
+    // Dllディレクトリを設定する
+    string path = Assembly.GetEntryAssembly().Location;
+    path = Path.GetDirectoryName(path);
+    path = Path.GetDirectoryName(path);
+    path = Path.GetDirectoryName(path);
+    path = Path.GetDirectoryName(path);
+    path = Path.GetDirectoryName(path);
+    path = Path.GetDirectoryName(path);
+    path = Path.GetDirectoryName(path);
+    path = Path.GetDirectoryName(path);
+    path = Path.GetDirectoryName(path);
+    path = Path.GetDirectoryName(path);
+    path = Path.Combine(path, (IntPtr.Size == 8) ? "x64" : "x86");
+    Rydia.Win32.Kernel32.SetDllDirectory(path);
+
+    // このアプリケーションはWindowsプラットフォーム専用のアプリケーションであるため、
+    // Windowsプラットフォームの初期化を行う
+    ApplicationConfiguration.Initialize();
+    var ConsoleLog = new ConsoleLogListener();
+    GlobalLogger.AddListener(ConsoleLog);
+
+    // DebuggerAppではログファイルを作成する
+    {
+        var fileLog = new FileLogListener("Logs\\Rydia.Runtime.Windows.App.log");
+        GlobalLogger.AddListener(fileLog);
+    }
+    
+    var app = new LauncherApp();
+    using (var platform = new WindowsPlatform())
+    {
+        // ここではテストコードとしてウィンドウとオーディオの設定をリテラルコードで行っている
+
+        // ウィンドウ設定
+        // 最大幅768の[19:9]ウィンドウを作成
+        var v = 768;
+        var w = 19;
+        var h = 9;
+        var a = v / w;
+        var b = a * h;
+        platform.WindowOptions.Width = b;
+        platform.WindowOptions.Height = 768;
+        platform.WindowOptions.Title = "Rydia Runtime Windows App - " + app.GetType().Name;
+        platform.WindowOptions.RefreshMode = RefreshMode.VSync;
+        platform.WindowOptions.ScreenMode = ScreenMode.FixedWindow;
+
+        // オーディオ設定
+        // 既定のデバイスを使用
+        platform.AudioOptions.DeviceName = null;
+        // サンプリング周波数を44.1kHzに設定
+        platform.AudioOptions.Frequency = 44100;
+        // モノラル音源の数を16に設定
+        platform.AudioOptions.MonoSources = 16;
+        // ステレオ音源の数を16に設定
+        platform.AudioOptions.StereoSources = 16;
+        // 更新レートを60に設定
+        platform.AudioOptions.Refresh = 60;
+        // クロック同期を無効に設定
+        platform.AudioOptions.Sync = false;
+        platform.Run(app);
+    }
+    """, "static void");
+                    // プロジェクトAにクラスAを追加
+                    projectB.AddClass(classA);
+                }
+
+                solutionFile.AddProject(projectB);
+            }
+
+            // ソリューションを生成
+            solutionFile.Generate();
+            // ビルド
+            //solutionFile.Build();
+
+            // ソリューションを開く
+            solutionFile.Open();
             DialogResult = DialogResult.OK;
             Close();
         }

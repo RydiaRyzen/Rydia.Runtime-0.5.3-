@@ -34,4 +34,6 @@
     </EmbeddedResource>
   </ItemGroup>
 
+  <Import Project="..\Rydia.SolutionBuilder\Rydia.SolutionBuilder.projitems" Label="Shared" />
+
 </Project>

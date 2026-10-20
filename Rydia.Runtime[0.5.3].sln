@@ -290,6 +290,7 @@ Global
 		Source\Runtime\Api\Rydia.Graphics.Api.ES30\Rydia.Graphics.Api.ES20.projitems*{9b866439-6210-4815-9430-dc85721ce9f2}*SharedItemsImports = 13
 		Source\Runtime\Lib\Rydia.Primitives\Rydia.Primitives.projitems*{9b9f4db5-3f1c-4b88-86dc-b3d748df8fe3}*SharedItemsImports = 5
 		Source\Runtime\Lib\Rydia\Rydia.projitems*{9b9f4db5-3f1c-4b88-86dc-b3d748df8fe3}*SharedItemsImports = 5
+		Source\Editor\Rydia.SolutionBuilder\Rydia.SolutionBuilder.projitems*{a722de6e-5323-4a75-a521-82118612275d}*SharedItemsImports = 5
 		Source\Editor\Lib\Rydia.Windows.Forms.TreeView\Rydia.Windows.Forms.TreeView.projitems*{be91c21f-923b-4848-b35c-d473c5b6f2eb}*SharedItemsImports = 13
 		Source\Runtime\Lib\Rydia.Diagnostics\Rydia.Diagnostics.projitems*{d1348e79-a58b-4189-9ad2-687ddf786463}*SharedItemsImports = 13
 		Source\Editor\Lib\Rydia.Windows.Forms.TimelineControls\Rydia.Windows.Forms.TimelineControls.projitems*{f0496118-7ea0-47b6-a4b9-4a93b7cf2061}*SharedItemsImports = 13

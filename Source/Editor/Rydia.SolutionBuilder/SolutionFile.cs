@@ -8,15 +8,27 @@ using System.Threading.Tasks;
 namespace Rydia.SolutionBuilder
 {
 
+    /// <summary>
+    /// ソリューションファイルと、それに含まれるプロジェクトを管理するクラスです。
+    /// </summary>
     public sealed class SolutionFile
     {
 
         private readonly List<ProjectFile> _projects = new();
 
+        /// <summary>
+        /// ソリューション名を取得します。
+        /// </summary>
         public string Name { get; }
 
+        /// <summary>
+        /// ソリューションの出力先ディレクトリのパスを取得または設定します。
+        /// </summary>
         public string Path { get; set; }
 
+        /// <summary>
+        /// ソリューションに登録されているプロジェクトの一覧を取得します。
+        /// </summary>
         public IReadOnlyList<ProjectFile> Projects
         {
             get
@@ -25,11 +37,22 @@ namespace Rydia.SolutionBuilder
             }
         }
 
+        /// <summary>
+        /// 指定した名前で <see cref="SolutionFile"/> クラスの新しいインスタンスを初期化します。
+        /// </summary>
+        /// <param name="name">ソリューション名。</param>
         public SolutionFile(string name)
         {
             Name = name;
         }
 
+        /// <summary>
+        /// ソリューションにプロジェクトを追加します。
+        /// </summary>
+        /// <param name="project">追加するプロジェクト。</param>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="project"/> が <see langword="null"/> の場合にスローされます。
+        /// </exception>
         public void AddProject(ProjectFile project)
         {
             ArgumentNullException.ThrowIfNull(project);
@@ -40,6 +63,12 @@ namespace Rydia.SolutionBuilder
             }
         }
 
+        /// <summary>
+        /// 登録されているプロジェクトとソリューションファイルを生成します。
+        /// </summary>
+        /// <exception cref="InvalidOperationException">
+        /// ソリューションの出力先ディレクトリが指定されていない場合にスローされます。
+        /// </exception>
         public void Generate()
         {
             if (string.IsNullOrWhiteSpace(Path))
@@ -58,6 +87,10 @@ namespace Rydia.SolutionBuilder
             GenerateSolutionFile();
         }
 
+        /// <summary>
+        /// .NET CLI を使用してソリューションファイルを生成し、
+        /// 登録されている各プロジェクトをソリューションに追加します。
+        /// </summary>
         private void GenerateSolutionFile()
         {
             string solutionPath = System.IO.Path.Combine(
@@ -77,7 +110,7 @@ namespace Rydia.SolutionBuilder
             // プロジェクトをソリューションへ追加
             foreach (var project in this._projects)
             {
-                var ext = project.ProjectType == ProjectType.ClassLibrary ? ".csproj" : ".shproj";
+                var ext = project.ProjectType == ProjectType.Shared ? ".shproj" : ".csproj";
                 string projectPath = System.IO.Path.Combine(
                     Path,
                     project.Name,
@@ -92,6 +125,9 @@ namespace Rydia.SolutionBuilder
             }
         }
 
+        /// <summary>
+        /// ソリューションを Debug 構成でビルドします。
+        /// </summary>
         public void Build()
         {
             string solutionPath = System.IO.Path.Combine(
@@ -106,6 +142,14 @@ namespace Rydia.SolutionBuilder
                 "Debug");
         }
 
+        /// <summary>
+        /// 指定した引数で .NET CLI コマンドを実行します。
+        /// </summary>
+        /// <param name="workingDirectory">コマンドの作業ディレクトリ。</param>
+        /// <param name="arguments">.NET CLI に渡すコマンドライン引数。</param>
+        /// <exception cref="InvalidOperationException">
+        /// .NET CLI プロセスを起動できない場合、または実行結果の終了コードが 0 以外の場合にスローされます。
+        /// </exception>
         private static void RunDotNet(
             string workingDirectory,
             params string[] arguments)
@@ -115,14 +159,12 @@ namespace Rydia.SolutionBuilder
 
             var startInfo = new ProcessStartInfo
             {
-                FileName = "dotnet",
                 WorkingDirectory = workingDirectory,
-
+                FileName = "dotnet",
                 UseShellExecute = false,
-                CreateNoWindow = true,
-
                 RedirectStandardOutput = true,
-                RedirectStandardError = true
+                RedirectStandardError = true,
+                CreateNoWindow = true
             };
 
             foreach (string argument in arguments)
@@ -148,15 +190,20 @@ namespace Rydia.SolutionBuilder
             if (!string.IsNullOrEmpty(error))
                 Debug.WriteLine(error);
 
+            string standardOutput = process.StandardOutput.ReadToEnd();
+            string standardError = process.StandardError.ReadToEnd();
+
             if (process.ExitCode != 0)
             {
                 throw new InvalidOperationException(
-                    $"dotnet exited with code {process.ExitCode}.");
+        $"dotnet exited with code {process.ExitCode}.\n" +
+        $"標準出力:\n{standardOutput}\n" +
+        $"標準エラー:\n{standardError}");
             }
         }
 
         /// <summary>
-        /// ソリューションファイルを開きます
+        /// 生成したソリューションファイルを既定のアプリケーションで開きます。
         /// </summary>
         public void Open()
         {

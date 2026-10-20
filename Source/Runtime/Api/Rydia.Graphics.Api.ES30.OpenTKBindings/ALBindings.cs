@@ -28,7 +28,9 @@ namespace Rydia.Runtime
                         return NativeLibrary.Load("libopenal32.so");
 #else
                     if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+					{
                         return NativeLibrary.Load("openal32.dll");
+                    }
 #endif
                 }
 

@@ -23,15 +23,12 @@ namespace Rydia.Runtime.Windows
 
         #region static
 
-        [DllImport("kernel32.dll", SetLastError = true)]
-        private static extern bool SetDllDirectory(string path);
-
         static WindowsPlatform()
         {
             string path = Assembly.GetEntryAssembly().Location;
             path = Path.GetDirectoryName(path);
             path = Path.Combine(path, (IntPtr.Size == 8) ? "x64" : "x86");
-            SetDllDirectory(path);
+            Rydia.Win32.Kernel32.SetDllDirectory(path);
         }
 
         #endregion
