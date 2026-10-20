@@ -302,6 +302,7 @@ namespace Rydia.GameStudio
 
             bool success = false;
 
+
             // TODO : プロジェクト作成
             // プロジェクトの保存先ディレクトリを作成
             var editordirectory = Path.GetDirectoryName(projectLocation);
@@ -315,107 +316,100 @@ namespace Rydia.GameStudio
             Directory.CreateDirectory(sourceDirectory);
             // ソリューションを生成
             var solutionFile = new SolutionFile(projectName);
-
-            // ソリューションのパスを設定
-            solutionFile.Path = Path.Combine(sourceDirectory, solutionFile.Name);
-
-            // プロジェクトCを生成
-            var projectC = new ProjectFile(projectName + ".Share", ProjectType.Shared);
+            try
             {
-                var classB = new ClassFile("Class1");
+                // ファイル生成とビルドを UI スレッドから分離する
+                await Task.Run(() =>
                 {
-                    // 名前空間を設定
-                    classB.Namespace = "Rydia." + projectName;
-                    // usingを追加
-                    classB.AddUsing("System");
-                    classB.AddUsing("System.Collections.Generic");
-                    classB.AddUsing("System.Linq");
-                    classB.AddUsing("System.Text");
-                    classB.AddUsing("Rydia");
+                    logForm.SetStatus("ソリューションを生成しています...");
+                    logForm.AppendLog("ソリューション生成を開始します。");
 
-                    projectC.AddClass(classB);
-                }
-                solutionFile.AddProject(projectC);
-            }
+                    // ソリューションのパスを設定
+                    solutionFile.Path = Path.Combine(sourceDirectory, solutionFile.Name);
 
-            // プロジェクトAを生成
-            var projectA = new ProjectFile(projectName, ProjectType.ClassLibrary);
-            {
-                // アセンブリ参照を追加
-                projectA.AddAssemblyReference("Rydia.Runtime", editordirectory + "/Rydia.Runtime.dll");
-                projectA.AddAssemblyReference("Rydia.Engine", editordirectory + "/Rydia.Engine.dll");
-                projectA.AddReference(projectC);
-                // クラスAを生成
-                var classA = new ClassFile("SampleClass");
-                {
-                    // 名前空間を設定
-                    classA.Namespace = "Rydia." + projectName;
+                    // プロジェクトCを生成
+                    var projectC = new ProjectFile(projectName + ".Share", ProjectType.Shared);
+                    {
+                        var classB = new ClassFile("Class1");
+                        {
+                            // 名前空間を設定
+                            classB.Namespace = "Rydia." + projectName;
+                            // usingを追加
+                            classB.AddUsing("System");
+                            classB.AddUsing("System.Collections.Generic");
+                            classB.AddUsing("System.Linq");
+                            classB.AddUsing("System.Text");
+                            classB.AddUsing("Rydia");
 
-                    // usingを追加
-                    classA.AddUsing("System");
-                    classA.AddUsing("System.Collections.Generic");
-                    classA.AddUsing("System.Linq");
-                    classA.AddUsing("System.Text");
-                    classA.AddUsing("Rydia");
-                    
-                    // クラスAにプロパティとメソッドを追加
-                    classA.AddProperty("Name", "string");
-                    classA.AddProperty("Age", "int");
-                    classA.AddProperty("Enabled", "bool");
-                    classA.AddProperty("Position", "Vector3");
-                    classA.AddMethod("Initialize", """
+                            projectC.AddClass(classB);
+                        }
+                        solutionFile.AddProject(projectC);
+                    }
+
+                    // プロジェクトAを生成
+                    var projectA = new ProjectFile(projectName, ProjectType.ClassLibrary);
+                    {
+                        // アセンブリ参照を追加
+                        projectA.AddAssemblyReference("Rydia.Runtime", editordirectory + "/Rydia.Runtime.dll");
+                        projectA.AddAssemblyReference("Rydia.Engine", editordirectory + "/Rydia.Engine.dll");
+                        projectA.AddReference(projectC);
+                        // クラスAを生成
+                        var classA = new ClassFile("SampleClass");
+                        {
+                            // 名前空間を設定
+                            classA.Namespace = "Rydia." + projectName;
+
+                            // usingを追加
+                            classA.AddUsing("System");
+                            classA.AddUsing("System.Collections.Generic");
+                            classA.AddUsing("System.Linq");
+                            classA.AddUsing("System.Text");
+                            classA.AddUsing("Rydia");
+
+                            // クラスAにプロパティとメソッドを追加
+                            classA.AddProperty("Name", "string");
+                            classA.AddProperty("Age", "int");
+                            classA.AddProperty("Enabled", "bool");
+                            classA.AddProperty("Position", "Vector3");
+                            classA.AddMethod("Initialize", """
     Name = "Player";
     Age = 32;
     """);
-                    classA.AddMethod("GetName", "return Name;", "string");
-                    
-                    // プロジェクトAにクラスAを追加
-                    projectA.AddClass(classA);
-                }
+                            classA.AddMethod("GetName", "return Name;", "string");
 
-                var classB = new ClassFile("Class1");
-                {
-                    // 名前空間を設定
-                    classB.Namespace = "Rydia." + projectName;
-                    // usingを追加
-                    classB.AddUsing("System");
-                    classB.AddUsing("System.Collections.Generic");
-                    classB.AddUsing("System.Linq");
-                    classB.AddUsing("System.Text");
-                    classB.AddUsing("Rydia");
+                            // プロジェクトAにクラスAを追加
+                            projectA.AddClass(classA);
+                        }
 
-                    projectA.AddClass(classB);
-                }
+                        solutionFile.AddProject(projectA);
+                    }
 
-                solutionFile.AddProject(projectA);
-            }
+                    var projectB = new ProjectFile(projectName + ".Debugger", ProjectType.WindowsApplication);
+                    {
+                        // アセンブリ参照を追加
+                        projectB.AddAssemblyReference("Rydia.Runtime", editordirectory + "/Rydia.Runtime.dll");
+                        projectB.AddAssemblyReference("Rydia.Engine", editordirectory + "/Rydia.Engine.dll");
+                        projectB.AddAssemblyReference("Rydia.Runtime.Windows", editordirectory + "/Rydia.Runtime.Windows.dll");
 
-            var projectB = new ProjectFile(projectName + ".Debugger", ProjectType.WindowsApplication);
-            {
-                // アセンブリ参照を追加
-                projectB.AddAssemblyReference("Rydia.Runtime", editordirectory + "/Rydia.Runtime.dll");
-                projectB.AddAssemblyReference("Rydia.Engine", editordirectory + "/Rydia.Engine.dll");
-                projectB.AddAssemblyReference("Rydia.Runtime.Windows", editordirectory + "/Rydia.Runtime.Windows.dll");
+                        // クラスAを生成
+                        var classA = new ClassFile("Program");
+                        {
+                            // 名前空間を設定
+                            classA.Namespace = "Rydia." + projectName + ".Debugger";
 
-                // クラスAを生成
-                var classA = new ClassFile("Program");
-                {
-                    // 名前空間を設定
-                    classA.Namespace = "Rydia." + projectName + ".Debugger";
+                            // usingを追加
+                            classA.AddUsing("System");
+                            classA.AddUsing("System.Collections.Generic");
+                            classA.AddUsing("System.Linq");
+                            classA.AddUsing("System.Text");
+                            classA.AddUsing("System.Reflection");
+                            classA.AddUsing("Rydia.Diagnostics");
+                            classA.AddUsing("Rydia.Engine");
+                            classA.AddUsing("Rydia.Runtime.Windows");
+                            classA.AddUsing("Rydia.Runtime.Desktop");
 
-                    // usingを追加
-                    classA.AddUsing("System");
-                    classA.AddUsing("System.Collections.Generic");
-                    classA.AddUsing("System.Linq");
-                    classA.AddUsing("System.Text");
-                    classA.AddUsing("System.Reflection");
-                    classA.AddUsing("Rydia.Diagnostics");
-                    classA.AddUsing("Rydia.Engine");
-                    classA.AddUsing("Rydia.Runtime.Windows");
-                    classA.AddUsing("Rydia.Runtime.Desktop");
-
-                    // クラスAにプロパティとメソッドを追加
-                    classA.AddMethod("Main", """
+                            // クラスAにプロパティとメソッドを追加
+                            classA.AddMethod("Main", """
     // Dllディレクトリを設定する
     string path = Assembly.GetEntryAssembly().Location;
     path = Path.GetDirectoryName(path);
@@ -477,35 +471,37 @@ namespace Rydia.GameStudio
         platform.Run(app);
     }
     """, "static void");
-                    // プロジェクトAにクラスAを追加
-                    projectB.AddClass(classA);
-                }
+                            // プロジェクトAにクラスAを追加
+                            projectB.AddClass(classA);
+                        }
 
-                solutionFile.AddProject(projectB);
-            }
-
-            try
-            {
-                // ファイル生成とビルドを UI スレッドから分離する
-                await Task.Run(() =>
-                {
-                    logForm.SetStatus("ソリューションを生成しています...");
-                    logForm.AppendLog("ソリューション生成を開始します。");
+                        solutionFile.AddProject(projectB);
+                    }
 
                     solutionFile.Generate();
+                    Task.Delay(2000).Wait(); // 2秒待機してログを表示
 
                     logForm.AppendLog("ソリューション生成が完了しました。");
                     logForm.SetStatus("プロジェクトをビルドしています...");
                     logForm.AppendLog("ビルドを開始します。");
 
                     solutionFile.Build();
+                    Task.Delay(2000).Wait(); // 2秒待機してログを表示
 
                     logForm.AppendLog("ビルドが完了しました。");
 
                     logForm.AppendLog("生成処理が正常に終了しました。");
                     logForm.SetStatus("生成処理が完了しました。");
+                    Task.Delay(2000).Wait(); // 2秒待機してログを表示
+
+                    logForm.AppendLog("プロジェクトを読み込みを開始します。");
+                    logForm.SetStatus("プロジェクトの読み込んでいます。");
+                    Task.Delay(2000).Wait(); // 2秒待機してログを表示
+
+                    logForm.AppendLog("プロジェクトを開始します。");
+                    logForm.SetStatus("プロジェクトを開始しています。");
                     success = true;
-                    Task.Delay(5000).Wait(); // 1秒待機してログを表示
+                    Task.Delay(5000).Wait(); // 5秒待機してログを閉じる
                 });
 
             }

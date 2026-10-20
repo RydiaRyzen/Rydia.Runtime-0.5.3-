@@ -12,11 +12,11 @@ namespace Rydia.SolutionBuilder
     /// </summary>
     public sealed class ProjectFile
     {
+
         private readonly List<ClassFile> _classes = new();
         private readonly List<ProjectFile> _references = new();
         private readonly ProjectType _projectType;
         private readonly List<AssemblyReference> _assemblyReferences = new();
-
 
         /// <summary>
         /// プロジェクトの種類を取得します。
@@ -211,7 +211,6 @@ namespace Rydia.SolutionBuilder
                     break;
             }
         }
-
 
         /// <summary>
         /// クラスライブラリのプロジェクトファイル（.csproj）を生成します。
