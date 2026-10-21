@@ -98,6 +98,27 @@ namespace Rydia.GameStudio
             Controls.Add(root);
         }
 
+        public void AppendTitle(string title)
+        {
+            if (IsDisposed || Disposing)
+            {
+                return;
+            }
+            if (InvokeRequired)
+            {
+                try
+                {
+                    BeginInvoke(new Action(() => AppendTitle(title)));
+                }
+                catch (InvalidOperationException)
+                {
+                    // フォームが閉じられた場合はログを破棄します。
+                }
+                return;
+            }
+            Text = title;
+        }
+
         /// <summary>
         /// ログを追加して表示します。
         /// </summary>

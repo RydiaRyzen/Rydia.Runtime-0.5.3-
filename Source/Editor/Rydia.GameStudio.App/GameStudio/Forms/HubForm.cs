@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Rydia.SolutionBuilder;
 
 namespace Rydia.GameStudio
 {
@@ -190,7 +191,7 @@ namespace Rydia.GameStudio
         /// 処理を終了します。
         /// 現在は選択されたプロジェクトのパスをメッセージボックスに表示します。
         /// </remarks>
-        private void OpenSelectedProject()
+        private async void OpenSelectedProject()
         {
             if (this.projectList.SelectedItems.Count == 0)
                 return;
@@ -210,15 +211,27 @@ namespace Rydia.GameStudio
                 return;
             }
 
-            // TODO: 
-            // Rydia のプロジェクトファイルを読み込み、
-            // エディター本体を起動する。
-            MessageBox.Show(
-                this,
-                $"プロジェクトを選択しました。\n{path}",
-                "Rydia GameStudio",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
+            // TODO: Rydia Engineプロジェクトを読み込み、エディター本体を起動する。
+
+            using var logForm = new ProjectGenerationLogForm();
+            logForm.Show(this);
+            logForm.AppendTitle("プロジェクトを開く");
+            logForm.AppendLog("プロジェクト読み込み処理を開始します。");
+            var solutionPath = Path.Combine(path, "Source", "Code", Path.GetFileNameWithoutExtension(path), Path.GetFileName(path) + ".sln");
+            SolutionFile solution = SolutionFile.Load(solutionPath);
+
+            await Task.Run(() =>
+            {
+                EditorContext.OpenProject(path);
+                Task.Delay(2000).Wait(); // デバッグ用の遅延
+                logForm.AppendLog("プロジェクトを読み込みました。");
+                logForm.AppendLog("ソリューションファイルを開きます。");
+                Task.Delay(2000).Wait(); // デバッグ用の遅延
+            });
+            solution.Open();
+            DialogResult = DialogResult.OK;
+            Close();
+
         }
 
         /// <summary>

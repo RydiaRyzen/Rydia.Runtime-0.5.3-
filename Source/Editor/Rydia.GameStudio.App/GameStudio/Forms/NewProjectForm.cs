@@ -296,6 +296,7 @@ namespace Rydia.GameStudio
             // ログ表示フォームを開く
             using var logForm = new ProjectGenerationLogForm();
             logForm.Show(this);
+            logForm.AppendTitle("プロジェクト生成");
             logForm.AppendLog("プロジェクト生成処理を開始します。");
 
             this.createButton.Enabled = false;
@@ -328,7 +329,7 @@ namespace Rydia.GameStudio
                     solutionFile.Path = Path.Combine(sourceDirectory, solutionFile.Name);
 
                     // プロジェクトCを生成
-                    var projectC = new ProjectFile(projectName + ".Share", ProjectType.Shared);
+                    var projectC = new ProjectFile(projectName + ".Shared", ProjectType.Shared);
                     {
                         var classB = new ClassFile("Class1");
                         {
@@ -526,6 +527,7 @@ namespace Rydia.GameStudio
 
             if (success)
             {
+                EditorContext.OpenProject(projectDirectory);
                 // ソリューションを開く
                 solutionFile.Open();
 

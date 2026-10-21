@@ -270,5 +270,12 @@ namespace Rydia.SolutionBuilder
             });
         }
 
+        internal static SolutionFile Load(string path)
+        {
+            return new SolutionFile(System.IO.Path.GetFileNameWithoutExtension(path))
+            {
+                Path = System.IO.Path.GetDirectoryName(path) ?? string.Empty
+            };
+        }
     }
 }

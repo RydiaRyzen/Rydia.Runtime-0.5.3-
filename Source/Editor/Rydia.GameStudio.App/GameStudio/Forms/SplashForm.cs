@@ -209,7 +209,6 @@ namespace Rydia.GameStudio
         /// <returns>アップデーターの初期化が完了したときに完了するタスク。</returns>
         private static async Task LoadUpdater()
         {
-            EditorContext.LoadUpdater();
             await Task.Delay(3000);
         }
 
@@ -219,7 +218,6 @@ namespace Rydia.GameStudio
         /// <returns>設定の読み込みが完了したときに完了するタスク。</returns>
         private static async Task LoadSettingsAsync()
         {
-            EditorContext.LoadSettings();
             await Task.Delay(3000);
         }
 
@@ -239,7 +237,6 @@ namespace Rydia.GameStudio
         /// <returns>リソースの読み込みが完了したときに完了するタスク。</returns>
         private static async Task LoadResourcesAsync()
         {
-            EditorContext.LoadResorces();
             await Task.Delay(3000);
         }
 

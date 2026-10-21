@@ -42,7 +42,7 @@ namespace Rydia.SolutionBuilder.App
                 classA.AddProperty("Age", "int");
                 classA.AddProperty("Enabled", "bool");
                 classA.AddProperty("Position", "Vector3");
-                classA.AddMethod("Initialize");
+                classA.AddMethod("Initialize", "");
                 // classA.AddMethod("GetName", "string");
 
                 // プロジェクトAにクラスAを追加
@@ -61,7 +61,7 @@ namespace Rydia.SolutionBuilder.App
             {
                 var classD = new ClassFile("ClassD");
                 classD.AddProperty("Name", "string");
-                classD.AddMethod("Initialize");
+                classD.AddMethod("Initialize", "");
 
                 projectB.AddClass(classD);
 

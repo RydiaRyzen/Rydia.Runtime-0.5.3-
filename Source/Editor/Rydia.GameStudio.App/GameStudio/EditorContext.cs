@@ -52,6 +52,11 @@ namespace Rydia.GameStudio
             // TODO: アップデートの確認処理
 
         }
+
+        internal static void OpenProject(string path)
+        {
+            
+        }
     }
 
 }
