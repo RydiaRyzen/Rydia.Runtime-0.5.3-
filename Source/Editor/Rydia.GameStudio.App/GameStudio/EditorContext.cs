@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Rydia.GameStudio.PluginSystem;
@@ -14,8 +15,14 @@ namespace Rydia.GameStudio
     public static class EditorContext
     {
 
+        /// <summary>
+        /// エディタープラグインを読み込むローダーです。
+        /// </summary>
         private static EditorPluginLoader pluginLoader;
 
+        /// <summary>
+        /// エディタープラグインを読み込むローダーを取得します。
+        /// </summary>
         public static EditorPluginLoader PluginLoader
         {
             get
@@ -24,11 +31,63 @@ namespace Rydia.GameStudio
             }
         }
 
-        internal static void LoadSettings()
+        /// <summary>
+        /// エンジンのアセンブリを取得します。
+        /// </summary>
+        public static Assembly EngineAssembly
         {
-            // TODO: 設定ファイルの読み込み処理
+            get;
+            private set;
         }
 
+        /// <summary>
+        /// エディターのアセンブリを取得します。
+        /// </summary>
+        public static Assembly EditorAssembly
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// 現在開いているプロジェクトのルートディレクトリを取得します。
+        /// </summary>
+        public static string ProjectPath
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// 現在開いているプロジェクトのソリューションファイルのパスを取得します。
+        /// </summary>
+        public static string SolutionPath
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// 現在開いているプロジェクトのアセットディレクトリのパスを取得します。
+        /// </summary>
+        public static string AssetsPath
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// 現在開いているプロジェクトのメディアディレクトリのパスを取得します。
+        /// </summary>
+        public static string MediaPath
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// エディタープラグインを読み込みます。
+        /// </summary>
         internal static void LoadPlugin()
         {
             // TODO: プラグインの読み込み処理
@@ -36,27 +95,29 @@ namespace Rydia.GameStudio
             pluginLoader.LoadPlugins();
         }
 
-        internal static void LoadResorces()
-        {
-            // TODO: 画像、フォントなどの読み込み処理
-
-        }
-
+        /// <summary>
+        /// エディターで使用する各種サービスを初期化します。
+        /// エンジンとエディターのアセンブリを設定します。
+        /// </summary>
         internal static void LoadServices()
         {
             // TODO: 各種サービスの初期化処理
+            EngineAssembly = typeof(Rydia.Engine.LauncherApp).Assembly;
+            EditorAssembly = typeof(HubForm).Assembly;
         }
 
-        internal static void LoadUpdater()
-        {
-            // TODO: アップデートの確認処理
-
-        }
-
+        /// <summary>
+        /// 指定されたディレクトリのプロジェクトを開き、関連するパスを設定します。
+        /// </summary>
+        /// <param name="path">開くプロジェクトのルートディレクトリのパス。</param>
         internal static void OpenProject(string path)
         {
-            
+            ProjectPath = path;
+            SolutionPath = Path.Combine(path, "Source", "Code", Path.GetFileNameWithoutExtension(path), Path.GetFileName(path) + ".sln");
+            AssetsPath = Path.Combine(path, "Assets");
+            MediaPath = Path.Combine(path, "Media");
         }
+
     }
 
 }

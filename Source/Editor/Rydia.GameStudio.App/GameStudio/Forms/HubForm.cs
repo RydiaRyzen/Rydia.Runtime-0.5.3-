@@ -76,8 +76,8 @@ namespace Rydia.GameStudio
             this.learnButton.FlatAppearance.BorderSize = 0;
             this.communityButton.FlatAppearance.BorderSize = 0;
 
-            var engineAssembly = typeof(Rydia.Engine.LauncherApp).Assembly;
-            var editorAssembly = typeof(HubForm).Assembly;
+            var engineAssembly = EditorContext.EngineAssembly;
+            var editorAssembly = EditorContext.EditorAssembly;
 
             this.versionLabel2.Text = $"{"Rydia Engine".PadRight(20)}{engineAssembly.GetName().Version}";
             this.versionLabel1.Text = $"{"Rydia GameStudio".PadRight(15)}{editorAssembly.GetName().Version}";
@@ -217,12 +217,12 @@ namespace Rydia.GameStudio
             logForm.Show(this);
             logForm.AppendTitle("プロジェクトを開く");
             logForm.AppendLog("プロジェクト読み込み処理を開始します。");
-            var solutionPath = Path.Combine(path, "Source", "Code", Path.GetFileNameWithoutExtension(path), Path.GetFileName(path) + ".sln");
+            EditorContext.OpenProject(path);
+            var solutionPath = EditorContext.SolutionPath; //Path.Combine(path, "Source", "Code", Path.GetFileNameWithoutExtension(path), Path.GetFileName(path) + ".sln");
             SolutionFile solution = SolutionFile.Load(solutionPath);
 
             await Task.Run(() =>
             {
-                EditorContext.OpenProject(path);
                 Task.Delay(2000).Wait(); // デバッグ用の遅延
                 logForm.AppendLog("プロジェクトを読み込みました。");
                 logForm.AppendLog("ソリューションファイルを開きます。");
@@ -231,7 +231,6 @@ namespace Rydia.GameStudio
             solution.Open();
             DialogResult = DialogResult.OK;
             Close();
-
         }
 
         /// <summary>
