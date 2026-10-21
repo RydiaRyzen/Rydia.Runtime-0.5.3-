@@ -19,7 +19,7 @@ namespace Rydia.Runtime.Windows.App
             GlobalLogger.AddListener(ConsoleLog);
             var fileLog = new FileLogListener("Logs\\Rydia.Runtime.Windows.App.log");
             GlobalLogger.AddListener(fileLog);
-            var app = SampleApp.E(26);
+            var app = SampleApp.E(24);
             using (var platform = new WindowsPlatform())
             {
                 // ウィンドウ設定
