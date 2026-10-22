@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Rydia.Serialization.Graph;
 using Rydia.SolutionBuilder;
 
 namespace Rydia.GameStudio
@@ -371,7 +374,6 @@ namespace Rydia.GameStudio
         private void installButton_Click(object sender, EventArgs e)
         {
             // TODO: インストール画面を表示する
-            this.contentPanel.Controls.Clear();
             this.contentPanel.SuspendLayout();
             this.contentPanel.Controls.Clear();
 
@@ -588,7 +590,7 @@ namespace Rydia.GameStudio
 
             var description = new Label
             {
-                Text = "Rydia Engine の機能や使い方を学習します。",
+                Text = "Rydia Engine の機能や使い方を学習します。　詳しい情報は公式サイト > チュートリアル をご覧ください",
                 ForeColor = Color.Silver,
                 Dock = DockStyle.Top,
                 Height = 30
@@ -617,14 +619,21 @@ namespace Rydia.GameStudio
                 ForeColor = Color.White
             };
 
-            var detailDescription = new Label
+            var detailDescription = new WebBrowser
             {
-                Text = "左側のカテゴリから学習したい項目を選択してください。",
+                //Text = "左側のカテゴリから学習したい項目を選択してください。",
+                DocumentText = Doc.LearningDocument.Home,
+                //Multiline = true,
+                //ReadOnly = true,
+                //WordWrap = true,
+                //ScrollBars = ScrollBars.Vertical,
                 Dock = DockStyle.Fill,
+                BackColor = this.panelColor,
                 ForeColor = Color.Silver,
+                //BorderStyle = BorderStyle.None,
                 Font = new Font("Segoe UI", 10),
                 Padding = new Padding(0, 12, 0, 0),
-                TextAlign = ContentAlignment.TopLeft
+                TabStop = false
             };
 
             var detailPanel = new Panel
@@ -642,91 +651,69 @@ namespace Rydia.GameStudio
             {
         new
         {
+            Category = "すべて",
+            Title = "ホーム",
+            Description = Doc.LearningDocument.Home
+        },
+        new
+        {
             Category = "入門",
             Title = "Rydia Engine の概要",
-            Description =
-                "Rydia Engine の基本構成や、GameStudio の役割を学びます。\n\n" +
-                "学習内容\n" +
-                "・エンジンとエディターの役割\n" +
-                "・プロジェクトの構成\n" +
-                "・アプリケーションの起動から終了まで"
+            Description = Doc.LearningDocument.Introduction
         },
         new
         {
             Category = "入門",
             Title = "開発環境の準備",
-            Description =
-                "C# による開発環境とプロジェクトの準備について学びます。\n\n" +
-                "学習内容\n" +
-                "・必要な開発ツール\n" +
-                "・プロジェクトの作成\n" +
-                "・ビルドと実行"
+            Description = Doc.LearningDocument.Setup
         },
         new
         {
             Category = "グラフィックス",
             Title = "描画処理の基礎",
-            Description =
-                "ゲーム画面の描画に必要な基本概念を学びます。\n\n" +
-                "学習内容\n" +
-                "・レンダリングの基本\n" +
-                "・頂点バッファとインデックスバッファ\n" +
-                "・描画コマンドの流れ"
+            Description = Doc.LearningDocument.RenderingBasics
         },
         new
         {
             Category = "グラフィックス",
             Title = "シェーダー",
-            Description =
-                "GPU 上で実行されるシェーダーの基本を学びます。\n\n" +
-                "学習内容\n" +
-                "・頂点シェーダー\n" +
-                "・フラグメントシェーダー\n" +
-                "・ユニフォーム変数"
+            Description = Doc.LearningDocument.Shaders
         },
         new
         {
             Category = "プログラミング",
             Title = "ゲームループ",
-            Description =
-                "ゲームの更新処理と描画処理の基本を学びます。\n\n" +
-                "学習内容\n" +
-                "・Update と Render\n" +
-                "・経過時間の管理\n" +
-                "・フレームレート"
+            Description = Doc.LearningDocument.GameLoop
         },
         new
         {
             Category = "プログラミング",
             Title = "入力処理",
-            Description =
-                "キーボード、マウス、タッチ入力の扱い方を学びます。\n\n" +
-                "学習内容\n" +
-                "・キー入力の取得\n" +
-                "・マウス操作\n" +
-                "・タッチイベント"
+            Description = Doc.LearningDocument.InputHandling
         },
         new
         {
             Category = "リソース",
             Title = "テクスチャとフォント",
-            Description =
-                "画像やフォントなどのリソースの基本を学びます。\n\n" +
-                "学習内容\n" +
-                "・画像リソースの読み込み\n" +
-                "・テクスチャの利用\n" +
-                "・文字の描画"
+            Description = Doc.LearningDocument.TexturesAndFonts
         },
         new
         {
             Category = "リソース",
             Title = "オーディオ",
-            Description =
-                "ゲームで音声を再生するための基本を学びます。\n\n" +
-                "学習内容\n" +
-                "・オーディオデバイス\n" +
-                "・音声データの読み込み\n" +
-                "・再生と停止"
+            Description = Doc.LearningDocument.Audio
+        },
+        new
+        {
+            Category = "リソース",
+            Title = "オーディオ2",
+            Description = Doc.LearningDocument.Audio
+        },
+        new
+        {
+            Category = "リソース",
+            Title = "オーディオ3",
+            Description = Doc.LearningDocument.Audio
         }
     };
 
@@ -783,7 +770,7 @@ namespace Rydia.GameStudio
                     courseButton.Click += (_, _) =>
                     {
                         detailTitle.Text = course.Title;
-                        detailDescription.Text = course.Description;
+                        detailDescription.DocumentText = course.Description;
                     };
 
                     courseList.Controls.Add(courseButton);
@@ -889,7 +876,6 @@ namespace Rydia.GameStudio
         private void communityButton_Click(object sender, EventArgs e)
         {
             // TODO: コミュニティ画面を表示する
-            this.contentPanel.Controls.Clear();
             this.contentPanel.SuspendLayout();
             this.contentPanel.Controls.Clear();
 
@@ -998,7 +984,7 @@ namespace Rydia.GameStudio
                 CreateCommunityCard(
                     "公式サイト",
                     "Rydia Engine の公式サイトを開きます。",
-                    string.Empty),
+                    "https://github.com/RydiaRyzen/Rydia.Runtime-0.5.3-"),
                 0, 0);
 
             links.Controls.Add(
@@ -1019,7 +1005,7 @@ namespace Rydia.GameStudio
                 CreateCommunityCard(
                     "ディスカッション",
                     "質問や機能提案、開発に関する議論を行います。",
-                    string.Empty),
+                    "https://github.com/RydiaRyzen/Rydia.Runtime-0.5.3-"),
                 1, 1);
 
             layout.Controls.Add(header, 0, 0);
