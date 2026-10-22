@@ -12,7 +12,10 @@ namespace Rydia.Doc
     internal class LearningDocument
     {
 
-        public const string Style = """
+        private static string basePath = AppDomain.CurrentDomain.BaseDirectory;
+        private static string baseUrl = new Uri(basePath).AbsoluteUri;
+
+        public static string Style = """
                     <!DOCTYPE html>
                 <html lang="ja">
                 <head>
@@ -61,31 +64,59 @@ namespace Rydia.Doc
                         .folder {
                             margin-left: 16px;
                         }
-
-                        code {
-                            color: #8ed6ff;
-                        }
+                                        /* コードブロック */
+                pre {
+                    background-color: #1e1e1e;
+                    border: 1px solid #3c3c3c;
+                    border-radius: 8px;
+                    padding: 16px;
+                    margin: 16px 0;
+                    overflow-x: auto;
+                    white-space: pre;
+                    font-family: Consolas, "Cascadia Code", "Courier New", monospace;
+                    font-size: 13px;
+                    line-height: 1.6;
+                    color: #d4d4d4;
+                }
+                        /* コード部分 */
+                pre code {
+                    font-family: inherit;
+                    font-size: inherit;
+                    color: inherit;
+                    background: none;
+                    padding: 0;
+                    white-space: inherit;
+                }
+                                /* インラインコード */
+                p code,
+                li code {
+                    background-color: #30343d;
+                    color: #8ed6ff;
+                    border-radius: 4px;
+                    padding: 2px 5px;
+                    font-family: Consolas, "Cascadia Code", monospace;
+                    font-size: 0.95em;
+                }
                     </style>
+                <base href="
+                """ + baseUrl + """
+                ">
                 </head>
                 """;
 
-        public const string Home = Style + """
+        public static string Home = Style + """
             <body>
-            左側の学習項目または上のカテゴリから学習したい項目を選択してください。
+            ドキュメントページへようこそ！開発者マニュアルは左側の学習項目または上のカテゴリから学習したい項目を選択してください。
             </body>
             </html>
             """;
 
-        public const string Introduction = Style + """
+        public static string Introduction = Style + """
             <body>
-                <h1>Rydia Engine の概要</h1>
-
+                <h1>学習内容</h1>
                 <p>
                     Rydia Engine の基本構成や、GameStudio の役割を学びます。
                 </p>
-
-                <h2>学習内容</h2>
-
                 <h3>ランチャー要件</h3>
                 <p>
                     Rydia Engine Launcherを起動するには、
@@ -147,7 +178,7 @@ namespace Rydia.Doc
             </html>
             """;
 
-        public const string Setup = Style + """
+        public static string Setup = Style + """
             <body>
                 <h1>開発環境の準備</h1>
                 <p>
@@ -162,7 +193,7 @@ namespace Rydia.Doc
             </body>
             </html>
             """;
-        public const string RenderingBasics = Style + """
+        public static string RenderingBasics = Style + """
             <body>
                 <h1>描画処理の基礎</h1>
                 <p>ゲーム画面の描画に必要な基本概念を学びます。</p>
@@ -176,7 +207,7 @@ namespace Rydia.Doc
             </html>
             """;
 
-        public const string Shaders = Style + """
+        public static string Shaders = Style + """
             <body>
                 <h1>シェーダー</h1>
                 <p>GPU 上で実行されるシェーダーの基本を学びます。</p>
@@ -190,7 +221,7 @@ namespace Rydia.Doc
             </html>
             """;
 
-        public const string GameLoop = Style + """
+        public static string GameLoop = Style + """
             <body>
                 <h1>ゲームループ</h1>
                 <p>ゲームの更新処理と描画処理の基本を学びます。</p>
@@ -204,7 +235,7 @@ namespace Rydia.Doc
             </html>
             """;
 
-        public const string InputHandling = Style + """
+        public static string InputHandling = Style + """
             <body>
                 <h1>入力処理</h1>
                 <p>キーボード、マウス、タッチ入力の扱い方を学びます。</p>
@@ -218,7 +249,7 @@ namespace Rydia.Doc
             </html>
             """;
 
-        public const string TexturesAndFonts = Style + """
+        public static string TexturesAndFonts = Style + """
             <body>
                 <h1>テクスチャとフォント</h1>
                 <p>画像やフォントなどのリソースの基本を学びます。</p>
@@ -232,8 +263,9 @@ namespace Rydia.Doc
             </html>
             """;
 
-        public const string Audio = Style + """
+        public static string Audio = Style + $"""
             <body>
+            テスト用でDualityのAudio Handlingの記事を表示しています
                 <hr>
             <h2>title: 'Audio Handling'<br>
             category: 'basics'<br>
@@ -251,20 +283,20 @@ namespace Rydia.Doc
             <h1>Setting up the Sound Listener</h1>
             <p>Before playing sounds we must first correctly set up the Sound Listener in our scene. A Sound Listener can be attached to any game object and that game object will then act as the reference point for 3D audio. Typically it is attached to the Camera.</p>
             <p>Right click on your camera, select New, select Sound and click on the SoundListener component.</p>
-            <p><img src="../img/AudioHandling/settingUpTheSoundListener.png" alt=""></p>
+            <p><img src="img/AudioHandling/settingUpTheSoundListener.png" alt=""></p>
             <p>The SoundListener will now be attached to our camera and act as the reference point for 3D audio!</p>
             <h1>Playing sounds</h1>
             <p>Now that we have the listener set up it's time to play some sounds!</p>
             <h2>Playing a simple sound</h2>
             <p>Let's now play a simple sound using Duality's SoundEmitter component. If you read through the previous topics you should now have a good understanding of how the SoundEmitter relates to the SoundListener.</p>
             <p>Drag any sound file to your project view. The sound file has to be in .ogg format. For 3D audio to kick in it must also be a mono sound file. Upon dragging in the sound file the Duality editor will create a new AudioData resource file for us. In this case my sound file was called &quot;pulsefire&quot;.</p>
-            <p><img src="../img/AudioHandling/audioDataResource.PNG" alt=""></p>
+            <p><img src="img/AudioHandling/audioDataResource.PNG" alt=""></p>
             <p>Create a new game object (or use an existing game object) that wishes to emit sound. Add a new SoundEmitter component to the object.</p>
-            <p><img src="../img/AudioHandling/addingASoundEmitter.png" alt=""></p>
+            <p><img src="img/AudioHandling/addingASoundEmitter.png" alt=""></p>
             <p>Drag the AudioData resource file into the SoundEmitter component in the object inspector. Your SoundEmitter component will look like this (in this case &quot;pulsefire&quot; is the filename of the sound I used. It will be different in your case.).</p>
-            <p><img src="../img/AudioHandling/SoundEmitterAfterAddingSound.PNG" alt=""></p>
+            <p><img src="img/AudioHandling/SoundEmitterAfterAddingSound.PNG" alt=""></p>
             <p>Also, if you take a look at the project view you will notice that the Duality editor has created a Sound resource out of the AudioData resource we provided.</p>
-            <p><img src="../img/AudioHandling/soundResource.PNG" alt=""></p>
+            <p><img src="img/AudioHandling/soundResource.PNG" alt=""></p>
             <p>Now, when you run your game the sound should start playing and when you move your game object around the listener it should pan accordingly between the left and right speakers. Once again, your sound file must be in mono for 3D audio to work!</p>
             <h2>Playing ambience sounds</h2>
             <p>Ambience sounds such as wind or rain usually must not be attached to a single game object in the world because it is meant to be a 2D sound (ie. plays in the background). You could always try to simulate it through point emitters but that would be way too overkill for most games. So in this case, we can simply attach a SoundEmitter component directly to the camera (to which the SoundListener is attached to). As both the emitter and the listener have the same position at any given time the sound will effectively be treated as a 2D sound with no presence in the game world.</p>
@@ -276,6 +308,7 @@ namespace Rydia.Doc
             private SoundInstance instance = null;
             </code></pre>
             <pre><code class="language-csharp">private void StartAudio()
+            """ + """
             {
             	// Grab a reference to the Sound resource (our music loop)
             	this.sound = ContentProvider.RequestContent&lt;Sound&gt;(@&quot;Data\MusicLoop.Sound.Res&quot;);
@@ -325,6 +358,18 @@ namespace Rydia.Doc
             </html>
             """;
 
+        public static string Audio2 = Style + $"""
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <p>{basePath}</p>
+        <img src="{new Uri(basePath).AbsoluteUri}/img/AudioHandling/settingUpTheSoundListener.png" alt="テスト画像">
+    </body>
+    </html>
+    """;
     }
 
 

@@ -612,7 +612,7 @@ namespace Rydia.GameStudio
 
             var detailTitle = new Label
             {
-                Text = "学習項目を選択してください",
+                Text = "ホーム",
                 Dock = DockStyle.Top,
                 Height = 36,
                 Font = new Font("Segoe UI", 15, FontStyle.Bold),
@@ -707,7 +707,7 @@ namespace Rydia.GameStudio
         {
             Category = "リソース",
             Title = "オーディオ2",
-            Description = Doc.LearningDocument.Audio
+            Description = Doc.LearningDocument.Audio2
         },
         new
         {
