@@ -480,24 +480,20 @@ namespace Rydia.GameStudio
                     }
 
                     solutionFile.Generate();
-                    Task.Delay(2000).Wait(); // 2秒待機してログを表示
 
                     logForm.AppendLog("ソリューション生成が完了しました。");
                     logForm.SetStatus("プロジェクトをビルドしています...");
                     logForm.AppendLog("ビルドを開始します。");
 
                     solutionFile.Build();
-                    Task.Delay(2000).Wait(); // 2秒待機してログを表示
 
                     logForm.AppendLog("ビルドが完了しました。");
 
                     logForm.AppendLog("生成処理が正常に終了しました。");
                     logForm.SetStatus("生成処理が完了しました。");
-                    Task.Delay(2000).Wait(); // 2秒待機してログを表示
 
-                    logForm.AppendLog("プロジェクトを読み込みを開始します。");
+                    logForm.AppendLog("プロジェクトの読み込みを開始します。");
                     logForm.SetStatus("プロジェクトの読み込んでいます。");
-                    Task.Delay(2000).Wait(); // 2秒待機してログを表示
 
                     logForm.AppendLog("プロジェクトを開始します。");
                     logForm.SetStatus("プロジェクトを開始しています。");

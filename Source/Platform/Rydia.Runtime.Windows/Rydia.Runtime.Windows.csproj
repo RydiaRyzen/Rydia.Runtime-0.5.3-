@@ -5,6 +5,12 @@
 	  <UseWindowsForms>true</UseWindowsForms>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <RootNamespace>Rydia</RootNamespace>
+
+	  <!-- 署名を有効にする構成 -->
+	  <EnableCodeSigning Condition="'$(Configuration)' == 'Release'">true</EnableCodeSigning>
+
+	  <!-- SignTool.exe のパスは環境に合わせて設定 -->
+	  <SignToolPath Condition="'$(SignToolPath)' == ''">C:\Program Files (x86)\Microsoft SDKs\ClickOnce\SignTool\signtool.exe</SignToolPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -51,5 +57,21 @@
   <Import Project="..\..\Runtime\Api\Rydia.Graphics.Api.ES30\Rydia.Graphics.Api.ES20.projitems" Label="Shared" />
 
   <Import Project="..\..\Runtime\Api\Rydia.Graphics.Api.ES30.OpenTKBindings\Rydia.Graphics.Api.ES30.OpenTKBindings.projitems" Label="Shared" />
+	<Target Name="SignReleaseOutput"
+			AfterTargets="Build"
+			Condition="'$(Configuration)' == 'Release'
+                   and '$(TargetExt)' == '.dll'
+                   and '$(EnableCodeSigning)' == 'true'">
 
+		<Error Condition="!Exists('$(SignToolPath)')"
+			   Text="SignTool.exe が見つかりません: $(SignToolPath)" />
+
+		<Error Condition="!Exists('$(TargetPath)')"
+			   Text="署名対象が見つかりません: $(TargetPath)" />
+
+		<Exec Command="&quot;$(SignToolPath)&quot; sign /fd SHA256 /tr http://timestamp.digicert.com /td SHA256 /a /v &quot;$(TargetPath)&quot;" />
+
+		<Exec Command="&quot;$(SignToolPath)&quot; verify /pa /v &quot;$(TargetPath)&quot;" />
+
+	</Target>
 </Project>
