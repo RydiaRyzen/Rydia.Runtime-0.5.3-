@@ -121,6 +121,8 @@ namespace Rydia.Doc
                 <p>
                     Rydia Engine Launcherを起動するには、
                     .NET 9.0 + OpenGL ES 2.0 または 3.0 が必要です。
+
+                    グラフィクスバックエンドは今後増加する予定です
                 </p>
 
                 <h3>エディター要件</h3>
