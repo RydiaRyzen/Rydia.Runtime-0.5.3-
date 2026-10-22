@@ -9,6 +9,7 @@ using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Rydia.Doc;
 using Rydia.Serialization.Graph;
 using Rydia.SolutionBuilder;
 
@@ -646,87 +647,86 @@ namespace Rydia.GameStudio
             detailPanel.Controls.Add(detailDescription);
             detailPanel.Controls.Add(detailTitle);
 
+            var categories = new[]
+            {
+        LearningDocument.Category.All,
+        LearningDocument.Category.Intro,
+        LearningDocument.Category.Graphics,
+        LearningDocument.Category.Programming,
+        LearningDocument.Category.Resource
+    };
             // 学習コンテンツ
             var courses = new[]
             {
         new
         {
-            Category = "すべて",
+            Category = LearningDocument.Category.All,
             Title = "ホーム",
             Description = Doc.LearningDocument.Home
         },
         new
         {
-            Category = "入門",
+            Category = LearningDocument.Category.Intro,
             Title = "Rydia Engine の概要",
             Description = Doc.LearningDocument.Introduction
         },
         new
         {
-            Category = "入門",
+            Category = LearningDocument.Category.Intro,
             Title = "開発環境の準備",
             Description = Doc.LearningDocument.Setup
         },
         new
         {
-            Category = "グラフィックス",
+            Category = LearningDocument.Category.Graphics,
             Title = "描画処理の基礎",
             Description = Doc.LearningDocument.RenderingBasics
         },
         new
         {
-            Category = "グラフィックス",
+            Category = LearningDocument.Category.Graphics,
             Title = "シェーダー",
             Description = Doc.LearningDocument.Shaders
         },
         new
         {
-            Category = "プログラミング",
+            Category = LearningDocument.Category.Programming,
             Title = "ゲームループ",
             Description = Doc.LearningDocument.GameLoop
         },
         new
         {
-            Category = "プログラミング",
+            Category = LearningDocument.Category.Programming,
             Title = "入力処理",
             Description = Doc.LearningDocument.InputHandling
         },
         new
         {
-            Category = "リソース",
+            Category = LearningDocument.Category.Resource,
             Title = "テクスチャとフォント",
             Description = Doc.LearningDocument.TexturesAndFonts
         },
         new
         {
-            Category = "リソース",
+            Category = LearningDocument.Category.Resource,
             Title = "オーディオ",
             Description = Doc.LearningDocument.Audio
         },
         new
         {
-            Category = "リソース",
+            Category = LearningDocument.Category.Resource,
             Title = "オーディオ2",
             Description = Doc.LearningDocument.Audio2
         },
         new
         {
-            Category = "リソース",
+            Category = LearningDocument.Category.Resource,
             Title = "オーディオ3",
             Description = Doc.LearningDocument.Audio
         }
     };
-
-            var categories = new[]
-            {
-        "すべて",
-        "入門",
-        "グラフィックス",
-        "プログラミング",
-        "リソース"
-    };
-
-            string selectedCategory = "すべて";
+            
+            string selectedCategory = LearningDocument.Category.All;
 
             var courseList = new FlowLayoutPanel
             {

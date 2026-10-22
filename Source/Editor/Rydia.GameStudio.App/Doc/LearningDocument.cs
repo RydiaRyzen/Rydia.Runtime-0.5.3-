@@ -9,8 +9,18 @@ namespace Rydia.Doc
 {
 
 
-    internal class LearningDocument
+    internal static class LearningDocument
     {
+
+
+        public static class Category
+        {
+            public const string All = "すべて";
+            public const string Intro = "入門";
+            public const string Graphics = "グラフィックス";
+            public const string Programming = "プログラミング";
+            public const string Resource = "リソース";
+        }
 
         private static string basePath = AppDomain.CurrentDomain.BaseDirectory;
         private static string baseUrl = new Uri(basePath).AbsoluteUri;
@@ -267,7 +277,7 @@ namespace Rydia.Doc
 
         public static string Audio = Style + $"""
             <body>
-            テスト用でDualityのAudio Handlingの記事を表示しています
+            <h1>テスト用でDualityのAudio Handlingの記事を表示しています</h1>
                 <hr>
             <h2>title: 'Audio Handling'<br>
             category: 'basics'<br>

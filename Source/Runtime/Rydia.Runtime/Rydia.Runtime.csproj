@@ -4,6 +4,11 @@
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+	  <!-- 署名を有効にする構成 -->
+	  <EnableCodeSigning Condition="'$(Configuration)' == 'Release'">true</EnableCodeSigning>
+
+	  <!-- SignTool.exe のパスは環境に合わせて設定 -->
+	  <SignToolPath Condition="'$(SignToolPath)' == ''">C:\Program Files (x86)\Microsoft SDKs\ClickOnce\SignTool\signtool.exe</SignToolPath>
   </PropertyGroup>
 
   <Import Project="..\Lib\Rydia\Rydia.projitems" Label="Shared" />
@@ -17,5 +22,21 @@
   <Import Project="..\Lib\Rydia.Serialization\Rydia.Serialization.projitems" Label="Shared" />
 
   <Import Project="..\Lib\Rydia.Randomizer\Rydia.Randomizer.projitems" Label="Shared" />
+	<Target Name="SignReleaseOutput"
+        AfterTargets="Build"
+        Condition="'$(Configuration)' == 'Release'
+                   and '$(TargetExt)' == '.dll'
+                   and '$(EnableCodeSigning)' == 'true'">
 
+		<Error Condition="!Exists('$(SignToolPath)')"
+			   Text="SignTool.exe が見つかりません: $(SignToolPath)" />
+
+		<Error Condition="!Exists('$(TargetPath)')"
+			   Text="署名対象が見つかりません: $(TargetPath)" />
+
+		<Exec Command="&quot;$(SignToolPath)&quot; sign /fd SHA256 /tr http://timestamp.digicert.com /td SHA256 /a /v &quot;$(TargetPath)&quot;" />
+
+		<Exec Command="&quot;$(SignToolPath)&quot; verify /pa /v &quot;$(TargetPath)&quot;" />
+
+	</Target>
 </Project>

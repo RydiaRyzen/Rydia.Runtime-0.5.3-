@@ -192,7 +192,6 @@
             Controls.Add(this.contentPanel);
             Controls.Add(this.sidebar);
             FormBorderStyle = FormBorderStyle.Fixed3D;
-            MaximizeBox = false;
             Name = "HubForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Rydia Engine Hub";

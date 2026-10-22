@@ -39,7 +39,7 @@ namespace Rydia.Diagnostics
         /// </summary>
         /// <param name="message">出力するログメッセージです。</param>
         /// <param name="formattedLine">整形済みのログメッセージです。</param>
-        protected override void WriteLine(LogMessageType level, string v)
+        protected override void WriteLine(ILogMessage message, string formattedLine)
         {
             
         }
