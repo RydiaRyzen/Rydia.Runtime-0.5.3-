@@ -998,7 +998,7 @@ namespace Rydia.GameStudio
                 CreateCommunityCard(
                     "ドキュメント",
                     "エンジンの使用方法や API を確認します。",
-                    "https://rydiaryzen.github.io/RydiaEngine.Docs/"),
+                    "https://rydiaryzen.github.io/RydiaEngine.Docs/docs/index.html"),
                 0, 1);
 
             links.Controls.Add(
