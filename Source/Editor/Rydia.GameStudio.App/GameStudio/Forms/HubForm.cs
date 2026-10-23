@@ -948,8 +948,7 @@ namespace Rydia.GameStudio
             var introductionText = new Label
             {
                 Text =
-                    "Rydia Engine の開発情報やドキュメントを確認できます。\n" +
-                    "各リンクの接続先は、公式 URL を設定してから使用してください。",
+                    "Rydia Engine の開発情報やドキュメントを確認できます。",
                 ForeColor = Color.Silver,
                 Dock = DockStyle.Fill,
                 TextAlign = ContentAlignment.MiddleLeft

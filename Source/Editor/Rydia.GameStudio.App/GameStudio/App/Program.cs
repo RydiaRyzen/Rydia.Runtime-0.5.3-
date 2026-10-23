@@ -31,7 +31,7 @@ namespace Rydia.GameStudio.App
                 
             }
 
-            // ImGuiによるエディタを起動する場合は、以下のコードをコメントアウトしてください。
+            // ImGuiベースのアプリケーションを起動する場合は、以下のコードをコメントアウトしてください。
             // Application.Run(new MainForm());
 
             // WinFormsベースのアプリケーションを起動する場合は、以下のコードをコメントアウトしてください。
