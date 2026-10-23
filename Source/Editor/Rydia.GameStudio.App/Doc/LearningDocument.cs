@@ -8,23 +8,61 @@ using WeifenLuo.WinFormsUI.Docking.Skins;
 namespace Rydia.Doc
 {
 
-
+    /// <summary>
+    /// Rydia Engine の学習用ドキュメントを管理するクラスです。
+    /// 各学習項目の HTML コンテンツと、共通のスタイル定義を提供します。
+    /// </summary>
     internal static class LearningDocument
     {
 
-
+        /// <summary>
+        /// 学習ドキュメントのカテゴリを定義します。
+        /// </summary>
         public static class Category
         {
+            /// <summary>
+            /// すべてのカテゴリを表します。
+            /// </summary>
             public const string All = "すべて";
+
+            /// <summary>
+            /// 入門カテゴリを表します。
+            /// </summary>
             public const string Intro = "入門";
+
+            /// <summary>
+            /// グラフィックスカテゴリを表します。
+            /// </summary>
             public const string Graphics = "グラフィックス";
+
+            /// <summary>
+            /// プログラミングカテゴリを表します。
+            /// </summary>
             public const string Programming = "プログラミング";
+
+            /// <summary>
+            /// リソースカテゴリを表します。
+            /// </summary>
             public const string Resource = "リソース";
+
         }
 
+        /// <summary>
+        /// アプリケーションの実行ディレクトリを取得します。
+        /// </summary>
         private static string basePath = AppDomain.CurrentDomain.BaseDirectory;
+
+        /// <summary>
+        /// 実行ディレクトリを URI 形式に変換した文字列を取得します。
+        /// HTML 内で画像などのリソースを参照する際の基準として使用します。
+        /// </summary>
         private static string baseUrl = new Uri(basePath).AbsoluteUri;
 
+        /// <summary>
+        /// 学習ドキュメントで共通して使用する HTML ヘッダーと CSS を取得します。
+        /// フォント、文字色、背景色、見出し、リスト、コードブロックなどの
+        /// 表示スタイルを定義します。
+        /// </summary>
         public static string Style = """
                     <!DOCTYPE html>
                 <html lang="ja">
@@ -114,13 +152,30 @@ namespace Rydia.Doc
                 </head>
                 """;
 
+        /// <summary>
+        /// 学習ドキュメントのホームページを取得します。
+        /// ドキュメントの概要と、学習項目の選択方法を説明します。
+        /// </summary>
         public static string Home = Style + """
             <body>
-            ドキュメントページへようこそ！開発者マニュアルは左側の学習項目または上のカテゴリから学習したい項目を選択してください。
+            <h1>開発者ドキュメントへようこそ！</h1>
+            <p>
+                このドキュメントは、Rydia Engine の開発者向けの情報を提供するためのものです。
+                ここでは、エンジンの基本的な使い方を学ぶことができます。
+            </p>
+            <p>
+                さらに詳しいAPIリファレンスや高度なトピックは左ペインの　コミュニティ > ドキュメント　からご覧いただけます
+            </p>
+                左側の学習項目または上のカテゴリから学習したい項目を選択してください。
             </body>
             </html>
             """;
 
+        /// <summary>
+        /// Rydia Engine の基本構成に関する入門ドキュメントを取得します。
+        /// ランチャーとエディターの要件、各コンポーネントの役割、
+        /// プロジェクトのフォルダー構成について説明します。
+        /// </summary>
         public static string Introduction = Style + """
             <body>
                 <h1>学習内容</h1>
@@ -190,6 +245,10 @@ namespace Rydia.Doc
             </html>
             """;
 
+        /// <summary>
+        /// 開発環境の準備に関するドキュメントを取得します。
+        /// 必要な開発ツール、プロジェクトの作成、ビルドと実行について説明します。
+        /// </summary>
         public static string Setup = Style + """
             <body>
                 <h1>開発環境の準備</h1>
@@ -205,6 +264,12 @@ namespace Rydia.Doc
             </body>
             </html>
             """;
+
+        /// <summary>
+        /// グラフィックスの描画処理に関する基礎ドキュメントを取得します。
+        /// レンダリング、頂点バッファ、インデックスバッファ、
+        /// 描画コマンドの基本的な流れについて説明します。
+        /// </summary>
         public static string RenderingBasics = Style + """
             <body>
                 <h1>描画処理の基礎</h1>
@@ -219,6 +284,11 @@ namespace Rydia.Doc
             </html>
             """;
 
+        /// <summary>
+        /// シェーダーに関するドキュメントを取得します。
+        /// 頂点シェーダー、フラグメントシェーダー、
+        /// ユニフォーム変数の基本について説明します。
+        /// </summary>
         public static string Shaders = Style + """
             <body>
                 <h1>シェーダー</h1>
@@ -233,6 +303,11 @@ namespace Rydia.Doc
             </html>
             """;
 
+        /// <summary>
+        /// ゲームループに関するドキュメントを取得します。
+        /// 更新処理と描画処理、経過時間の管理、
+        /// フレームレートの基本について説明します。
+        /// </summary>
         public static string GameLoop = Style + """
             <body>
                 <h1>ゲームループ</h1>
@@ -247,6 +322,10 @@ namespace Rydia.Doc
             </html>
             """;
 
+        /// <summary>
+        /// 入力処理に関するドキュメントを取得します。
+        /// キーボード、マウス、タッチイベントの基本的な扱い方を説明します。
+        /// </summary>
         public static string InputHandling = Style + """
             <body>
                 <h1>入力処理</h1>
@@ -261,6 +340,11 @@ namespace Rydia.Doc
             </html>
             """;
 
+        /// <summary>
+        /// テクスチャとフォントに関するドキュメントを取得します。
+        /// 画像リソースの読み込み、テクスチャの利用、
+        /// 文字の描画について説明します。
+        /// </summary>
         public static string TexturesAndFonts = Style + """
             <body>
                 <h1>テクスチャとフォント</h1>
@@ -275,6 +359,11 @@ namespace Rydia.Doc
             </html>
             """;
 
+        /// <summary>
+        /// [要再編集]　音声処理に関するドキュメントを取得します。
+        /// 現在は Duality の Audio Handling に関する記事を
+        /// テスト用コンテンツとして表示します。
+        /// </summary>
         public static string Audio = Style + $"""
             <body>
             <h1>テスト用でDualityのAudio Handlingの記事を表示しています</h1>
@@ -370,18 +459,32 @@ namespace Rydia.Doc
             </html>
             """;
 
+        /// <summary>
+        /// 音声ドキュメントで使用する画像の表示を検証するための
+        /// テスト用 HTML コンテンツを取得します。
+        /// 実行ディレクトリと画像の参照先を表示します。
+        /// </summary>
         public static string Audio2 = Style + $"""
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <meta charset="utf-8">
-    </head>
     <body>
         <p>{basePath}</p>
         <img src="{new Uri(basePath).AbsoluteUri}/img/AudioHandling/settingUpTheSoundListener.png" alt="テスト画像">
     </body>
     </html>
     """;
+
+        /// <summary>
+        /// 音声ドキュメントで使用する画像の表示を検証するための
+        /// テスト用 HTML コンテンツを取得します。
+        /// 実行ディレクトリと画像の参照先を表示します。
+        /// </summary>
+        public static string Audio3 = Style + $"""
+    <body>
+        <p>{basePath}</p>
+        <img src="{new Uri(basePath).AbsoluteUri}/img/AudioHandling/settingUpTheSoundListener.png" alt="テスト画像">
+    </body>
+    </html>
+    """;
+
     }
 
 

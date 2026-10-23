@@ -722,7 +722,7 @@ namespace Rydia.GameStudio
         {
             Category = LearningDocument.Category.Resource,
             Title = "オーディオ3",
-            Description = Doc.LearningDocument.Audio
+            Description = Doc.LearningDocument.Audio3
         }
     };
             
