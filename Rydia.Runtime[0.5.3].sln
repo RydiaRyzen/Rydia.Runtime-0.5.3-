@@ -124,6 +124,29 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rydia.GameStudio.App", "Sou
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Rydia.SolutionBuilder", "Source\Editor\Rydia.SolutionBuilder\Rydia.SolutionBuilder.shproj", "{5E295DFA-21C3-487E-8E3E-B2957E1D354A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4000-Website", "4000-Website", "{E0434A68-1F2B-416A-860E-7F248E5830CE}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "RydiaEngine.Docs-main", "C:\Users\Rydia\Downloads\RydiaEngine.Docs-main\RydiaEngine.Docs-main\", "{A641C78B-239D-45A8-9186-0F3E7CA739FC}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_61862"
+		Debug.AspNetCompiler.PhysicalPath = "C:\Users\Rydia\Downloads\RydiaEngine.Docs-main\RydiaEngine.Docs-main\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_61862\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_61862"
+		Release.AspNetCompiler.PhysicalPath = "C:\Users\Rydia\Downloads\RydiaEngine.Docs-main\RydiaEngine.Docs-main\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_61862\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "61862"
+		SlnRelativePath = "C:\Users\Rydia\Downloads\RydiaEngine.Docs-main\RydiaEngine.Docs-main\"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -184,6 +207,10 @@ Global
 		{A722DE6E-5323-4A75-A521-82118612275D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A722DE6E-5323-4A75-A521-82118612275D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A722DE6E-5323-4A75-A521-82118612275D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A641C78B-239D-45A8-9186-0F3E7CA739FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A641C78B-239D-45A8-9186-0F3E7CA739FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A641C78B-239D-45A8-9186-0F3E7CA739FC}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{A641C78B-239D-45A8-9186-0F3E7CA739FC}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -244,6 +271,7 @@ Global
 		{BE91C21F-923B-4848-B35C-D473C5B6F2EB} = {A98FB95E-213F-41D9-A16E-C245212AD627}
 		{A722DE6E-5323-4A75-A521-82118612275D} = {381829E0-EEC7-4907-8E5F-7631EEC1A367}
 		{5E295DFA-21C3-487E-8E3E-B2957E1D354A} = {A98FB95E-213F-41D9-A16E-C245212AD627}
+		{A641C78B-239D-45A8-9186-0F3E7CA739FC} = {E0434A68-1F2B-416A-860E-7F248E5830CE}
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Source\Runtime\Lib\Rydia.Serialization\Rydia.Serialization.projitems*{006c9f26-6fa8-45cb-b2d4-ce716f5c60b6}*SharedItemsImports = 13

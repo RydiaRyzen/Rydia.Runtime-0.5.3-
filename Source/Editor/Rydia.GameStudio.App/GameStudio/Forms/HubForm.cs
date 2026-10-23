@@ -984,7 +984,7 @@ namespace Rydia.GameStudio
                 CreateCommunityCard(
                     "公式サイト",
                     "Rydia Engine の公式サイトを開きます。",
-                    "https://github.com/RydiaRyzen/Rydia.Runtime-0.5.3-"),
+                    "https://rydiaryzen.github.io/RydiaEngine.Docs/"),
                 0, 0);
 
             links.Controls.Add(
@@ -998,7 +998,7 @@ namespace Rydia.GameStudio
                 CreateCommunityCard(
                     "ドキュメント",
                     "エンジンの使用方法や API を確認します。",
-                    string.Empty),
+                    "https://rydiaryzen.github.io/RydiaEngine.Docs/"),
                 0, 1);
 
             links.Controls.Add(
