@@ -30,6 +30,11 @@ namespace Rydia.GameStudio.App
                 }
                 
             }
+
+            // ImGuiによるエディタを起動する場合は、以下のコードをコメントアウトしてください。
+            // Application.Run(new MainForm());
+
+            // WinFormsベースのアプリケーションを起動する場合は、以下のコードをコメントアウトしてください。
             using (var platform = new WindowsPlatform())
             {
                 platform.WindowOptions.Width = 1024;
