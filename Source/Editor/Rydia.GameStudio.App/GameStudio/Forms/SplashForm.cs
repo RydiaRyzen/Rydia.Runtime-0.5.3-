@@ -155,7 +155,7 @@ namespace Rydia.GameStudio
         public static async Task InitializeAsync(Action<string> reportStatus)
         {
             reportStatus("初期化しています...");
-            await InitializeServicesAsync();
+            await InitializeAsync();
 
             reportStatus("設定ファイルを読み込んでいます...");
             await LoadSettingsAsync();
@@ -174,32 +174,11 @@ namespace Rydia.GameStudio
         }
 
         /// <summary>
-        /// アプリケーションの基本サービスを初期化します。
+        /// アプリケーションを初期化します。
         /// </summary>
-        /// <returns>サービスの初期化が完了したときに完了するタスク。</returns>
-        /// <remarks>
-        /// プラグイン、プロジェクト、ダウンロード用の各フォルダーが存在しない場合は作成し、
-        /// <see cref="EditorContext"/> を通じてサービスを初期化します。
-        /// </remarks>
-        private static async Task InitializeServicesAsync()
+        /// <returns>初期化が完了したときに完了するタスク。</returns>
+        private static async Task InitializeAsync()
         {
-            // Pluginフォルダーの確認
-            if (!System.IO.Directory.Exists("Plugins"))
-            {
-                System.IO.Directory.CreateDirectory("Plugins");
-            }
-            // Projectフォルダーの確認
-            if (!System.IO.Directory.Exists("Projects"))
-            {
-                System.IO.Directory.CreateDirectory("Projects");
-            }
-            // Downloadフォルダーの確認
-            if (!System.IO.Directory.Exists("Download"))
-            {
-                System.IO.Directory.CreateDirectory("Download");
-            }
-            // Serviceの初期化
-            EditorContext.LoadServices();
             await Task.Delay(3000);
         }
 
@@ -237,9 +216,30 @@ namespace Rydia.GameStudio
         /// アプリケーションで使用するリソースを読み込みます。
         /// </summary>
         /// <returns>リソースの読み込みが完了したときに完了するタスク。</returns>
+        /// <remarks>
+        /// プラグイン、プロジェクト、ダウンロード用の各フォルダーが存在しない場合は作成し、
+        /// <see cref="EditorContext"/> を通じてリソースを初期化します。
+        /// </remarks>
         private static async Task LoadResourcesAsync()
         {
             // TODO: 画像、フォントなどの読み込み処理
+            // Pluginフォルダーの確認
+            if (!System.IO.Directory.Exists("Plugins"))
+            {
+                System.IO.Directory.CreateDirectory("Plugins");
+            }
+            // Projectフォルダーの確認
+            if (!System.IO.Directory.Exists("Projects"))
+            {
+                System.IO.Directory.CreateDirectory("Projects");
+            }
+            // Downloadフォルダーの確認
+            if (!System.IO.Directory.Exists("Download"))
+            {
+                System.IO.Directory.CreateDirectory("Download");
+            }
+            // Serviceの初期化
+            EditorContext.LoadResources();
             await Task.Delay(3000);
         }
 

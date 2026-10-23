@@ -1,5 +1,9 @@
 
 
+using Rydia.Engine;
+using Rydia.Runtime.Desktop;
+using Rydia.Runtime.Windows;
+
 namespace Rydia.GameStudio.App
 {
     internal static class Program
@@ -26,7 +30,29 @@ namespace Rydia.GameStudio.App
                 }
                 
             }
-            Application.Run(new MainForm());
+            using (var platform = new WindowsPlatform())
+            {
+                platform.WindowOptions.Width = 1024;
+                platform.WindowOptions.Height = 768;
+                platform.WindowOptions.Title = "Rydia GameStudio - " + EditorContext.ProjectName;
+                platform.WindowOptions.RefreshMode = RefreshMode.VSync;
+                platform.WindowOptions.ScreenMode = ScreenMode.Window;
+
+                // オーディオ設定
+                // 既定のデバイスを使用
+                platform.AudioOptions.DeviceName = null;
+                // サンプリング周波数を44.1kHzに設定
+                platform.AudioOptions.Frequency = 44100;
+                // モノラル音源の数を16に設定
+                platform.AudioOptions.MonoSources = 16;
+                // ステレオ音源の数を16に設定
+                platform.AudioOptions.StereoSources = 16;
+                // 更新レートを60に設定
+                platform.AudioOptions.Refresh = 60;
+                // クロック同期を無効に設定
+                platform.AudioOptions.Sync = false;
+                platform.Run(new EditorApp());
+            }
         }
     }
 }

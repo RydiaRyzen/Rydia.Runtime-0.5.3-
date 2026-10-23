@@ -98,10 +98,20 @@ namespace SampleEngine.Resources
 
                 // ImageSharpで文字列を描画
                 var img = new SixLabors.ImageSharp.Image<Rgba32>(width + 10, height + 5);
+                var textOptions = new RichTextOptions(slFont)
+                {
+                    Origin = new System.Numerics.Vector2(5, -3)
+                };
                 img.Mutate(ctx =>
                 {
-                    ctx.Clear(SixLabors.ImageSharp.Color.Transparent);
-                    ctx.DrawText(item.ToString(), slFont, SixLabors.ImageSharp.Color.White, new SixLabors.ImageSharp.PointF(5, -3));
+                    ctx.Paint(canvas =>
+                    {
+                        canvas.DrawText(
+                            textOptions,
+                            item.ToString(),
+                            SixLabors.ImageSharp.Drawing.Processing.Brushes.Solid(SixLabors.ImageSharp.Color.White),
+                            pen: null);
+                    });
                 });
 
                 // BGRA → RGBA byte[]

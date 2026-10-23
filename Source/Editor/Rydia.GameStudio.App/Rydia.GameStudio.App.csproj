@@ -15,10 +15,15 @@
 
 	  <!-- ネイティブライブラリも単一ファイルに含める場合 -->
 	  <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+	  <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="GameStudio\EmbeddedResources\SplashLogo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ImGui.NET" Version="1.91.6.1" />
   </ItemGroup>
 
   <ItemGroup>

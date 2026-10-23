@@ -230,7 +230,7 @@ namespace Rydia.GameStudio
                 Task.Delay(2000).Wait(); // デバッグ用の遅延
                 logForm.AppendLog("プロジェクトを読み込みました。");
                 logForm.AppendLog("ソリューションファイルを開きます。");
-                Task.Delay(2000).Wait(); // デバッグ用の遅延
+                Task.Delay(3000).Wait(); // デバッグ用の遅延
             });
             solution.Open();
             DialogResult = DialogResult.OK;

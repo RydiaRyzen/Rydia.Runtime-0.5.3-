@@ -86,6 +86,15 @@ namespace Rydia.GameStudio
         }
 
         /// <summary>
+        /// プロジェクト名を取得します
+        /// </summary>
+        public static string ProjectName
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
         /// エディタープラグインを読み込みます。
         /// </summary>
         internal static void LoadPlugin()
@@ -96,10 +105,10 @@ namespace Rydia.GameStudio
         }
 
         /// <summary>
-        /// エディターで使用する各種サービスを初期化します。
+        /// エディターで使用する各種リソースを初期化します。
         /// エンジンとエディターのアセンブリを設定します。
         /// </summary>
-        internal static void LoadServices()
+        internal static void LoadResources()
         {
             // TODO: 各種サービスの初期化処理
             EngineAssembly = typeof(Rydia.Engine.LauncherApp).Assembly;
@@ -113,7 +122,8 @@ namespace Rydia.GameStudio
         internal static void OpenProject(string path)
         {
             ProjectPath = path;
-            SolutionPath = Path.Combine(path, "Source", "Code", Path.GetFileNameWithoutExtension(path), Path.GetFileName(path) + ".sln");
+            ProjectName = Path.GetFileNameWithoutExtension(path);
+            SolutionPath = Path.Combine(path, "Source", "Code", ProjectName, Path.GetFileName(path) + ".sln");
             AssetsPath = Path.Combine(path, "Assets");
             MediaPath = Path.Combine(path, "Media");
         }
