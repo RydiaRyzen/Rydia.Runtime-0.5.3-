@@ -181,14 +181,14 @@
             this.contentPanel.Dock = DockStyle.Fill;
             this.contentPanel.Location = new Point(220, 0);
             this.contentPanel.Name = "contentPanel";
-            this.contentPanel.Size = new Size(580, 450);
+            this.contentPanel.Size = new Size(846, 450);
             this.contentPanel.TabIndex = 1;
             // 
             // HubForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1066, 450);
             Controls.Add(this.contentPanel);
             Controls.Add(this.sidebar);
             FormBorderStyle = FormBorderStyle.Fixed3D;

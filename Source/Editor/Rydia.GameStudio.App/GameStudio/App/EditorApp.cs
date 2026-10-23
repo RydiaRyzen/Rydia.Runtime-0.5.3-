@@ -1,16 +1,14 @@
-﻿using ImGuiNET;
-using Rydia.Graphics.Api.ES30;
+﻿using Rydia.Graphics.Api.ES30;
 using Rydia.Runtime;
 using Rydia.Drawing;
 using Rydia.Graphics.Api.ES20;
 
 namespace Rydia.GameStudio.App
 {
-    internal class EditorApp : AppRunner
+    internal class EditorApp : AppRunner // AppRunnerを継承してますが、LauncherAppを継承する可能性があります
     {
 
-
-        public IGLES30 GL
+        public static IGLES20 GL
         {
             get
             {
