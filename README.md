@@ -39,6 +39,8 @@
 - OpenAL によるオーディオ処理
 - Android 環境向けのプラットフォーム固有処理
 
+## Rydia. Runtime.Macos, Linux, iOSはまだ作っていません
+
 ## Rydia Engine
 
 Rydia Engine は、クロスプラットフォームでのゲーム開発を目指すゲームエンジンプロジェクトです。
