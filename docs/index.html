@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Rydia Engineのドキュメント">
+    <title>ドキュメント — Rydia Engine</title>
+    <link rel="stylesheet" href="../css/documentstyle.css">
+    <script src="../js/main.js" defer></script>
+    <script src="../js/docs.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container nav-wrap">
+            <a class="brand" href="/RydiaEngine.Docs/index.html" aria-label="Rydia Engine ホーム">
+                <span class="brand-mark" aria-hidden="true">R</span>
+                <span class="brand-name">RydiaEngine</span>
+            </a>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+                <span></span><span></span><span></span><span class="sr-only">メニュー</span>
+            </button>
+            <nav class="site-nav" id="site-nav" aria-label="メインナビゲーション">
+                <a href="/RydiaEngine.Docs/index.html#features">機能</a>
+                <a href="/RydiaEngine.Docs/docs/index.html">ドキュメント</a>
+                <a href="/RydiaEngine.Docs/news/index.html">更新履歴</a>
+                <a class="nav-cta" href="/RydiaEngine.Docs/index.html#download">ダウンロード</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main" class="docs-page">
+        <div class="docs-layout">
+
+            <!-- 左ペイン -->
+            <aside class="docs-sidebar" aria-label="ドキュメントメニュー">
+                <div class="docs-sidebar-header">
+                    <span class="docs-sidebar-title">ドキュメント</span>
+                </div>
+
+                <nav class="docs-nav" aria-label="ドキュメント一覧">
+                    <div class="docs-nav-group">
+                        <div class="docs-nav-heading">基本ガイド</div>
+
+                        <button class="docs-nav-item active"
+                                type="button"
+                                data-doc-target="getting-started">
+                            はじめに
+                        </button>
+
+                        <button class="docs-nav-item"
+                                type="button"
+                                data-doc-target="api-reference">
+                            APIリファレンス
+                        </button>
+
+                        <button class="docs-nav-item"
+                                type="button"
+                                data-doc-target="launcher-requirements">
+                            ランチャー要件
+                        </button>
+
+                        <button class="docs-nav-item"
+                                type="button"
+                                data-doc-target="editor-requirements">
+                            エディター要件
+                        </button>
+
+                        <button class="docs-nav-item"
+                                type="button"
+                                data-doc-target="project-structure">
+                            プロジェクト構成
+                        </button>
+
+                        <div class="docs-nav-heading">チュートリアル</div>
+
+                        <button class="docs-nav-item"
+                                type="button"
+                                data-doc-target="tutorial-getting-started">
+                            チュートリアルを開始する
+                        </button>
+
+                        <button class="docs-nav-item"
+                                type="button"
+                                data-doc-target="creating-bullet-objects">
+                            弾丸のような物体を作成する
+                        </button>
+
+                        <button class="docs-nav-item"
+                                type="button"
+                                data-doc-target="working-with-animations">
+                            アニメーションの操作
+                        </button>
+
+                        <button class="docs-nav-item"
+                                type="button"
+                                data-doc-target="using-tilemaps">
+                            タイルマップの使用
+                        </button>
+
+                        <div class="docs-nav-heading">Basic Topics</div>
+
+                        <button class="docs-nav-item"
+                                type="button"
+                                data-doc-target="components">
+                            コンポーネント
+                        </button>
+
+                        <button class="docs-nav-item"
+                                type="button"
+                                data-doc-target="gameobjects">
+                            ゲームオブジェクト
+                        </button>
+
+                        <button class="docs-nav-item"
+                                type="button"
+                                data-doc-target="resources">
+                            リソース
+                        </button>
+
+                        <button class="docs-nav-item"
+                                type="button"
+                                data-doc-target="input-handling">
+                            入力処理
+                        </button>
+
+                        <button class="docs-nav-item"
+                                type="button"
+                                data-doc-target="audio-handling">
+                            音声処理
+                        </button>
+
+                        <button class="docs-nav-item"
+                                type="button"
+                                data-doc-target="logging">
+                            ログ記録
+                        </button>
+
+                        <button class="docs-nav-item"
+                                type="button"
+                                data-doc-target="guidelines">
+                            ガイドライン
+                        </button>
+
+                        <div class="docs-nav-heading">Advanced Topics</div>
+
+                        <button class="docs-nav-item"
+                                type="button"
+                                data-doc-target="custom-renderers">
+                            カスタムレンダラー
+                        </button>
+
+                        <button class="docs-nav-item"
+                                type="button"
+                                data-doc-target="version-control">
+                            バージョン管理
+                        </button>
+
+                        <button class="docs-nav-item"
+                                type="button"
+                                data-doc-target="custom-editor-actions">
+                            カスタムエディターアクション
+                        </button>
+
+                        <button class="docs-nav-item"
+                                type="button"
+                                data-doc-target="framework-structure">
+                            フレームワーク構造
+                        </button>
+
+                        <button class="docs-nav-item"
+                                type="button"
+                                data-doc-target="handling-object-data">
+                            オブジェクトデータの処理
+                        </button>
+
+                        <button class="docs-nav-item"
+                                type="button"
+                                data-doc-target="using-external-libraries">
+                            外部ライブラリの使用
+                        </button>
+
+                        <button class="docs-nav-item"
+                                type="button"
+                                data-doc-target="package-management">
+                            パッケージ管理
+                        </button>
+
+                        <div class="docs-nav-heading">Development</div>
+
+                        <button class="docs-nav-item"
+                                type="button"
+                                data-doc-target="how-to-contribute">
+                            貢献方法
+                        </button>
+
+                        <button class="docs-nav-item"
+                                type="button"
+                                data-doc-target="maintainer-guidelines">
+                            メンテナー向けガイドライン
+                        </button>
+
+                        <button class="docs-nav-item"
+                                type="button"
+                                data-doc-target="branch-descriptions">
+                            ブランチの説明
+                        </button>
+
+                        <button class="docs-nav-item"
+                                type="button"
+                                data-doc-target="development-cycle">
+                            開発サイクル
+                        </button>
+
+                        <button class="docs-nav-item"
+                                type="button"
+                                data-doc-target="community-projects">
+                            コミュニティプロジェクト一覧
+                        </button>
+
+                        <button class="docs-nav-item"
+                                type="button"
+                                data-doc-target="changelog">
+                            変更履歴
+                        </button>
+
+                    </div>
+                </nav>
+            </aside>
+
+            <!-- 右側のメインコンテンツ -->
+            <!-- 右側のメインコンテンツ -->
+            <div class="docs-main">
+                <div class="docs-content">
+
+                    <section class="docs-panel active"
+                             id="getting-started"
+                             tabindex="-1">
+                        <h1>はじめに</h1>
+                        <p class="docs-lead">
+                            Rydia Engine の基本構成や、
+                            GameStudio の役割について説明します。
+                        </p>
+
+                        <h2>Rydia Engine について</h2>
+                        <p>
+                            Rydia Engine は、ゲームの実行に必要な機能と、
+                            エディターやランチャーで共通して使用するクラスを提供します。
+                        </p>
+
+                        <h2>エンジンとエディターの役割</h2>
+                        <p>
+                            Rydia Engine は、エディターとランチャーの
+                            両方で使用される共通機能を提供します。
+                        </p>
+                        <p>
+                            Rydia GameStudio は、ゲームオブジェクトの
+                            作成・管理を行うための開発ツールです。
+                        </p>
+                    </section>
+
+                    <section class="docs-panel"
+                             id="launcher-requirements"
+                             tabindex="-1"
+                             hidden>
+                        <h1>ランチャー要件</h1>
+                        <p class="docs-lead">
+                            Rydia Engine Launcher の動作環境について説明します。
+                        </p>
+
+                        <h2>対応プラットフォーム</h2>
+                        <p>
+                            ランチャーは現在 Windows , Android専用です。
+                            macOS および Linux , iOS への対応も視野に入れています。
+                        </p>
+                        <h2>必要な環境</h2>
+                        <ul>
+                            <li>.NET 9.0</li>
+                            <li>OpenGL ES 2.0 または 3.0 に対応した環境</li>
+                        </ul>
+
+                        <h2>グラフィックスバックエンド</h2>
+                        <p>
+                            現在は OpenGL ES を使用します。
+                            グラフィックスバックエンドは今後追加する予定です。
+                        </p>
+                    </section>
+
+                    <section class="docs-panel"
+                             id="editor-requirements"
+                             tabindex="-1"
+                             hidden>
+                        <h1>エディター要件</h1>
+                        <p class="docs-lead">
+                            Rydia GameStudio の開発環境について説明します。
+                        </p>
+
+                        <h2>対応プラットフォーム</h2>
+                        <p>
+                            エディターは現在 Windows 専用です。
+                            macOS および Linux への対応も視野に入れています。
+                        </p>
+
+                        <h2>必要な環境</h2>
+                        <ul>
+                            <li>.NET 9.0</li>
+                            <li>OpenGL ES 2.0 または 3.0 に対応した環境</li>
+                        </ul>
+                    </section>
+
+                    <section class="docs-panel"
+                             id="project-structure"
+                             tabindex="-1"
+                             hidden>
+                        <h1>プロジェクト構成</h1>
+                        <p class="docs-lead">
+                            Rydia Engine のプロジェクトで使用するフォルダーについて説明します。
+                        </p>
+
+                        <h2>Assets</h2>
+                        <p>
+                            Rydia Engine Launcher で使用するゲームアセットを格納します。
+                        </p>
+
+                        <h2>Source</h2>
+                        <p>
+                            Media フォルダーと Code フォルダーを格納します。
+                        </p>
+
+                        <h2>Media</h2>
+                        <p>
+                            GameStudio でインポートした音楽、画像、
+                            フォントなどの素材を格納します。
+                        </p>
+
+                        <h2>Code</h2>
+                        <p>
+                            ソリューションファイルやソースコードを配置します。
+                            独自の Component を作成するには C# で実装します。
+                        </p>
+                    </section>
+
+                    <section class="docs-panel" id="tutorial-getting-started" tabindex="-1" hidden>
+                        <h1>Getting Started</h1>
+                        <p class="docs-lead">最初のプロジェクトを作成し、実行までの流れを確認します。</p>
+                        <h2>プロジェクトを作成する</h2>
+                        <p>Rydia GameStudio で新しいプロジェクトを作成し、テンプレートと保存先を選択します。</p>
+                        <h2>ソースコードを確認する</h2>
+                        <p>Source/Code フォルダーに生成されたソリューションとプロジェクトを確認します。</p>
+                        <h2>実行する</h2>
+                        <p>必要なランタイムとグラフィックス環境を用意し、プロジェクトをビルドして起動します。</p>
+                    </section>
+
+                    <section class="docs-panel" id="creating-bullet-objects" tabindex="-1" hidden>
+                        <h1>Creating Bullet-like Objects</h1>
+                        <p class="docs-lead">ゲーム内で弾のようなオブジェクトを作成する際の考え方を説明します。</p>
+                        <h2>オブジェクトを分ける</h2>
+                        <p>弾の位置、速度、寿命など、役割ごとのデータを整理します。</p>
+                        <h2>更新処理</h2>
+                        <p>フレーム更新時に位置を更新し、寿命や画面外判定に応じてオブジェクトを破棄します。</p>
+                        <h2>注意点</h2>
+                        <p>多数の弾を扱う場合は、生成・破棄の頻度や衝突判定の負荷を確認してください。</p>
+                    </section>
+
+                    <section class="docs-panel" id="working-with-animations" tabindex="-1" hidden>
+                        <h1>Working with Animations</h1>
+                        <p class="docs-lead">アニメーションを扱うための基本的な構成を説明します。</p>
+                        <h2>アニメーション素材</h2>
+                        <p>連番画像やアニメーション用データをプロジェクトの素材として管理します。</p>
+                        <h2>再生状態</h2>
+                        <p>再生中・停止中・ループなどの状態を明確にし、更新処理と描画処理を分離します。</p>
+                        <h2>タイミング</h2>
+                        <p>フレームレートに依存しない時間管理を行い、再生速度を調整できるようにします。</p>
+                    </section>
+
+                    <section class="docs-panel" id="using-tilemaps" tabindex="-1" hidden>
+                        <h1>Using Tilemaps</h1>
+                        <p class="docs-lead">タイルを並べてマップを構成する際の基本事項です。</p>
+                        <h2>タイル素材</h2>
+                        <p>タイル画像とマップデータを分けて管理します。</p>
+                        <h2>マップ座標</h2>
+                        <p>セル座標とワールド座標の変換規則を統一します。</p>
+                        <h2>描画範囲</h2>
+                        <p>画面に表示される範囲を優先して描画すると、大きなマップの負荷を抑えられます。</p>
+                    </section>
+
+                    <section class="docs-panel" id="components" tabindex="-1" hidden>
+                        <h1>Components</h1>
+                        <p class="docs-lead">Component は、ゲームオブジェクトに機能や振る舞いを追加するための単位です。</p>
+                        <h2>責務を分ける</h2>
+                        <p>入力、移動、描画などの機能を独立したコンポーネントとして整理します。</p>
+                        <h2>独自 Component</h2>
+                        <p>プロジェクトの C# コードで必要なクラスを実装し、エンジンが定める規約に従って登録・使用します。</p>
+                        <h2>ライフサイクル</h2>
+                        <p>初期化、更新、終了時の処理がどのタイミングで呼び出されるかを、利用する API の仕様に合わせて実装します。</p>
+                    </section>
+
+                    <section class="docs-panel" id="gameobjects" tabindex="-1" hidden>
+                        <h1>GameObjects</h1>
+                        <p class="docs-lead">GameObject は、ゲーム内の要素をまとめて管理するための概念です。</p>
+                        <h2>オブジェクトの役割</h2>
+                        <p>プレイヤー、敵、カメラ、エフェクトなど、ゲーム内の要素をオブジェクトとして整理します。</p>
+                        <h2>構成</h2>
+                        <p>必要な Component を組み合わせ、オブジェクトごとの役割を表現します。</p>
+                        <h2>管理</h2>
+                        <p>生成・破棄のタイミングや、親子関係を使用する場合の所有関係を明確にします。</p>
+                    </section>
+
+                    <section class="docs-panel" id="resources" tabindex="-1" hidden>
+                        <h1>Resources</h1>
+                        <p class="docs-lead">画像、音声、フォントなどのリソースを管理する際の基本事項です。</p>
+                        <h2>素材のインポート</h2>
+                        <p>GameStudio で利用する素材をインポートし、プロジェクト内で管理します。</p>
+                        <h2>読み込みと解放</h2>
+                        <p>リソースの読み込み時期と解放時期を決め、不要になった GPU・メモリ資源を保持し続けないようにします。</p>
+                        <h2>パスの管理</h2>
+                        <p>実行環境に依存する絶対パスではなく、プロジェクト内で一貫した識別方法を使用します。</p>
+                    </section>
+
+                    <section class="docs-panel" id="input-handling" tabindex="-1" hidden>
+                        <h1>Input Handling</h1>
+                        <p class="docs-lead">キーボード、マウス、タッチなどの入力をゲーム処理へ渡す方法を説明します。</p>
+                        <h2>入力の取得</h2>
+                        <p>プラットフォームごとの入力差異を吸収し、ゲーム側では共通の入力 API を利用する構成にします。</p>
+                        <h2>イベントと状態</h2>
+                        <p>押下・解放イベントと、現在押されている状態を用途に応じて使い分けます。</p>
+                        <h2>複数プラットフォーム</h2>
+                        <p>タッチとマウスなど、入力方式が異なる場合もゲーム側の操作体系を整理します。</p>
+                    </section>
+
+                    <section class="docs-panel" id="audio-handling" tabindex="-1" hidden>
+                        <h1>Audio Handling</h1>
+                        <p class="docs-lead">ゲーム内の効果音や音楽を扱う際の基本事項です。</p>
+                        <h2>音声素材</h2>
+                        <p>対応形式の音声ファイルを Media フォルダーで管理します。</p>
+                        <h2>再生制御</h2>
+                        <p>再生、停止、音量、ループなどの制御を用途ごとに整理します。</p>
+                        <h2>リソース管理</h2>
+                        <p>音声デバイスやコンテキストの初期化・終了処理を適切なライフサイクルで実行します。</p>
+                    </section>
+
+                    <section class="docs-panel" id="logging" tabindex="-1" hidden>
+                        <h1>Logging</h1>
+                        <p class="docs-lead">ログを使用して、実行時の状態や問題の原因を調査します。</p>
+                        <h2>ログの用途</h2>
+                        <p>初期化、リソース読み込み、例外など、調査に必要な情報を記録します。</p>
+                        <h2>ログレベル</h2>
+                        <p>情報、警告、エラーを区別し、通常運用時に必要な情報を見つけやすくします。</p>
+                        <h2>機密情報</h2>
+                        <p>パスワードやトークンなどの機密情報をログへ出力しないでください。</p>
+                    </section>
+
+                    <section class="docs-panel" id="guidelines" tabindex="-1" hidden>
+                        <h1>Guidelines</h1>
+                        <p class="docs-lead">保守しやすいプロジェクトにするための一般的な指針です。</p>
+                        <h2>責務を明確にする</h2>
+                        <p>クラスやメソッドの役割を絞り、処理の依存関係を分かりやすくします。</p>
+                        <h2>命名と文書化</h2>
+                        <p>一貫した命名規則を使用し、公開 API には XML ドキュメントコメントを付けます。</p>
+                        <h2>エラー処理</h2>
+                        <p>失敗する可能性のある処理を把握し、原因を調査できる情報を残します。</p>
+                    </section>
+
+                    <section class="docs-panel" id="custom-renderers" tabindex="-1" hidden>
+                        <h1>Custom Renderers</h1>
+                        <p class="docs-lead">独自の描画処理を追加する際に検討する項目です。</p>
+                        <h2>描画の責務</h2>
+                        <p>ゲームロジックと描画処理を分離し、描画に必要なデータを明確にします。</p>
+                        <h2>OpenGL リソース</h2>
+                        <p>バッファ、テクスチャ、シェーダーなどは、生成したコンテキストと適切なタイミングで管理します。</p>
+                        <h2>状態の管理</h2>
+                        <p>ブレンド、深度テスト、バインド状態など、描画状態の変更が他の描画処理へ影響しないようにします。</p>
+                    </section>
+
+                    <section class="docs-panel" id="version-control" tabindex="-1" hidden>
+                        <h1>Version Control</h1>
+                        <p class="docs-lead">Git などのバージョン管理を使用して変更履歴を管理します。</p>
+                        <h2>コミット</h2>
+                        <p>一つの目的に沿った小さな単位で変更を記録します。</p>
+                        <h2>除外設定</h2>
+                        <p>ビルド出力、一時ファイル、個人環境の設定など、共有不要なファイルを除外します。</p>
+                        <h2>競合の解決</h2>
+                        <p>競合箇所を確認し、意図した変更が両方残るように統合します。</p>
+                    </section>
+
+                    <section class="docs-panel" id="custom-editor-actions" tabindex="-1" hidden>
+                        <h1>Custom Editor Actions</h1>
+                        <p class="docs-lead">エディターに独自の操作を追加する際の考え方です。</p>
+                        <h2>操作の設計</h2>
+                        <p>利用者が何を実行する操作なのかを明確にし、適切な名称と配置を選びます。</p>
+                        <h2>入力検証</h2>
+                        <p>実行前に選択状態や入力値を確認し、不正な状態で処理を開始しないようにします。</p>
+                        <h2>結果の通知</h2>
+                        <p>成功・失敗が分かるようにし、必要に応じてログやエラーメッセージを提示します。</p>
+                    </section>
+
+                    <section class="docs-panel" id="framework-structure" tabindex="-1" hidden>
+                        <h1>Framework Structure</h1>
+                        <p class="docs-lead">エンジン、ランタイム、エディター、ゲームプロジェクトの責務を整理します。</p>
+                        <h2>共通機能</h2>
+                        <p>複数のアプリケーションで利用する型や処理を共通ライブラリへまとめます。</p>
+                        <h2>プラットフォーム固有処理</h2>
+                        <p>OS やデバイスに依存する処理は、共通コードから分離して管理します。</p>
+                        <h2>依存関係</h2>
+                        <p>参照方向を整理し、共通ライブラリが特定のアプリケーションに依存しない構成を目指します。</p>
+                    </section>
+
+                    <section class="docs-panel" id="handling-object-data" tabindex="-1" hidden>
+                        <h1>Handling Object Data</h1>
+                        <p class="docs-lead">ゲームオブジェクトのデータを保存・復元する際の注意点です。</p>
+                        <h2>保存対象</h2>
+                        <p>永続化する値と、実行時に再生成できる値を区別します。</p>
+                        <h2>形式と互換性</h2>
+                        <p>保存形式を変更する場合は、既存データとの互換性や移行方法を検討します。</p>
+                        <h2>検証</h2>
+                        <p>読み込み時に欠落値や不正な値を検出し、安全に扱えるようにします。</p>
+                    </section>
+
+                    <section class="docs-panel" id="using-external-libraries" tabindex="-1" hidden>
+                        <h1>Using External Libraries</h1>
+                        <p class="docs-lead">外部ライブラリを導入する際の確認事項です。</p>
+                        <h2>互換性</h2>
+                        <p>対象フレームワーク、対応 OS、CPU アーキテクチャを確認します。</p>
+                        <h2>ライセンス</h2>
+                        <p>配布形態に応じてライセンス条件と著作権表示を確認します。</p>
+                        <h2>依存関係</h2>
+                        <p>必要な DLL やネイティブライブラリを把握し、実行環境へ正しく配置します。</p>
+                    </section>
+
+                    <section class="docs-panel" id="package-management" tabindex="-1" hidden>
+                        <h1>Package Management</h1>
+                        <p class="docs-lead">パッケージと依存ライブラリを管理する際の基本事項です。</p>
+                        <h2>バージョンの固定</h2>
+                        <p>再現性のため、利用するパッケージのバージョンを明確にします。</p>
+                        <h2>更新前の確認</h2>
+                        <p>破壊的変更、対象フレームワーク、ライセンスを確認してから更新します。</p>
+                        <h2>配布物</h2>
+                        <p>実行に必要な管理 DLL とネイティブ依存ファイルが含まれているか確認します。</p>
+                    </section>
+
+                    <section class="docs-panel" id="how-to-contribute" tabindex="-1" hidden>
+                        <h1>How to Contribute</h1>
+                        <p class="docs-lead">Rydia Engine への変更を提案する際の基本的な流れです。</p>
+                        <h2>変更内容を確認する</h2>
+                        <p>既存の Issue やドキュメントを確認し、変更目的と影響範囲を整理します。</p>
+                        <h2>変更を分離する</h2>
+                        <p>目的ごとにブランチを作成し、関連する変更をまとめます。</p>
+                        <h2>提出前の確認</h2>
+                        <p>ビルド、動作確認、必要なドキュメント更新を行ってから変更を提案します。</p>
+                    </section>
+
+                    <section class="docs-panel" id="maintainer-guidelines" tabindex="-1" hidden>
+                        <h1>Maintainer Guidelines</h1>
+                        <p class="docs-lead">メンテナーが変更を確認・管理する際の確認項目です。</p>
+                        <h2>レビュー</h2>
+                        <p>設計、互換性、テスト、ドキュメントの観点から変更を確認します。</p>
+                        <h2>リリース管理</h2>
+                        <p>変更内容とバージョンを整理し、利用者が影響を判断できるようにします。</p>
+                        <h2>継続的な保守</h2>
+                        <p>未解決の問題や依存ライブラリの更新状況を定期的に確認します。</p>
+                    </section>
+
+                    <section class="docs-panel" id="branch-descriptions" tabindex="-1" hidden>
+                        <h1>Branch Descriptions</h1>
+                        <p class="docs-lead">リポジトリのブランチの役割を記載するページです。</p>
+                        <h2>ブランチの目的</h2>
+                        <p>開発用、修正用、リリース用など、各ブランチの用途をここに記載します。</p>
+                        <h2>運用ルール</h2>
+                        <p>マージ先、保護設定、削除条件などは、実際のリポジトリ運用に合わせて定義します。</p>
+                    </section>
+
+                    <section class="docs-panel" id="development-cycle" tabindex="-1" hidden>
+                        <h1>Development Cycle</h1>
+                        <p class="docs-lead">機能追加からリリースまでの開発サイクルを整理します。</p>
+                        <h2>計画</h2>
+                        <p>目的、要件、影響範囲を明確にします。</p>
+                        <h2>実装と検証</h2>
+                        <p>実装後にビルドや対象プラットフォームでの動作を確認します。</p>
+                        <h2>リリース</h2>
+                        <p>変更点、既知の問題、必要な移行手順をまとめて公開します。</p>
+                    </section>
+
+                    <section class="docs-panel" id="community-projects" tabindex="-1" hidden>
+                        <h1>List of Community Projects</h1>
+                        <p class="docs-lead">Rydia Engine を利用したコミュニティプロジェクトを紹介するページです。</p>
+                        <h2>掲載情報</h2>
+                        <p>プロジェクト名、説明、公開 URL、ライセンスなど、掲載に必要な情報を整理します。</p>
+                        <h2>掲載について</h2>
+                        <p>掲載するプロジェクトやリンクは、確認できた情報を追加してください。</p>
+                    </section>
+
+                    <section class="docs-panel" id="changelog" tabindex="-1" hidden>
+                        <h1>Changelog</h1>
+                        <p class="docs-lead">Rydia Engine の変更履歴をまとめるページです。</p>
+                        <h2>変更履歴の記録</h2>
+                        <p>追加、変更、修正、既知の問題をバージョンごとに整理します。</p>
+                        <h2>リリースとの対応</h2>
+                        <p>公開したバージョンと変更履歴が対応するように管理します。</p>
+                    </section>
+
+                    <section class="docs-panel"
+                             id="api-reference"
+                             tabindex="-1"
+                             hidden>
+                        <h1>APIリファレンス</h1>
+                        <p class="docs-lead">
+                            Rydia Engine が提供するクラスやメソッドの資料です。
+                        </p>
+
+                        <p>
+                            今後、名前空間・クラス・メソッドごとの
+                            APIドキュメントへのリンクを配置します。
+                        </p>
+                    </section>
+
+                    <section class="docs-panel"
+                             id="installation"
+                             tabindex="-1"
+                             hidden>
+                        <h1>インストール</h1>
+                        <p class="docs-lead">
+                            Rydia Engine の導入手順について説明します。
+                        </p>
+
+                        <h2>リリースの取得</h2>
+                        <p>
+                            GitHub のリリースページから配布ファイルを取得します。
+                        </p>
+
+                        <p>
+                            <a class="text-link"
+                               href="https://github.com/rydiaryzen/RydiaEngine/releases">
+                                GitHub Releases →
+                            </a>
+                        </p>
+                    </section>
+
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="site-footer"><div class="container footer-bottom"><span>© <span id="year">2026</span> Rydia Engine</span><a href="https://github.com/rydiaryzen/RydiaEngine">GitHub</a></div></footer>
+</body>
+</html>
