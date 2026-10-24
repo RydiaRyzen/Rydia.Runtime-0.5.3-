@@ -9,13 +9,12 @@
     <RootNamespace>Rydia</RootNamespace>
 	  <RuntimeIdentifier>win-x64</RuntimeIdentifier>
 	  <SelfContained>true</SelfContained>
+	  <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 
 	  <!-- 単一ファイルにまとめる場合 -->
 	  <PublishSingleFile>true</PublishSingleFile>
-
 	  <!-- ネイティブライブラリも単一ファイルに含める場合 -->
 	  <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
-	  <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <ItemGroup>

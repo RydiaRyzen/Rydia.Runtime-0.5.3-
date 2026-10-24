@@ -591,7 +591,7 @@ namespace Rydia.GameStudio
 
             var description = new Label
             {
-                Text = "Rydia Engine の機能や使い方を学習します。　詳しい情報は公式サイト > チュートリアル をご覧ください",
+                Text = "Rydia Engine の機能や使い方を学習します。　APIリファレンス・さらに詳しい情報は公式サイト > ドキュメント をご覧ください",
                 ForeColor = Color.Silver,
                 Dock = DockStyle.Top,
                 Height = 30
