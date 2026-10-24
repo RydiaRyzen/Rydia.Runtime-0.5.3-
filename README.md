@@ -1,6 +1,6 @@
 ## Rydia.Runtime, Rydia Engine, Rydia.GameStudio
 
-`Rydia.Runtime` は、
+# `Rydia.Runtime`
 
 - `IMessageService` — メッセージサービスに関するインターフェース
 - `IDesktopPlatform` — Desktop プラットフォーム向けのインターフェース
